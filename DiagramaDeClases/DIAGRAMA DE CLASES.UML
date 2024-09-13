@@ -1,0 +1,89 @@
+@startuml
+
+abstract Jugador {
+	+Nombre
+	+EXP
+}
+
+
+abstract Personaje extends Jugador {
+	+Nombre
+	+HP
+	+Ataque
+	+Defensa
+	+Habilidades: Habilidad[]
+	+getHabilidad(): String
+}
+
+class Mago extends Personaje{
+	+Habilidad = ["Al finalizar Pelea, HP = 100%", "Inmune contra espectros"]: Habilidades
+}
+class Guerrero extends Personaje{
+	+Habilidad = ["Derriba Troll de un solo golpe", "Despues de tercer GolpeDeAtaque, Ataque * 2"]: Habilidades
+}
+class Arquero extends Personaje {
+	+Punteria
+	+Agilidad
+	+Habilidad = ["Esquiva golpe = Agilidad%", "Punteria = 100% contra Dragon"]: Habilidades
+}
+
+abstract Criatura {
+	+EXPRecompensa
+	+Nombre
+	+HP
+	+Ataque
+	+Defensa
+	+Habilidades: Habilidades[]
+	+getHabilidad(): String
+}
+
+class Dragon extends Criatura{
+	+Habilidad = "Lucha contra Guerrero, Ataque + 30%"
+}
+class Troll extends Criatura{
+	+Habilidad = "Lucha contra Mago, Defensa + 15%"
+}
+class Espectro extends Criatura{
+	+Habilidad = "Lucha contra Arquero, Ataque + 20%"
+}
+
+class Pelea {
+	+iniciarPelea(personaje: Personaje, criatura: Criatura)
+	+calcularDanio(atacanteAtaque: int, atacanteHabilidad: int, defensorDefensa: int, defensorHabilidad: int): int
+}
+
+class Mapa{
+	-Ubicaciones: Ubicacion[10][10]
+	+mostrarMapa()
+	+viajar(ubicacion: Ubicacion)
+}
+
+class Ubicacion{
+	-tieneCriatura: Boolean
+	-tieneTesoro: Boolean
+	+revelarTesoro()
+}
+
+class UbicacionNeutral extends Ubicacion{
+	+descansar(personaje: Personaje)
+	+mejorarPersonaje(personaje: Personaje, EXP: int)
+	+reclamarRecompensa(personaje: Personaje, mision: Mision)
+}
+
+class Mision {
+	-nombre: String
+	-completada: Boolean
+	-recompensa: int
+}
+
+class Tesoro
+
+Personaje "1" -- "1" Mapa : Explora 
+Mapa "1" --* "100" Ubicacion : contiene 
+Ubicacion "1" --* "1" Tesoro : tiene
+Ubicacion "1" -- "0..*" Mision : provee
+
+Personaje "1" -- "0..*" Pelea : participa
+Criatura "1" -- "0..*" Pelea : participa
+
+@enduml
