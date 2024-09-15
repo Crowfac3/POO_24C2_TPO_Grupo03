@@ -1,38 +1,47 @@
 @startuml
 
-abstract Jugador {
+abstract class Jugador {
 	+Nombre
-	+EXP
 }
 
 
-abstract Personaje extends Jugador {
-	+Nombre
-	+HP
-	+Ataque
-	+Defensa
+abstract class Personaje extends Jugador {
+	+Nombre: String
+	+EXP: int
+	+HP: int
+	+Ataque: int
+	+Defensa: int
 	+Habilidades: Habilidad[]
 	+getHabilidad(): String
+	+reclamarRecompensa(mision: Mision)
 }
 
-class Mago extends Personaje{
+abstract class TipoDeClase implements TieneHabilidadPropia{
+	+habilidadInnata()
+}
+
+Interface TieneHabilidadPropia {
+	+habilidadInnata()
+} 
+
+class Mago extends TipoDeClase{
 	+Habilidad = ["Al finalizar Pelea, HP = 100%", "Inmune contra espectros"]: Habilidades
 }
-class Guerrero extends Personaje{
+class Guerrero extends TipoDeClase{
 	+Habilidad = ["Derriba Troll de un solo golpe", "Despues de tercer GolpeDeAtaque, Ataque * 2"]: Habilidades
 }
-class Arquero extends Personaje {
+class Arquero extends TipoDeClase {
 	+Punteria
 	+Agilidad
 	+Habilidad = ["Esquiva golpe = Agilidad%", "Punteria = 100% contra Dragon"]: Habilidades
 }
 
-abstract Criatura {
+abstract class Criatura {
 	+EXPRecompensa
-	+Nombre
-	+HP
-	+Ataque
-	+Defensa
+	+Nombre: String
+	+HP: int
+	+Ataque: int
+	+Defensa: int
 	+Habilidades: Habilidades[]
 	+getHabilidad(): String
 }
@@ -70,20 +79,43 @@ class UbicacionNeutral extends Ubicacion{
 	+reclamarRecompensa(personaje: Personaje, mision: Mision)
 }
 
-class Mision {
+abstract class Mision {
 	-nombre: String
 	-completada: Boolean
-	-recompensa: int
+	+setRecompensa(personaje: Personaje): void
 }
+
+class MisionDragonDelNorte extends Mision {
+	+nombre = "Derrota al Dragón del Norte"
+	+setRecompensa(personaje: Personaje): void
+}
+
+class MisionAmuletoPerdido extends Mision {
+	+nombre = "Recupera el Amuleto Perdido"
+	+setRecompensa(personaje: Personaje): void
+}
+
+class MisionEspectrosDelPantano extends Mision {
+	+nombre = "Elimina a los Espectros del Pantano"
+	+setRecompensa(personaje: Personaje): void
+}
+
+class MisionTrollsAldea extends Mision {
+	+nombre = "Limpia la Aldea de los Trolls"
+	+setRecompensa(personaje: Guerrero): void
+}
+
 
 class Tesoro
 
-Personaje "1" -- "1" Mapa : Explora 
-Mapa "1" --* "100" Ubicacion : contiene 
-Ubicacion "1" --* "1" Tesoro : tiene
-Ubicacion "1" -- "0..*" Mision : provee
+Personaje *-- TieneHabilidadPropia : integra
 
-Personaje "1" -- "0..*" Pelea : participa
-Criatura "1" -- "0..*" Pelea : participa
+Personaje "1" o-- "1" Mapa : Explora 
+Mapa "1" *-- "100" Ubicacion : contiene 
+Ubicacion "1" *-- "1" Tesoro : tiene
+Ubicacion "1" *-- "0..*" Mision : provee
+
+Personaje "1" *-- "0..*" Pelea : participa
+Criatura "1" *-- "0..*" Pelea : participa
 
 @enduml
