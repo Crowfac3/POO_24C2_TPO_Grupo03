@@ -106,7 +106,9 @@ class MisionTrollsAldea extends Mision {
 }
 
 
-class Tesoro
+class Tesoro {
+	-nombre: string
+}
 
 Personaje *-- TieneHabilidadPropia : integra
 
