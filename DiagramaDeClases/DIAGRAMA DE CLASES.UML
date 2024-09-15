@@ -1,5 +1,16 @@
 @startuml
 
+class Juego {
+	-estado: String
+	// "en progreso", "victoria" o "derrota"
+	-personaje: Personaje
+	-Mapa: Mapa
+	+iniciarJuego(nombre: String, TipoDeClase: TipoDeClase)
+	+realizarAccion(accion: String)
+	+verificarVictoria(): Boolean
+	+verificarDerrota(): Boolean
+}
+
 abstract class Jugador {
 	+Nombre
 }
@@ -13,6 +24,8 @@ abstract class Personaje extends Jugador {
 	+Defensa: int
 	+Habilidades: Habilidad[]
 	+getHabilidad(): String
+	+descansar()
+	+mejorarPersonaje(expGastado: int)
 	+reclamarRecompensa(mision: Mision)
 }
 
@@ -31,8 +44,8 @@ class Guerrero extends TipoDeClase{
 	+Habilidad = ["Derriba Troll de un solo golpe", "Despues de tercer GolpeDeAtaque, Ataque * 2"]: Habilidades
 }
 class Arquero extends TipoDeClase {
-	+Punteria
-	+Agilidad
+	+Punteria: int
+	+Agilidad: int
 	+Habilidad = ["Esquiva golpe = Agilidad%", "Punteria = 100% contra Dragon"]: Habilidades
 }
 
@@ -117,5 +130,7 @@ Ubicacion "1" *-- "0..*" Mision : provee
 
 Personaje "1" *-- "0..*" Pelea : participa
 Criatura "1" *-- "0..*" Pelea : participa
+
+Juego "1" o-- "1" Jugador 
 
 @enduml
