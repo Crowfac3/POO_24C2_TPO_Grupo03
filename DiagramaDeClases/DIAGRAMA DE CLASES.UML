@@ -9,10 +9,11 @@ class Juego {
 	+realizarAccion(accion: String)
 	+verificarVictoria(): Boolean
 	+verificarDerrota(): Boolean
+	+siguienteTurno(): void
 }
 
 class Jugador {
-	+Nombre
+	+Nombre: String
 	+crearPersonaje("Todos los atributos de Personaje")
 }
 
@@ -26,30 +27,34 @@ abstract class Personaje extends Jugador {
 	+Defensa: int
 	+mejorarPersonaje(expGastado: int)
 	+reclamarRecompensa(mision: Mision)
+	+getHabilidadesPasivas: HabilidadesPasivas[]
 }
 
 Interface TipoDeClase {
 	+HabilidadPasiva()
-	+getHabilidades()
 } 
 
 class Mago implements TipoDeClase {
 	+HabilidadPasiva()
-	+Habilidad = ["Al finalizar Pelea, HP = 100%", "Inmune contra espectros"]: Habilidades
+	+curarAlFinalDeLaPelea(): void
+	+esInmuneContraEspectro(): Boolean
+
 }
 class Guerrero implements TipoDeClase {
+	+contadorGolpes: int
 	+HabilidadPasiva()
-	+Habilidad = ["Derriba Troll de un solo golpe", "Despues de tercer GolpeDeAtaque, Ataque * 2"]: Habilidades
+	+ataqueDuplicado(): void
+	+derribaTrolls(criatura: Criatura): Boolean
 }
 class Arquero implements TipoDeClase {
 	+Punteria: int
 	+Agilidad: int
 	+HabilidadPasiva()
-	+Habilidad = ["Esquiva golpe = Agilidad%", "Punteria = 100% contra Dragon"]: Habilidades
+	+punteriaContraDragon(): Boolean
 }
 
 abstract class Criatura {
-	+EXPRecompensa
+	+EXPRecompensa: int
 	+Nombre: String
 	+HP: int
 	+Ataque: int
@@ -74,7 +79,7 @@ class Pelea {
 	+calcularDanio(): int
 	+siguienteTurno() //funcion recursiva
 	+restarVida(): void
-	+verificarVida(): void
+	+verificarVida(): Boolean
 }
 
 class Mapa{
@@ -93,7 +98,7 @@ class Ubicacion{
 class UbicacionNeutral extends Ubicacion{
 	+descansar(): void
 	+mejorarPersonaje(EXP: int)
-	+reclamarRecompensa(): void
+	+reclamarRecompensa(mision: Mision): void
 }
 
 abstract class Mision {
