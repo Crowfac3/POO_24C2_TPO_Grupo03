@@ -1,0 +1,156 @@
+@startuml
+
+class Juego {
+	-estado: String
+	// "en progreso", "victoria" o "derrota"
+	-Jugador: Jugador
+	-Mapa: Mapa
+	+iniciarJuego(nombre: String, TipoDeClase: TipoDeClase)
+	+realizarAccion(accion: String)
+	+verificarVictoria(): Boolean
+	+verificarDerrota(): Boolean
+	+siguienteTurno(): void
+}
+
+class Jugador {
+	+Nombre: String
+	+crearPersonaje("Todos los atributos de Personaje")
+}
+
+
+abstract class Personaje extends Jugador {
+	+Nombre: String
+	+EXP: int
+	+HP: int
+	+HPMaximo: int
+	+Ataque: int
+	+Defensa: int
+	+mejorarPersonaje(expGastado: int)
+	+reclamarRecompensa(mision: Mision)
+	+getHabilidadesPasivas: HabilidadesPasivas[]
+}
+
+Interface TipoDeClase {
+	+HabilidadPasiva()
+} 
+
+class Mago implements TipoDeClase {
+	+HabilidadPasiva()
+	+curarAlFinalDeLaPelea(): void
+	+esInmuneContraEspectro(): Boolean
+
+}
+class Guerrero implements TipoDeClase {
+	+contadorGolpes: int
+	+HabilidadPasiva()
+	+ataqueDuplicado(): void
+	+derribaTrolls(criatura: Criatura): Boolean
+}
+class Arquero implements TipoDeClase {
+	+Punteria: int
+	+Agilidad: int
+	+HabilidadPasiva()
+	+punteriaContraDragon(): Boolean
+}
+
+abstract class Criatura {
+	+EXPRecompensa: int
+	+Nombre: String
+	+HP: int
+	+Ataque: int
+	+Defensa: int
+	+Habilidades: Habilidades[]
+	+getHabilidad(): String
+}
+
+class Dragon extends Criatura{
+	+Habilidad() void
+	+Habilidad = "Lucha contra Guerrero, Ataque + 30%"
+}
+class Troll extends Criatura{
+	+Habilidad() void
+	+Habilidad = "Lucha contra Mago, Defensa + 15%"
+}
+class Espectro extends Criatura{
+	+Habilidad() void
+	+Habilidad = "Lucha contra Arquero, Ataque + 20%"
+}
+
+class Pelea {
+	+Turnos: int //Par -> Personaje 
+	+iniciarPelea(criatura: Criatura)
+	+calcularDanio(): int
+	+siguienteTurno() //funcion recursiva
+	+restarVida(): void
+	+verificarVida(): Boolean
+}
+
+class Mapa{
+	-Ubicaciones: Ubicacion[10][10]
+	+mostrarMapa()
+	+viajar(ubicacion: Ubicacion)
+}
+
+class Ubicacion{
+	-tieneCriatura: Boolean
+	-tieneTesoro: Boolean
+	-explorado: Boolean
+	+revelarTesoro()
+}
+
+class UbicacionNeutral extends Ubicacion{
+	+descansar(): void
+	+mejorarPersonaje(EXP: int)
+	+reclamarRecompensa(mision: Mision): void
+}
+
+abstract class Mision {
+	-nombre: String
+	-completada: Boolean
+	+setRecompensa(): void
+}
+
+class MisionDragonDelNorte extends Mision {
+	+nombre = "Derrota al Dragón del Norte" :String
+	+objetivo: String
+	+setRecompensa(): void
+}
+
+class MisionAmuletoPerdido extends Mision {
+	+nombre = "Recupera el Amuleto Perdido" :String
+	+objetivo: String
+	+setRecompensa(): void
+}
+
+class MisionEspectrosDelPantano extends Mision {
+	+nombre = "Elimina a los Espectros del Pantano" :String
+	+objetivo: String
+	+setRecompensa(): void
+}
+
+class MisionTrollsAldea extends Mision {
+	+nombre = "Limpia la Aldea de los Trolls" :String
+	+objetivo: String
+	+setRecompensa(): void //tiene que chequear que sea Guerrero
+}
+
+
+class Tesoro {
+	-nombre: string
+	+finDeLaPartida(): void
+}
+
+Personaje *-- TipoDeClase : integra
+
+Personaje "1" o-- "1" Mapa : Explora 
+Mapa "1" *-- "100" Ubicacion : contiene 
+Ubicacion "1" *-- "1" Tesoro : tiene
+Ubicacion "1" *-- "0..*" Mision : provee
+
+Personaje "1" *-- "0..*" Pelea : participa
+Criatura "1" *-- "0..*" Pelea : participa
+Criatura "*" o-- "0..*" Ubicacion : Existe
+
+Juego "1" o-- "1" Jugador 
+
+@enduml
