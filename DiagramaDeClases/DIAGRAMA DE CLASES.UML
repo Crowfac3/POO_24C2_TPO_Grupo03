@@ -64,12 +64,15 @@ abstract class Criatura {
 }
 
 class Dragon extends Criatura{
+	+Habilidad() void
 	+Habilidad = "Lucha contra Guerrero, Ataque + 30%"
 }
 class Troll extends Criatura{
+	+Habilidad() void
 	+Habilidad = "Lucha contra Mago, Defensa + 15%"
 }
 class Espectro extends Criatura{
+	+Habilidad() void
 	+Habilidad = "Lucha contra Arquero, Ataque + 20%"
 }
 
@@ -108,28 +111,33 @@ abstract class Mision {
 }
 
 class MisionDragonDelNorte extends Mision {
-	+nombre = "Derrota al Dragón del Norte"
+	+nombre = "Derrota al Dragón del Norte" :String
+	+objetivo: String
 	+setRecompensa(): void
 }
 
 class MisionAmuletoPerdido extends Mision {
-	+nombre = "Recupera el Amuleto Perdido"
+	+nombre = "Recupera el Amuleto Perdido" :String
+	+objetivo: String
 	+setRecompensa(): void
 }
 
 class MisionEspectrosDelPantano extends Mision {
-	+nombre = "Elimina a los Espectros del Pantano"
+	+nombre = "Elimina a los Espectros del Pantano" :String
+	+objetivo: String
 	+setRecompensa(): void
 }
 
 class MisionTrollsAldea extends Mision {
-	+nombre = "Limpia la Aldea de los Trolls"
+	+nombre = "Limpia la Aldea de los Trolls" :String
+	+objetivo: String
 	+setRecompensa(): void //tiene que chequear que sea Guerrero
 }
 
 
 class Tesoro {
 	-nombre: string
+	+finDeLaPartida(): void
 }
 
 Personaje *-- TipoDeClase : integra
@@ -141,6 +149,7 @@ Ubicacion "1" *-- "0..*" Mision : provee
 
 Personaje "1" *-- "0..*" Pelea : participa
 Criatura "1" *-- "0..*" Pelea : participa
+Criatura "*" o-- "0..*" Ubicacion : Existe
 
 Juego "1" o-- "1" Jugador 
 
