@@ -3,7 +3,7 @@
 class Juego {
 	-estado: String
 	// "en progreso", "victoria" o "derrota"
-	-personaje: Personaje
+	-Jugador: Jugador
 	-Mapa: Mapa
 	+iniciarJuego(nombre: String, TipoDeClase: TipoDeClase)
 	+realizarAccion(accion: String)
@@ -11,8 +11,9 @@ class Juego {
 	+verificarDerrota(): Boolean
 }
 
-abstract class Jugador {
+class Jugador {
 	+Nombre
+	+crearPersonaje("Todos los atributos de Personaje")
 }
 
 
@@ -20,32 +21,30 @@ abstract class Personaje extends Jugador {
 	+Nombre: String
 	+EXP: int
 	+HP: int
+	+HPMaximo: int
 	+Ataque: int
 	+Defensa: int
-	+Habilidades: Habilidad[]
-	+getHabilidad(): String
-	+descansar()
 	+mejorarPersonaje(expGastado: int)
 	+reclamarRecompensa(mision: Mision)
 }
 
-abstract class TipoDeClase implements TieneHabilidadPropia{
-	+habilidadInnata()
-}
-
-Interface TieneHabilidadPropia {
-	+habilidadInnata()
+Interface TipoDeClase {
+	+HabilidadPasiva()
+	+getHabilidades()
 } 
 
-class Mago extends TipoDeClase{
+class Mago implements TipoDeClase {
+	+HabilidadPasiva()
 	+Habilidad = ["Al finalizar Pelea, HP = 100%", "Inmune contra espectros"]: Habilidades
 }
-class Guerrero extends TipoDeClase{
+class Guerrero implements TipoDeClase {
+	+HabilidadPasiva()
 	+Habilidad = ["Derriba Troll de un solo golpe", "Despues de tercer GolpeDeAtaque, Ataque * 2"]: Habilidades
 }
-class Arquero extends TipoDeClase {
+class Arquero implements TipoDeClase {
 	+Punteria: int
 	+Agilidad: int
+	+HabilidadPasiva()
 	+Habilidad = ["Esquiva golpe = Agilidad%", "Punteria = 100% contra Dragon"]: Habilidades
 }
 
@@ -70,8 +69,12 @@ class Espectro extends Criatura{
 }
 
 class Pelea {
-	+iniciarPelea(personaje: Personaje, criatura: Criatura)
-	+calcularDanio(atacanteAtaque: int, atacanteHabilidad: int, defensorDefensa: int, defensorHabilidad: int): int
+	+Turnos: int //Par -> Personaje 
+	+iniciarPelea(criatura: Criatura)
+	+calcularDanio(): int
+	+siguienteTurno() //funcion recursiva
+	+restarVida(): void
+	+verificarVida(): void
 }
 
 class Mapa{
@@ -83,39 +86,40 @@ class Mapa{
 class Ubicacion{
 	-tieneCriatura: Boolean
 	-tieneTesoro: Boolean
+	-explorado: Boolean
 	+revelarTesoro()
 }
 
 class UbicacionNeutral extends Ubicacion{
-	+descansar(personaje: Personaje)
-	+mejorarPersonaje(personaje: Personaje, EXP: int)
-	+reclamarRecompensa(personaje: Personaje, mision: Mision)
+	+descansar(): void
+	+mejorarPersonaje(EXP: int)
+	+reclamarRecompensa(): void
 }
 
 abstract class Mision {
 	-nombre: String
 	-completada: Boolean
-	+setRecompensa(personaje: Personaje): void
+	+setRecompensa(): void
 }
 
 class MisionDragonDelNorte extends Mision {
 	+nombre = "Derrota al Dragón del Norte"
-	+setRecompensa(personaje: Personaje): void
+	+setRecompensa(): void
 }
 
 class MisionAmuletoPerdido extends Mision {
 	+nombre = "Recupera el Amuleto Perdido"
-	+setRecompensa(personaje: Personaje): void
+	+setRecompensa(): void
 }
 
 class MisionEspectrosDelPantano extends Mision {
 	+nombre = "Elimina a los Espectros del Pantano"
-	+setRecompensa(personaje: Personaje): void
+	+setRecompensa(): void
 }
 
 class MisionTrollsAldea extends Mision {
 	+nombre = "Limpia la Aldea de los Trolls"
-	+setRecompensa(personaje: Guerrero): void
+	+setRecompensa(): void //tiene que chequear que sea Guerrero
 }
 
 
@@ -123,7 +127,7 @@ class Tesoro {
 	-nombre: string
 }
 
-Personaje *-- TieneHabilidadPropia : integra
+Personaje *-- TipoDeClase : integra
 
 Personaje "1" o-- "1" Mapa : Explora 
 Mapa "1" *-- "100" Ubicacion : contiene 
