@@ -1,0 +1,41 @@
+@startuml
+actor Guerrero
+participant "Mapa"
+participant "Ubicacion"
+participant "Dragón"
+participant "Pelea"
+
+Guerrero -> Mapa: viajar(ubicacion)
+Mapa -> Ubicacion: obtenerUbicacion()
+Ubicacion -> Guerrero: informarEstado(tieneCriatura)
+alt tieneCriatura
+    Guerrero -> Pelea: iniciarPelea(Dragón)
+    loop mientras no se verifica la victoria
+        alt turno del Guerrero
+            Guerrero -> Pelea: atacar()
+            Pelea -> Dragón: calcularDanio()
+            Dragón -> Dragón: defender(danioRecibido)
+            Pelea -> Dragón: verificarVida()
+            alt sin vida del Dragón
+                Pelea -> Guerrero: informarVictoria()
+                
+            else con vida
+                Pelea -> Pelea: siguienteTurno()
+            
+        end
+     end
+        alt turno del Dragón
+            Dragón -> Pelea: atacar()
+            Pelea -> Guerrero: calcularDanio()
+            Guerrero -> Guerrero: defender(danioRecibido)
+            Pelea -> Guerrero: verificarVida()
+            alt sin vida del Guerrero
+                Pelea -> Dragón: informarVictoria()
+                
+            else con vida
+                Pelea -> Pelea: siguienteTurno()
+            
+        end
+    end
+end
+@enduml
