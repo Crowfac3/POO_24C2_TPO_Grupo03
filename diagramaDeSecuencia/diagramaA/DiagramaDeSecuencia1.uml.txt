@@ -2,14 +2,22 @@
 actor Guerrero
 participant "Mapa"
 participant "Ubicacion"
-participant "Dragón"
 participant "Pelea"
+participant "Dragón"
 
-Guerrero -> Mapa: viajar(ubicacion)
-Mapa -> Ubicacion: obtenerUbicacion()
-Ubicacion -> Guerrero: informarEstado(tieneCriatura)
+
+activate Guerrero
+Guerrero -> Mapa: getUbicacion(ubicacion)
+activate Mapa
+Mapa -> Mapa: getAdyacente(): List<ubicacion>
+Mapa -> Guerrero: listUbicacionesAdyacentes(ubicacion)
+deactivate Mapa
+Guerrero -> Ubicacion: viajar(ubicacion)
+activate Ubicacion
+Ubicacion -> Ubicacion: tieneCriatura()
 alt tieneCriatura
-    Guerrero -> Pelea: iniciarPelea(Dragón)
+    Ubicacion -> Pelea: iniciarPelea(criatura)
+	activate Pelea
     loop mientras no se verifica la victoria
         alt turno del Guerrero
             Guerrero -> Pelea: atacar()
@@ -22,8 +30,8 @@ alt tieneCriatura
             else con vida
                 Pelea -> Pelea: siguienteTurno()
             
-        end
-     end
+			end
+		end
         alt turno del Dragón
             Dragón -> Pelea: atacar()
             Pelea -> Guerrero: calcularDanio()
@@ -35,7 +43,11 @@ alt tieneCriatura
             else con vida
                 Pelea -> Pelea: siguienteTurno()
             
-        end
-    end
+			end
+		end
+	end
+	deactivate Pelea
 end
+deactivate Ubicacion
+deactivate Guerrero
 @enduml
