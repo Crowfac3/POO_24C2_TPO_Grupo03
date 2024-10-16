@@ -1,44 +1,41 @@
 package General;
 import Class.Mapa;
 import Class.TipoDeClase;
-import Class.Troll;
 import Class.Jugador;
-import Class.Criatura;
-import Class.Dragon;
-import Class.Espectro;
 import Class.Guerrero;
 import Class.Ubicacion;
 import Class.Juego;
+import Class.Pelea;
 
 public class main {
 
 	public static void main(String[] args) {
 		
-        Juego juego1 = new Juego(String "Lucca", TipoDeClase Guerrero);
+        Juego juego1 = new Juego();
         
-        juego1.realizarAccion(String accion);
+        juego1.iniciarJuego("Lucca", "Guerrero");
         
         while (!juego1.verificarVictoria() && !juego1.verificarDerrota()) {
-            jugador.moverse(mapa);
+            jugador.viajar(Ubicacion ubicacion);
             
-            // Verificar si hay una criatura en la nueva ubicación
-            if (mapa.hayCriatura(jugador.getUbicacion())) {
+            // Verificamos  si hay una criatura en la nueva ubicación
+            if (Ubicacion.hayCriatura(jugador.getUbicacion())) {
                 Criatura criaturaEnemiga = mapa.getCriatura(jugador.getUbicacion());
                 Pelea pelea = new Pelea(jugador, criaturaEnemiga);
                 pelea.iniciar();
             }
             
-            // Verificar si el jugador ha encontrado el tesoro
+            // Verificamos si el jugador encontro el tesoro
             if (jugador.getUbicacion().tieneTesoro()) {
                 jugador.recogerTesoro(jugador.getUbicacion().getTesoro());
-                System.out.println("¡Has encontrado el " + jugador.getTesoro().getNombre() + " y ganado el juego!");
+                System.out.println("Encontrasate el tesoro!");
                 break;
             }
         }
         
         // Fin del juego
-        if (jugador.haPerdido()) {
-            System.out.println("Has sido derrotado. ¡Intenta de nuevo!");
+        if (juego.verificarDerrota()) {
+            System.out.println("Fuiste derrotado, Intenta de nuevo");
         }
 
 	}

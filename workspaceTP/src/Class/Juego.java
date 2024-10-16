@@ -8,10 +8,14 @@ public class Juego {
 	private Mapa mapa;
 	
 	// Inicializar el mapa y ubicaciones
-     
 	
-	public void inciarJuego(String nombre, TipoDeClase TipoDeClase){
+	public Juego() {
 		Mapa mapa = new Mapa();
+	}
+     
+	public void inciarJuego(String nombre, TipoDeClase TipoDeClase){
+		String estado = "En progreso";
+		Jugador jugador = new Jugador(nombre);
 	}
 	
 	public void realizarAccion(String accion){
