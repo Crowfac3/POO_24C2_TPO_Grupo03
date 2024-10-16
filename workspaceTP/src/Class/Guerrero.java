@@ -1,6 +1,6 @@
 package Class;
 
-public class Guerero implements  TipoDeClase {
+public class Guerrero implements  TipoDeClase {
 	
  public int contadorGolpes;
  

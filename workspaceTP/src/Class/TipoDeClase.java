@@ -2,5 +2,5 @@ package Class;
 
 public interface TipoDeClase {
 
-	public void habilidadPasiva();
+	public void habilidadPasiva(String personaje);
 }
