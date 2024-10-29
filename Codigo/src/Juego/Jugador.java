@@ -13,6 +13,7 @@ import Criatura.Dragon;
 
 
 public class Jugador {
+	@SuppressWarnings("unused")
 	private String nombre;
     private Personaje.Personaje personaje;
     private List<Mision> misiones;
@@ -44,7 +45,7 @@ public class Jugador {
     }
     
     private void inicializarMisiones() {
-        misiones.add(new MisionDerrotarDragon(new Dragon("Dragón del Norte", 150, 25, 10)));
+        misiones.add(new MisionDerrotarDragon());
         misiones.add(new MisionRecuperarAmuleto());
         misiones.add(new MisionEliminarEspectros());
         misiones.add(new MisionLimpiaAldeaTrolls());
@@ -57,14 +58,16 @@ public class Jugador {
                 return;
             }
         }
-        System.out.println("No tienes esta misión o ya ha sido completada.");
+        System.out.println("No tenes esta misión o ya ha sido completada.");
     }
     
     public void reclamarRecompensaEnUbicacionNeutral() {
         for (Mision mision : misiones) {
             if (mision.estaCompletada()) {
                 System.out.println("Reclamando recompensa de la misión: " + mision.getNombre());
-                // Aplica la recompensa real, por ejemplo, mejorar ataque o defensa
+                mision.aplicarRecompensa(personaje); // Aplica la recompensa solo si la misión está completada
+            } else {
+                System.out.println("No has completado la misión: " + mision.getNombre());
             }
         }
     }

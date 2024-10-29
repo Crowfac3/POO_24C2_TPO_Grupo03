@@ -1,45 +1,42 @@
 package Juego;
 
-import Mapa.Mapa;
 import Mapa.Ubicacion;
+import Mapa.SistemaDeUbicaciones;
 import Criatura.Dragon;
-import Criatura.Troll;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear el mapa del juego
-        Mapa mapa = new Mapa();
+        // Crear la ubicación donde está el dragón
+        Ubicacion montanasHeladas = new Ubicacion("Montañas Heladas", false); // Ubicación no neutral
+        Dragon dragon = new Dragon("Dragón del Norte", 150, 25, 10); // Crear al dragón
+        montanasHeladas.setCriatura(dragon); // Colocar al dragón en la ubicación
 
-        // Crear un jugador con su personaje
+        // Registrar la ubicación en el sistema de ubicaciones
+        SistemaDeUbicaciones.registrarUbicacion(montanasHeladas);
+
+        // 1. Crear el jugador (ej: Guerrero) sin pasarle detalles del dragón ni de la ubicación
         Jugador jugador = new Jugador("Arthur", "guerrero");
+        jugador.mostrarInformacionPersonaje(); // Información del personaje creado
 
-        // Crear el juego con el jugador
-        Juego juego = new Juego(jugador);
+        // El jugador entra en la ubicación y verifica si hay una criatura
+        if (montanasHeladas.tieneCriatura()) {
+            System.out.println("Te has encontrado con una criatura en esta ubicación: " + montanasHeladas.getCriatura().getNombre());
+            // Iniciar la pelea entre el jugador y la criatura de la ubicación
+            Pelea pelea = new Pelea(jugador.getPersonaje(), montanasHeladas.getCriatura());
+            pelea.iniciar();
 
-        // Establecer algunas ubicaciones con criaturas y neutrales
-        Dragon dragon = new Dragon("Dragón del Norte", 150, 25, 10);
-        Troll troll = new Troll("Troll de las Montañas", 120, 15, 20);
-        mapa.establecerUbicacionConCriatura(2, 3, dragon);
-        mapa.establecerUbicacionConCriatura(4, 7, troll);
-        mapa.establecerUbicacionNeutral(1, 1); // Ubicación neutral
-        mapa.establecerUbicacionNeutral(5, 5); // Ubicación neutral
+            // Completar la misión de derrotar al Dragón del Norte si la criatura es derrotada
+            if (pelea.ganoPersonaje()) {
+                System.out.println("\n--- Completando la misión: Derrota al Dragón del Norte ---");
+                jugador.completarMision("Derrota al Dragón del Norte");
+            }
+        } else {
+            System.out.println("No hay ninguna criatura en esta ubicación.");
+        }
 
-        // Mostrar el mapa
-        mapa.mostrarMapa();
-
-        // El jugador visita la ubicación neutral (1, 1)
-        System.out.println("El jugador visita la ubicación (1, 1)");
-        Ubicacion ubicacion = mapa.obtenerUbicacion(1, 1);
-        juego.visitarUbicacion(ubicacion);
-
-        // El jugador visita la ubicación neutral (5, 5)
-        System.out.println("El jugador visita la ubicación (5, 5)");
-        ubicacion = mapa.obtenerUbicacion(5, 5);
-        juego.visitarUbicacion(ubicacion);
-
-        // Intentar reclamar la recompensa nuevamente en (1, 1)
-        System.out.println("El jugador vuelve a la ubicación (1, 1)");
-        ubicacion = mapa.obtenerUbicacion(1, 1);
-        juego.visitarUbicacion(ubicacion);
+        // El jugador viaja a una ubicación neutral (ej: Santuario) para reclamar la recompensa
+        System.out.println("\n--- El jugador viaja a un Santuario para reclamar su recompensa ---");
+        Ubicacion santuario = new Ubicacion("Santuario", true); // Ubicación neutral
+        santuario.reclamarRecompensaMisiones(jugador);
     }
 }

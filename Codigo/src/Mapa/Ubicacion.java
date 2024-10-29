@@ -36,6 +36,10 @@ public class Ubicacion {
     public boolean tieneTesoro() {
         return contieneTesoro;
     }
+    
+    public String getNombre() {
+        return nombre;
+    }
 
  // Método para establecer el tesoro solo si hay una criatura
     public void setTesoro(boolean contieneTesoro) {

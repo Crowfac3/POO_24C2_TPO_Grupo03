@@ -31,6 +31,10 @@ public abstract class Criatura {
     public int getNivelDefensa() {
         return nivelDefensa;
     }
+    
+    public void setPuntosVida(int puntosVida) {
+        this.puntosVida = puntosVida;
+    }
 
     public void recibirGolpe(int danio) {
         if (nivelDefensa > 0) {
