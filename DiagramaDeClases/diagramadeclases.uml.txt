@@ -1,0 +1,196 @@
+@startuml
+
+class Juego {
+-jugador: Jugador 
+-tesoroEncontrado: boolean
++Juego(jugador Jugador)
++visitarUbicacion(ubicacion Ubicacion)
++iniciarPelea(ubicacion Ubicacion):void
++verificarVictoria(criatura Criatura):void
++finDelJuego(): void
+}
+
+class Jugador{
+-nombre: String
+-personaje: personaje
+-mision: list<Mision>
++jugador(nombre String, tipoPersonaje String): jugador
++getPersonaje(): Personaje
++mostrarInformacionPersonaje(): void
+-inicializarMisiones(): void
++completarMision(nombreMision String): void
++reclamarRecompensaEnUbicacionNeutral(): void
+}
+
+
+class Pelea {
+-personaje: Personaje
+-criatura: Criatura
++pelea(personaje Personaje, criatura Criatura): Pelea
++iniciar(): void
++ganoPersonaje(): boolean
+}
+
+abstract Criatura {
+#nombre: String
+#puntosVida: int
+#nivelAtaque: int
+#nivelDefensa: int
+-Criatura(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int) Criatura
++getNombre(): String
++getPuntosVida(): int
++getNivelAtaque(): int
++recibirGolpe(danio int): void
++atacar(personaje Personaje):void
++estaVivo(): void
+}
+
+class Dragon extends Criatura{
++dragon(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Dragon
++atacar(personaje Personaje): void
+}
+class Espectro extends Criatura{
++espctro(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Espectro
++atacar(personaje Personaje): void
+}
+class Troll extends Criatura{
++troll(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Troll
++atacar(personaje Personaje): void
+}
+
+class Mapa{
+-ubicacion: int[] 
+-fila: int
+-columna: int
++mapa(): Mapa
++inicializarMapa(): void
++establecerUbicacionConTesoro(fila int, columna int): void
++establecerUbicacionConCriatura(fila int, columna int): void
++establecerUbicacionNeutral(fila int, columna int): void
++obtenerUbicacion(fila int, columna int): Ubicacion
++mostrarMapa(): void
+}
+
+class Ubicacion{
+-nombre: String
+-criatura: Criatura
+-contieneTesoro: boolean
+-esNeutral: boolean
+-recompensaReclamada:boolean
++ubicacion(nombre String, esNeutral boolean): Ubicacion
++setCriatura(criatura Criatura): void
++tieneCriatura(): boolean
++getCriatura(): Criatura
++tieneTesoro(): boolean
++setTesoro(contieneTesoro boolean): void
++mostrarTesoroSiGanaste():void
++esNeutral():boolean
++descansar(personaje Personaje): void
++reclamarRecompensa(personaje Personaje): void
++canjearExperiencia(personaje Personaje): void
++reclamarRecompensaMisiones(jugador Jugador): void
++toString():void
+}
+
+class SistemaDeUbicaciones{
+-{static} Map<String, Ubicacion> ubicaciones = new HashMap<>()
++{static}getubicacion(nombre String):Ubicacion
+}
+
+abstract Mision {
+#nombre: String
+#descripcion: String
+#recompensaDescripcion: String
+#completada: boolean
++mision(nombre String, descripcion String, recompensaDescripcion String): Mision
++{abstract}completar()
++{abstract}aplicarRecompensa()
++getNombre(): String
++getDescripcion():String
++estaCompletada(): boolean
+}
+
+class MisionDerrotarDragon extends Mision{
+-dragon: Dragon
++misionDerrotarDragon(dragon Dragon): MisionDerrotarDragon
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+class MisionEliminarEspectros extends Mision{
+-espectrosEliminados: int
+-espectrosNecesarios: int
++misionEliminarEspectros(): MisionEliminarEspectros
++incrementarEspectrosEliminados(): void
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+class MisionLimpiaAldeaTroll extends Mision{
+-trollsEliminados(): int
+-trollsNecesarios():int
++misionLimpiaAldeaTroll():MisionLimpiaAldeaTroll
++incrementarTrollsEliminados(): void
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+class MisionRecuparAmuleto extends Mision{
++misionRecuparAmuleto(): MisionRecuparAmuleto
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+abstract Personaje{
+#nombre: String
+#puntosVida:int
+#nivelAtaqueL:int
+#nivelDefensa:int
+#experiencia: int
++personaje(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Personaje
++getNombre(): String
++getPuntosVida():String
++getNivelAtaque():int
++getNivelDefensa():int
++getExperiencia(): int
++ganarExperiencia(): void
++recibirGolpe(): void
++{abstract}atacar(criatura Criatura): void
++mejorar():void
++setPuntosVida(puntosVida int): void
++mejorarAtaque(): boolean
++mejorarDefensa(): boolean
+
+}
+
+class Arquero extends Personaje{
+-punteria: int
+-agilidad:int
++arquero(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Arquero
++atacar(criatura Criatura): void
++recibirGolpe(danio int): void
+}
+class Guerrero extends Personaje{
+-contadorAtaques: int
++guerrero(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Guerrero
++atacar(criatura Criatura): void
++reiniciarContadorAtaques(): void
+}
+class Mago extends Personaje {
++mago(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int):Mago
++atacar(criatura Criatura): void
++curarse():void
+}
+
+Mapa *--- Ubicacion
+Ubicacion o-- Personaje
+Ubicacion o-- Criatura
+Juego *-- Mapa
+Juego *-- Jugador
+Ubicacion o-- Pelea
+Ubicacion *-- SistemaDeUbicaciones
+Jugador *-- Mision
+Jugador *-- Personaje
+
+@enduml
+
