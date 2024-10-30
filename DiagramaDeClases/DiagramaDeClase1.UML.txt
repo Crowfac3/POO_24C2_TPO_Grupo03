@@ -4,6 +4,7 @@ class Juego {
 -jugador: Jugador 
 -tesoroEncontrado: boolean
 +Juego(jugador Jugador)
++verMapa():Mapa
 +visitarUbicacion(ubicacion Ubicacion)
 +iniciarPelea(ubicacion Ubicacion):void
 +verificarVictoria(criatura Criatura):void
@@ -183,14 +184,13 @@ class Mago extends Personaje {
 }
 
 Mapa *--- Ubicacion
-Ubicacion o-- Personaje
+Pelea *-- Personaje
 Ubicacion o-- Criatura
+Pelea *-- Criatura
 Juego *-- Mapa
 Juego *-- Jugador
-Ubicacion o-- Pelea
 Ubicacion *-- SistemaDeUbicaciones
 Jugador *-- Mision
 Jugador *-- Personaje
 
 @enduml
-

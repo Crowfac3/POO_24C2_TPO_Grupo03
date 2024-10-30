@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" width="3940px" height="1782px" viewBox="0, 0, 3940, 1782" preserveAspectRatio="none" contentStyleType="text/css" zoomAndPan="magnify" style="background-attachment:initial;background-clip:initial;background-color:#FFFFFF;background-image:initial;background-origin:initial;background-position:initial;background-repeat:initial;background-size:initial;">
+  <defs />
+  <g>
+    <g id="elem_Juego">
+      <rect x="727" y="7" width="266" height="188.875" rx="2.5" ry="2.5" id="Juego" stroke-width="0.5" codeLine="2" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="836.75" cy="23" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M839.5156 18.875 Q839.6719 18.6563 839.8594 18.5469 Q840.0469 18.4375 840.2656 18.4375 Q840.6406 18.4375 840.875 18.6953 Q841.1094 18.9531 841.1094 19.5625 L841.1094 21.0156 Q841.1094 21.625 840.875 21.8906 Q840.6406 22.1563 840.2656 22.1563 Q839.9219 22.1563 839.7188 21.9531 Q839.5156 21.7656 839.4063 21.25 Q839.3594 20.8906 839.1719 20.7031 Q838.8438 20.3281 838.2344 20.1094 Q837.625 19.8906 837 19.8906 Q836.2344 19.8906 835.6016 20.2188 Q834.9688 20.5469 834.4766 21.2969 Q833.9844 22.0469 833.9844 23.0781 L833.9844 24.1719 Q833.9844 25.4063 834.875 26.2266 Q835.7656 27.0469 837.3594 27.0469 Q838.2969 27.0469 838.9531 26.7969 Q839.3438 26.6406 839.7656 26.2031 Q840.0313 25.9375 840.1797 25.8594 Q840.3281 25.7813 840.5313 25.7813 Q840.8594 25.7813 841.1172 26.0391 Q841.375 26.2969 841.375 26.6406 Q841.375 26.9844 841.0313 27.3906 Q840.5313 27.9688 839.7344 28.2969 Q838.6563 28.75 837.3594 28.75 Q835.8438 28.75 834.6406 28.125 Q833.6563 27.625 832.9688 26.5547 Q832.2813 25.4844 832.2813 24.2031 L832.2813 23.0469 Q832.2813 21.7188 832.8984 20.5703 Q833.5156 19.4219 834.6094 18.8047 Q835.7031 18.1875 836.9375 18.1875 Q837.6719 18.1875 838.3203 18.3516 Q838.9688 18.5156 839.5156 18.875 Z" style="fill:black;" />
+      <text x="857.25" y="28.7285" textLength="38" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Juego</text>
+      <line x1="728" y1="39" x2="992" y2="39" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="735" y="50.3047" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="747" y="57.5332" textLength="107" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">jugador: Jugador</text>
+      <rect x="735" y="67.9141" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="747" y="75.1426" textLength="172" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">tesoroEncontrado: boolean</text>
+      <line x1="728" y1="82.2188" x2="992" y2="82.2188" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="738" cy="96.5234" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="747" y="100.752" textLength="151" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Juego(jugador Jugador)</text>
+      <ellipse cx="738" cy="114.1328" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="747" y="118.3613" textLength="104" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">verMapa():Mapa</text>
+      <ellipse cx="738" cy="131.7422" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="747" y="135.9707" textLength="233" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">visitarUbicacion(ubicacion Ubicacion)</text>
+      <ellipse cx="738" cy="149.3516" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="747" y="153.5801" textLength="238" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">iniciarPelea(ubicacion Ubicacion):void</text>
+      <ellipse cx="738" cy="166.9609" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="747" y="171.1895" textLength="240" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">verificarVictoria(criatura Criatura):void</text>
+      <ellipse cx="738" cy="184.5703" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="747" y="188.7988" textLength="118" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">finDelJuego(): void</text>
+    </g>
+    <g id="elem_Jugador">
+      <rect x="1066.5" y="265" width="365" height="206.4844" rx="2.5" ry="2.5" id="Jugador" stroke-width="0.5" codeLine="13" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="1219.25" cy="281" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M1222.016 276.875 Q1222.172 276.6563 1222.359 276.5469 Q1222.547 276.4375 1222.766 276.4375 Q1223.141 276.4375 1223.375 276.6953 Q1223.609 276.9531 1223.609 277.5625 L1223.609 279.0156 Q1223.609 279.625 1223.375 279.8906 Q1223.141 280.1563 1222.766 280.1563 Q1222.422 280.1563 1222.219 279.9531 Q1222.016 279.7656 1221.906 279.25 Q1221.859 278.8906 1221.672 278.7031 Q1221.344 278.3281 1220.734 278.1094 Q1220.125 277.8906 1219.5 277.8906 Q1218.734 277.8906 1218.102 278.2188 Q1217.469 278.5469 1216.977 279.2969 Q1216.484 280.0469 1216.484 281.0781 L1216.484 282.1719 Q1216.484 283.4063 1217.375 284.2266 Q1218.266 285.0469 1219.859 285.0469 Q1220.797 285.0469 1221.453 284.7969 Q1221.844 284.6406 1222.266 284.2031 Q1222.531 283.9375 1222.68 283.8594 Q1222.828 283.7813 1223.031 283.7813 Q1223.359 283.7813 1223.617 284.0391 Q1223.875 284.2969 1223.875 284.6406 Q1223.875 284.9844 1223.531 285.3906 Q1223.031 285.9688 1222.234 286.2969 Q1221.156 286.75 1219.859 286.75 Q1218.344 286.75 1217.141 286.125 Q1216.156 285.625 1215.469 284.5547 Q1214.781 283.4844 1214.781 282.2031 L1214.781 281.0469 Q1214.781 279.7188 1215.398 278.5703 Q1216.016 277.4219 1217.109 276.8047 Q1218.203 276.1875 1219.438 276.1875 Q1220.172 276.1875 1220.82 276.3516 Q1221.469 276.5156 1222.016 276.875 Z" style="fill:black;" />
+      <text x="1239.75" y="286.7285" textLength="51" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Jugador</text>
+      <line x1="1067.5" y1="297" x2="1430.5" y2="297" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="1074.5" y="308.3047" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="1086.5" y="315.5332" textLength="93" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nombre: String</text>
+      <rect x="1074.5" y="325.9141" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="1086.5" y="333.1426" textLength="134" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">personaje: personaje</text>
+      <rect x="1074.5" y="343.5234" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="1086.5" y="350.752" textLength="121" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mision: list&lt;Mision&gt;</text>
+      <line x1="1067.5" y1="357.8281" x2="1430.5" y2="357.8281" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="1077.5" cy="372.1328" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1086.5" y="376.3613" textLength="339" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">jugador(nombre String, tipoPersonaje String): jugador</text>
+      <ellipse cx="1077.5" cy="389.7422" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1086.5" y="393.9707" textLength="166" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getPersonaje(): Personaje</text>
+      <ellipse cx="1077.5" cy="407.3516" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1086.5" y="411.5801" textLength="229" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mostrarInformacionPersonaje(): void</text>
+      <rect x="1074.5" y="421.9609" width="6" height="6" stroke-width="1" style="fill:#F24D5C;stroke:#C82930;" />
+      <text x="1086.5" y="429.1895" textLength="156" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">inicializarMisiones(): void</text>
+      <ellipse cx="1077.5" cy="442.5703" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1086.5" y="446.7988" textLength="275" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">completarMision(nombreMision String): void</text>
+      <ellipse cx="1077.5" cy="460.1797" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1086.5" y="464.4082" textLength="305" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">reclamarRecompensaEnUbicacionNeutral(): void</text>
+    </g>
+    <g id="elem_Pelea">
+      <rect x="3108.5" y="300" width="357" height="136.0469" rx="2.5" ry="2.5" id="Pelea" stroke-width="0.5" codeLine="26" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="3264.75" cy="316" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M3267.516 311.875 Q3267.672 311.6563 3267.859 311.5469 Q3268.047 311.4375 3268.266 311.4375 Q3268.641 311.4375 3268.875 311.6953 Q3269.109 311.9531 3269.109 312.5625 L3269.109 314.0156 Q3269.109 314.625 3268.875 314.8906 Q3268.641 315.1563 3268.266 315.1563 Q3267.922 315.1563 3267.719 314.9531 Q3267.516 314.7656 3267.406 314.25 Q3267.359 313.8906 3267.172 313.7031 Q3266.844 313.3281 3266.234 313.1094 Q3265.625 312.8906 3265 312.8906 Q3264.234 312.8906 3263.602 313.2188 Q3262.969 313.5469 3262.477 314.2969 Q3261.984 315.0469 3261.984 316.0781 L3261.984 317.1719 Q3261.984 318.4063 3262.875 319.2266 Q3263.766 320.0469 3265.359 320.0469 Q3266.297 320.0469 3266.953 319.7969 Q3267.344 319.6406 3267.766 319.2031 Q3268.031 318.9375 3268.18 318.8594 Q3268.328 318.7813 3268.531 318.7813 Q3268.859 318.7813 3269.117 319.0391 Q3269.375 319.2969 3269.375 319.6406 Q3269.375 319.9844 3269.031 320.3906 Q3268.531 320.9688 3267.734 321.2969 Q3266.656 321.75 3265.359 321.75 Q3263.844 321.75 3262.641 321.125 Q3261.656 320.625 3260.969 319.5547 Q3260.281 318.4844 3260.281 317.2031 L3260.281 316.0469 Q3260.281 314.7188 3260.898 313.5703 Q3261.516 312.4219 3262.609 311.8047 Q3263.703 311.1875 3264.938 311.1875 Q3265.672 311.1875 3266.32 311.3516 Q3266.969 311.5156 3267.516 311.875 Z" style="fill:black;" />
+      <text x="3285.25" y="321.7285" textLength="36" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Pelea</text>
+      <line x1="3109.5" y1="332" x2="3464.5" y2="332" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="3116.5" y="343.3047" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="3128.5" y="350.5332" textLength="135" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">personaje: Personaje</text>
+      <rect x="3116.5" y="360.9141" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="3128.5" y="368.1426" textLength="107" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">criatura: Criatura</text>
+      <line x1="3109.5" y1="375.2188" x2="3464.5" y2="375.2188" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="3119.5" cy="389.5234" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="3128.5" y="393.752" textLength="331" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">pelea(personaje Personaje, criatura Criatura): Pelea</text>
+      <ellipse cx="3119.5" cy="407.1328" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="3128.5" y="411.3613" textLength="81" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">iniciar(): void</text>
+      <ellipse cx="3119.5" cy="424.7422" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="3128.5" y="428.9707" textLength="165" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">ganoPersonaje(): boolean</text>
+    </g>
+    <g id="elem_Criatura">
+      <rect x="1940.5" y="1390" width="539" height="241.7031" rx="2.5" ry="2.5" id="Criatura" stroke-width="0.5" codeLine="34" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="2180.25" cy="1406" rx="11" ry="11" stroke-width="1" style="fill:#A9DCDF;stroke:#181818;" />
+      <path d="M2182.438 1407.766 L2178.297 1407.766 L2177.875 1408.797 L2178.297 1408.797 Q2178.906 1408.797 2179.172 1409.031 Q2179.438 1409.266 2179.438 1409.656 Q2179.438 1410.031 2179.172 1410.266 Q2178.906 1410.5 2178.297 1410.5 L2176 1410.5 Q2175.391 1410.5 2175.133 1410.266 Q2174.875 1410.031 2174.875 1409.641 Q2174.875 1409.266 2175.148 1409.023 Q2175.422 1408.781 2176.047 1408.797 L2178.719 1402.141 L2177.609 1402.141 Q2177 1402.141 2176.734 1401.906 Q2176.469 1401.672 2176.469 1401.281 Q2176.469 1400.906 2176.734 1400.672 Q2177 1400.438 2177.609 1400.438 L2181.281 1400.438 L2184.672 1408.797 Q2185.266 1408.797 2185.453 1408.938 Q2185.844 1409.203 2185.844 1409.656 Q2185.844 1410.031 2185.586 1410.266 Q2185.328 1410.5 2184.719 1410.5 L2182.422 1410.5 Q2181.813 1410.5 2181.547 1410.266 Q2181.281 1410.031 2181.281 1409.641 Q2181.281 1409.266 2181.547 1409.031 Q2181.813 1408.797 2182.422 1408.797 L2182.844 1408.797 L2182.438 1407.766 Z M2181.719 1406.063 L2180.359 1402.688 L2178.984 1406.063 L2181.719 1406.063 Z" style="fill:black;" />
+      <text x="2200.75" y="1411.729" textLength="51" lengthAdjust="spacing" font-family="sans-serif" font-size="14" font-style="italic" style="fill:black;">Criatura</text>
+      <line x1="1941.5" y1="1422" x2="2478.5" y2="1422" stroke-width="0.5" style="stroke:#181818;" />
+      <polygon points="1951.5,1431.305 1955.5,1435.305 1951.5,1439.305 1947.5,1435.305" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1960.5" y="1440.533" textLength="93" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nombre: String</text>
+      <polygon points="1951.5,1448.914 1955.5,1452.914 1951.5,1456.914 1947.5,1452.914" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1960.5" y="1458.143" textLength="94" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">puntosVida: int</text>
+      <polygon points="1951.5,1466.523 1955.5,1470.523 1951.5,1474.523 1947.5,1470.523" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1960.5" y="1475.752" textLength="97" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nivelAtaque: int</text>
+      <polygon points="1951.5,1484.133 1955.5,1488.133 1951.5,1492.133 1947.5,1488.133" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1960.5" y="1493.361" textLength="105" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nivelDefensa: int</text>
+      <line x1="1941.5" y1="1500.438" x2="2478.5" y2="1500.438" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="1948.5" y="1511.742" width="6" height="6" stroke-width="1" style="fill:#F24D5C;stroke:#C82930;" />
+      <text x="1960.5" y="1518.971" textLength="513" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Criatura(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int) Criatura</text>
+      <ellipse cx="1951.5" cy="1532.352" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960.5" y="1536.58" textLength="124" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getNombre(): String</text>
+      <ellipse cx="1951.5" cy="1549.961" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960.5" y="1554.189" textLength="125" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getPuntosVida(): int</text>
+      <ellipse cx="1951.5" cy="1567.57" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960.5" y="1571.799" textLength="128" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getNivelAtaque(): int</text>
+      <ellipse cx="1951.5" cy="1585.18" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960.5" y="1589.408" textLength="175" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">recibirGolpe(danio int): void</text>
+      <ellipse cx="1951.5" cy="1602.789" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960.5" y="1607.018" textLength="211" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">atacar(personaje Personaje):void</text>
+      <ellipse cx="1951.5" cy="1620.398" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960.5" y="1624.627" textLength="98" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">estaVivo(): void</text>
+    </g>
+    <g id="elem_Dragon">
+      <rect x="1375.5" y="1692" width="529" height="83.2188" rx="2.5" ry="2.5" id="Dragon" stroke-width="0.5" codeLine="48" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="1612.25" cy="1708" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M1615.016 1703.875 Q1615.172 1703.656 1615.359 1703.547 Q1615.547 1703.438 1615.766 1703.438 Q1616.141 1703.438 1616.375 1703.695 Q1616.609 1703.953 1616.609 1704.563 L1616.609 1706.016 Q1616.609 1706.625 1616.375 1706.891 Q1616.141 1707.156 1615.766 1707.156 Q1615.422 1707.156 1615.219 1706.953 Q1615.016 1706.766 1614.906 1706.25 Q1614.859 1705.891 1614.672 1705.703 Q1614.344 1705.328 1613.734 1705.109 Q1613.125 1704.891 1612.5 1704.891 Q1611.734 1704.891 1611.102 1705.219 Q1610.469 1705.547 1609.977 1706.297 Q1609.484 1707.047 1609.484 1708.078 L1609.484 1709.172 Q1609.484 1710.406 1610.375 1711.227 Q1611.266 1712.047 1612.859 1712.047 Q1613.797 1712.047 1614.453 1711.797 Q1614.844 1711.641 1615.266 1711.203 Q1615.531 1710.938 1615.68 1710.859 Q1615.828 1710.781 1616.031 1710.781 Q1616.359 1710.781 1616.617 1711.039 Q1616.875 1711.297 1616.875 1711.641 Q1616.875 1711.984 1616.531 1712.391 Q1616.031 1712.969 1615.234 1713.297 Q1614.156 1713.75 1612.859 1713.75 Q1611.344 1713.75 1610.141 1713.125 Q1609.156 1712.625 1608.469 1711.555 Q1607.781 1710.484 1607.781 1709.203 L1607.781 1708.047 Q1607.781 1706.719 1608.398 1705.57 Q1609.016 1704.422 1610.109 1703.805 Q1611.203 1703.188 1612.438 1703.188 Q1613.172 1703.188 1613.82 1703.352 Q1614.469 1703.516 1615.016 1703.875 Z" style="fill:black;" />
+      <text x="1632.75" y="1713.729" textLength="47" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Dragon</text>
+      <line x1="1376.5" y1="1724" x2="1903.5" y2="1724" stroke-width="0.5" style="stroke:#181818;" />
+      <line x1="1376.5" y1="1732" x2="1903.5" y2="1732" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="1386.5" cy="1746.305" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1395.5" y="1750.533" textLength="503" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">dragon(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Dragon</text>
+      <ellipse cx="1386.5" cy="1763.914" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1395.5" y="1768.143" textLength="215" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">atacar(personaje Personaje): void</text>
+    </g>
+    <g id="elem_Espectro">
+      <rect x="1940" y="1692" width="540" height="83.2188" rx="2.5" ry="2.5" id="Espectro" stroke-width="0.5" codeLine="52" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="2177.75" cy="1708" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M2180.516 1703.875 Q2180.672 1703.656 2180.859 1703.547 Q2181.047 1703.438 2181.266 1703.438 Q2181.641 1703.438 2181.875 1703.695 Q2182.109 1703.953 2182.109 1704.563 L2182.109 1706.016 Q2182.109 1706.625 2181.875 1706.891 Q2181.641 1707.156 2181.266 1707.156 Q2180.922 1707.156 2180.719 1706.953 Q2180.516 1706.766 2180.406 1706.25 Q2180.359 1705.891 2180.172 1705.703 Q2179.844 1705.328 2179.234 1705.109 Q2178.625 1704.891 2178 1704.891 Q2177.234 1704.891 2176.602 1705.219 Q2175.969 1705.547 2175.477 1706.297 Q2174.984 1707.047 2174.984 1708.078 L2174.984 1709.172 Q2174.984 1710.406 2175.875 1711.227 Q2176.766 1712.047 2178.359 1712.047 Q2179.297 1712.047 2179.953 1711.797 Q2180.344 1711.641 2180.766 1711.203 Q2181.031 1710.938 2181.18 1710.859 Q2181.328 1710.781 2181.531 1710.781 Q2181.859 1710.781 2182.117 1711.039 Q2182.375 1711.297 2182.375 1711.641 Q2182.375 1711.984 2182.031 1712.391 Q2181.531 1712.969 2180.734 1713.297 Q2179.656 1713.75 2178.359 1713.75 Q2176.844 1713.75 2175.641 1713.125 Q2174.656 1712.625 2173.969 1711.555 Q2173.281 1710.484 2173.281 1709.203 L2173.281 1708.047 Q2173.281 1706.719 2173.898 1705.57 Q2174.516 1704.422 2175.609 1703.805 Q2176.703 1703.188 2177.938 1703.188 Q2178.672 1703.188 2179.32 1703.352 Q2179.969 1703.516 2180.516 1703.875 Z" style="fill:black;" />
+      <text x="2198.25" y="1713.729" textLength="56" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Espectro</text>
+      <line x1="1941" y1="1724" x2="2479" y2="1724" stroke-width="0.5" style="stroke:#181818;" />
+      <line x1="1941" y1="1732" x2="2479" y2="1732" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="1951" cy="1746.305" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960" y="1750.533" textLength="514" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">espctro(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Espectro</text>
+      <ellipse cx="1951" cy="1763.914" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1960" y="1768.143" textLength="215" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">atacar(personaje Personaje): void</text>
+    </g>
+    <g id="elem_Troll">
+      <rect x="2515" y="1692" width="488" height="83.2188" rx="2.5" ry="2.5" id="Troll" stroke-width="0.5" codeLine="56" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="2740.75" cy="1708" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M2743.516 1703.875 Q2743.672 1703.656 2743.859 1703.547 Q2744.047 1703.438 2744.266 1703.438 Q2744.641 1703.438 2744.875 1703.695 Q2745.109 1703.953 2745.109 1704.563 L2745.109 1706.016 Q2745.109 1706.625 2744.875 1706.891 Q2744.641 1707.156 2744.266 1707.156 Q2743.922 1707.156 2743.719 1706.953 Q2743.516 1706.766 2743.406 1706.25 Q2743.359 1705.891 2743.172 1705.703 Q2742.844 1705.328 2742.234 1705.109 Q2741.625 1704.891 2741 1704.891 Q2740.234 1704.891 2739.602 1705.219 Q2738.969 1705.547 2738.477 1706.297 Q2737.984 1707.047 2737.984 1708.078 L2737.984 1709.172 Q2737.984 1710.406 2738.875 1711.227 Q2739.766 1712.047 2741.359 1712.047 Q2742.297 1712.047 2742.953 1711.797 Q2743.344 1711.641 2743.766 1711.203 Q2744.031 1710.938 2744.18 1710.859 Q2744.328 1710.781 2744.531 1710.781 Q2744.859 1710.781 2745.117 1711.039 Q2745.375 1711.297 2745.375 1711.641 Q2745.375 1711.984 2745.031 1712.391 Q2744.531 1712.969 2743.734 1713.297 Q2742.656 1713.75 2741.359 1713.75 Q2739.844 1713.75 2738.641 1713.125 Q2737.656 1712.625 2736.969 1711.555 Q2736.281 1710.484 2736.281 1709.203 L2736.281 1708.047 Q2736.281 1706.719 2736.898 1705.57 Q2737.516 1704.422 2738.609 1703.805 Q2739.703 1703.188 2740.938 1703.188 Q2741.672 1703.188 2742.32 1703.352 Q2742.969 1703.516 2743.516 1703.875 Z" style="fill:black;" />
+      <text x="2761.25" y="1713.729" textLength="28" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Troll</text>
+      <line x1="2516" y1="1724" x2="3002" y2="1724" stroke-width="0.5" style="stroke:#181818;" />
+      <line x1="2516" y1="1732" x2="3002" y2="1732" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="2526" cy="1746.305" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2535" y="1750.533" textLength="462" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">troll(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Troll</text>
+      <ellipse cx="2526" cy="1763.914" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2535" y="1768.143" textLength="215" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">atacar(personaje Personaje): void</text>
+    </g>
+    <g id="elem_Mapa">
+      <rect x="458.5" y="256" width="391" height="224.0938" rx="2.5" ry="2.5" id="Mapa" stroke-width="0.5" codeLine="61" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="632.25" cy="272" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M635.0156 267.875 Q635.1719 267.6563 635.3594 267.5469 Q635.5469 267.4375 635.7656 267.4375 Q636.1406 267.4375 636.375 267.6953 Q636.6094 267.9531 636.6094 268.5625 L636.6094 270.0156 Q636.6094 270.625 636.375 270.8906 Q636.1406 271.1563 635.7656 271.1563 Q635.4219 271.1563 635.2188 270.9531 Q635.0156 270.7656 634.9063 270.25 Q634.8594 269.8906 634.6719 269.7031 Q634.3438 269.3281 633.7344 269.1094 Q633.125 268.8906 632.5 268.8906 Q631.7344 268.8906 631.1016 269.2188 Q630.4688 269.5469 629.9766 270.2969 Q629.4844 271.0469 629.4844 272.0781 L629.4844 273.1719 Q629.4844 274.4063 630.375 275.2266 Q631.2656 276.0469 632.8594 276.0469 Q633.7969 276.0469 634.4531 275.7969 Q634.8438 275.6406 635.2656 275.2031 Q635.5313 274.9375 635.6797 274.8594 Q635.8281 274.7813 636.0313 274.7813 Q636.3594 274.7813 636.6172 275.0391 Q636.875 275.2969 636.875 275.6406 Q636.875 275.9844 636.5313 276.3906 Q636.0313 276.9688 635.2344 277.2969 Q634.1563 277.75 632.8594 277.75 Q631.3438 277.75 630.1406 277.125 Q629.1563 276.625 628.4688 275.5547 Q627.7813 274.4844 627.7813 273.2031 L627.7813 272.0469 Q627.7813 270.7188 628.3984 269.5703 Q629.0156 268.4219 630.1094 267.8047 Q631.2031 267.1875 632.4375 267.1875 Q633.1719 267.1875 633.8203 267.3516 Q634.4688 267.5156 635.0156 267.875 Z" style="fill:black;" />
+      <text x="652.75" y="277.7285" textLength="35" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Mapa</text>
+      <line x1="459.5" y1="288" x2="848.5" y2="288" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="466.5" y="299.3047" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="478.5" y="306.5332" textLength="91" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">ubicacion: int[]</text>
+      <rect x="466.5" y="316.9141" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="478.5" y="324.1426" textLength="41" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">fila: int</text>
+      <rect x="466.5" y="334.5234" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="478.5" y="341.752" textLength="76" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">columna: int</text>
+      <line x1="459.5" y1="348.8281" x2="848.5" y2="348.8281" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="469.5" cy="363.1328" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="478.5" y="367.3613" textLength="88" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mapa(): Mapa</text>
+      <ellipse cx="469.5" cy="380.7422" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="478.5" y="384.9707" textLength="136" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">inicializarMapa(): void</text>
+      <ellipse cx="469.5" cy="398.3516" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="478.5" y="402.5801" textLength="359" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">establecerUbicacionConTesoro(fila int, columna int): void</text>
+      <ellipse cx="469.5" cy="415.9609" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="478.5" y="420.1895" textLength="365" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">establecerUbicacionConCriatura(fila int, columna int): void</text>
+      <ellipse cx="469.5" cy="433.5703" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="478.5" y="437.7988" textLength="333" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">establecerUbicacionNeutral(fila int, columna int): void</text>
+      <ellipse cx="469.5" cy="451.1797" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="478.5" y="455.4082" textLength="306" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">obtenerUbicacion(fila int, columna int): Ubicacion</text>
+      <ellipse cx="469.5" cy="468.7891" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="478.5" y="473.0176" textLength="127" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mostrarMapa(): void</text>
+    </g>
+    <g id="elem_Ubicacion">
+      <rect x="10.5" y="965" width="377" height="364.9688" rx="2.5" ry="2.5" id="Ubicacion" stroke-width="0.5" codeLine="74" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="164.25" cy="981" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M167.0156 976.875 Q167.1719 976.6563 167.3594 976.5469 Q167.5469 976.4375 167.7656 976.4375 Q168.1406 976.4375 168.375 976.6953 Q168.6094 976.9531 168.6094 977.5625 L168.6094 979.0156 Q168.6094 979.625 168.375 979.8906 Q168.1406 980.1563 167.7656 980.1563 Q167.4219 980.1563 167.2188 979.9531 Q167.0156 979.7656 166.9063 979.25 Q166.8594 978.8906 166.6719 978.7031 Q166.3438 978.3281 165.7344 978.1094 Q165.125 977.8906 164.5 977.8906 Q163.7344 977.8906 163.1016 978.2188 Q162.4688 978.5469 161.9766 979.2969 Q161.4844 980.0469 161.4844 981.0781 L161.4844 982.1719 Q161.4844 983.4063 162.375 984.2266 Q163.2656 985.0469 164.8594 985.0469 Q165.7969 985.0469 166.4531 984.7969 Q166.8438 984.6406 167.2656 984.2031 Q167.5313 983.9375 167.6797 983.8594 Q167.8281 983.7813 168.0313 983.7813 Q168.3594 983.7813 168.6172 984.0391 Q168.875 984.2969 168.875 984.6406 Q168.875 984.9844 168.5313 985.3906 Q168.0313 985.9688 167.2344 986.2969 Q166.1563 986.75 164.8594 986.75 Q163.3438 986.75 162.1406 986.125 Q161.1563 985.625 160.4688 984.5547 Q159.7813 983.4844 159.7813 982.2031 L159.7813 981.0469 Q159.7813 979.7188 160.3984 978.5703 Q161.0156 977.4219 162.1094 976.8047 Q163.2031 976.1875 164.4375 976.1875 Q165.1719 976.1875 165.8203 976.3516 Q166.4688 976.5156 167.0156 976.875 Z" style="fill:black;" />
+      <text x="184.75" y="986.7285" textLength="61" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Ubicacion</text>
+      <line x1="11.5" y1="997" x2="386.5" y2="997" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="18.5" y="1008.305" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="30.5" y="1015.533" textLength="93" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nombre: String</text>
+      <rect x="18.5" y="1025.914" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="30.5" y="1033.143" textLength="107" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">criatura: Criatura</text>
+      <rect x="18.5" y="1043.523" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="30.5" y="1050.752" textLength="158" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">contieneTesoro: boolean</text>
+      <rect x="18.5" y="1061.133" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="30.5" y="1068.361" textLength="119" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">esNeutral: boolean</text>
+      <rect x="18.5" y="1078.742" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="30.5" y="1085.971" textLength="204" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">recompensaReclamada:boolean</text>
+      <line x1="11.5" y1="1093.047" x2="386.5" y2="1093.047" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="21.5" cy="1107.352" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1111.58" textLength="351" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">ubicacion(nombre String, esNeutral boolean): Ubicacion</text>
+      <ellipse cx="21.5" cy="1124.961" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1129.189" textLength="217" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">setCriatura(criatura Criatura): void</text>
+      <ellipse cx="21.5" cy="1142.57" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1146.799" textLength="151" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">tieneCriatura(): boolean</text>
+      <ellipse cx="21.5" cy="1160.18" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1164.408" textLength="140" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getCriatura(): Criatura</text>
+      <ellipse cx="21.5" cy="1177.789" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1182.018" textLength="145" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">tieneTesoro(): boolean</text>
+      <ellipse cx="21.5" cy="1195.398" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1199.627" textLength="262" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">setTesoro(contieneTesoro boolean): void</text>
+      <ellipse cx="21.5" cy="1213.008" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1217.236" textLength="199" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mostrarTesoroSiGanaste():void</text>
+      <ellipse cx="21.5" cy="1230.617" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1234.846" textLength="125" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">esNeutral():boolean</text>
+      <ellipse cx="21.5" cy="1248.227" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1252.455" textLength="241" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">descansar(personaje Personaje): void</text>
+      <ellipse cx="21.5" cy="1265.836" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1270.064" textLength="313" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">reclamarRecompensa(personaje Personaje): void</text>
+      <ellipse cx="21.5" cy="1283.445" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1287.674" textLength="295" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">canjearExperiencia(personaje Personaje): void</text>
+      <ellipse cx="21.5" cy="1301.055" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1305.283" textLength="340" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">reclamarRecompensaMisiones(jugador Jugador): void</text>
+      <ellipse cx="21.5" cy="1318.664" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="30.5" y="1322.893" textLength="89" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">toString():void</text>
+    </g>
+    <g id="elem_SistemaDeUbicaciones">
+      <rect x="7" y="1469.5" width="384" height="83.2188" rx="2.5" ry="2.5" id="SistemaDeUbicaciones" stroke-width="0.5" codeLine="95" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="122.75" cy="1485.5" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M125.5156 1481.375 Q125.6719 1481.156 125.8594 1481.047 Q126.0469 1480.938 126.2656 1480.938 Q126.6406 1480.938 126.875 1481.195 Q127.1094 1481.453 127.1094 1482.063 L127.1094 1483.516 Q127.1094 1484.125 126.875 1484.391 Q126.6406 1484.656 126.2656 1484.656 Q125.9219 1484.656 125.7188 1484.453 Q125.5156 1484.266 125.4063 1483.75 Q125.3594 1483.391 125.1719 1483.203 Q124.8438 1482.828 124.2344 1482.609 Q123.625 1482.391 123 1482.391 Q122.2344 1482.391 121.6016 1482.719 Q120.9688 1483.047 120.4766 1483.797 Q119.9844 1484.547 119.9844 1485.578 L119.9844 1486.672 Q119.9844 1487.906 120.875 1488.727 Q121.7656 1489.547 123.3594 1489.547 Q124.2969 1489.547 124.9531 1489.297 Q125.3438 1489.141 125.7656 1488.703 Q126.0313 1488.438 126.1797 1488.359 Q126.3281 1488.281 126.5313 1488.281 Q126.8594 1488.281 127.1172 1488.539 Q127.375 1488.797 127.375 1489.141 Q127.375 1489.484 127.0313 1489.891 Q126.5313 1490.469 125.7344 1490.797 Q124.6563 1491.25 123.3594 1491.25 Q121.8438 1491.25 120.6406 1490.625 Q119.6563 1490.125 118.9688 1489.055 Q118.2813 1487.984 118.2813 1486.703 L118.2813 1485.547 Q118.2813 1484.219 118.8984 1483.07 Q119.5156 1481.922 120.6094 1481.305 Q121.7031 1480.688 122.9375 1480.688 Q123.6719 1480.688 124.3203 1480.852 Q124.9688 1481.016 125.5156 1481.375 Z" style="fill:black;" />
+      <text x="143.25" y="1491.229" textLength="144" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">SistemaDeUbicaciones</text>
+      <line x1="8" y1="1501.5" x2="390" y2="1501.5" stroke-width="0.5" style="stroke:#181818;" />
+      <line x1="8" y1="1509.5" x2="390" y2="1509.5" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="15" y="1520.805" width="6" height="6" stroke-width="1" style="fill:#F24D5C;stroke:#C82930;" />
+      <text x="27" y="1528.033" textLength="358" lengthAdjust="spacing" font-family="sans-serif" font-size="14" text-decoration="underline" style="fill:black;">Map&lt;String, Ubicacion&gt; ubicaciones = new HashMap&lt;&gt;()</text>
+      <ellipse cx="18" cy="1541.414" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="27" y="1545.643" textLength="244" lengthAdjust="spacing" font-family="sans-serif" font-size="14" text-decoration="underline" style="fill:black;">getubicacion(nombre String):Ubicacion</text>
+    </g>
+    <g id="elem_Mision">
+      <rect x="981.5" y="610.5" width="535" height="224.0938" rx="2.5" ry="2.5" id="Mision" stroke-width="0.5" codeLine="100" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="1224.25" cy="626.5" rx="11" ry="11" stroke-width="1" style="fill:#A9DCDF;stroke:#181818;" />
+      <path d="M1226.438 628.2656 L1222.297 628.2656 L1221.875 629.2969 L1222.297 629.2969 Q1222.906 629.2969 1223.172 629.5313 Q1223.438 629.7656 1223.438 630.1563 Q1223.438 630.5313 1223.172 630.7656 Q1222.906 631 1222.297 631 L1220 631 Q1219.391 631 1219.133 630.7656 Q1218.875 630.5313 1218.875 630.1406 Q1218.875 629.7656 1219.148 629.5234 Q1219.422 629.2813 1220.047 629.2969 L1222.719 622.6406 L1221.609 622.6406 Q1221 622.6406 1220.734 622.4063 Q1220.469 622.1719 1220.469 621.7813 Q1220.469 621.4063 1220.734 621.1719 Q1221 620.9375 1221.609 620.9375 L1225.281 620.9375 L1228.672 629.2969 Q1229.266 629.2969 1229.453 629.4375 Q1229.844 629.7031 1229.844 630.1563 Q1229.844 630.5313 1229.586 630.7656 Q1229.328 631 1228.719 631 L1226.422 631 Q1225.813 631 1225.547 630.7656 Q1225.281 630.5313 1225.281 630.1406 Q1225.281 629.7656 1225.547 629.5313 Q1225.813 629.2969 1226.422 629.2969 L1226.844 629.2969 L1226.438 628.2656 Z M1225.719 626.5625 L1224.359 623.1875 L1222.984 626.5625 L1225.719 626.5625 Z" style="fill:black;" />
+      <text x="1244.75" y="632.2285" textLength="41" lengthAdjust="spacing" font-family="sans-serif" font-size="14" font-style="italic" style="fill:black;">Mision</text>
+      <line x1="982.5" y1="642.5" x2="1515.5" y2="642.5" stroke-width="0.5" style="stroke:#181818;" />
+      <polygon points="992.5,651.8047 996.5,655.8047 992.5,659.8047 988.5,655.8047" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1001.5" y="661.0332" textLength="93" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nombre: String</text>
+      <polygon points="992.5,669.4141 996.5,673.4141 992.5,677.4141 988.5,673.4141" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1001.5" y="678.6426" textLength="117" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">descripcion: String</text>
+      <polygon points="992.5,687.0234 996.5,691.0234 992.5,695.0234 988.5,691.0234" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1001.5" y="696.252" textLength="197" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">recompensaDescripcion: String</text>
+      <polygon points="992.5,704.6328 996.5,708.6328 992.5,712.6328 988.5,708.6328" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="1001.5" y="713.8613" textLength="132" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">completada: boolean</text>
+      <line x1="982.5" y1="720.9375" x2="1515.5" y2="720.9375" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="992.5" cy="735.2422" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1001.5" y="739.4707" textLength="509" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mision(nombre String, descripcion String, recompensaDescripcion String): Mision</text>
+      <ellipse cx="992.5" cy="752.8516" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1001.5" y="757.0801" textLength="72" lengthAdjust="spacing" font-family="sans-serif" font-size="14" font-style="italic" style="fill:black;">completar()</text>
+      <ellipse cx="992.5" cy="770.4609" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1001.5" y="774.6895" textLength="135" lengthAdjust="spacing" font-family="sans-serif" font-size="14" font-style="italic" style="fill:black;">aplicarRecompensa()</text>
+      <ellipse cx="992.5" cy="788.0703" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1001.5" y="792.2988" textLength="124" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getNombre(): String</text>
+      <ellipse cx="992.5" cy="805.6797" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1001.5" y="809.9082" textLength="145" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getDescripcion():String</text>
+      <ellipse cx="992.5" cy="823.2891" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1001.5" y="827.5176" textLength="172" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">estaCompletada(): boolean</text>
+    </g>
+    <g id="elem_MisionDerrotarDragon">
+      <rect x="1542" y="1088.5" width="420" height="118.4375" rx="2.5" ry="2.5" id="MisionDerrotarDragon" stroke-width="0.5" codeLine="113" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="1677.75" cy="1104.5" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M1680.516 1100.375 Q1680.672 1100.156 1680.859 1100.047 Q1681.047 1099.938 1681.266 1099.938 Q1681.641 1099.938 1681.875 1100.195 Q1682.109 1100.453 1682.109 1101.063 L1682.109 1102.516 Q1682.109 1103.125 1681.875 1103.391 Q1681.641 1103.656 1681.266 1103.656 Q1680.922 1103.656 1680.719 1103.453 Q1680.516 1103.266 1680.406 1102.75 Q1680.359 1102.391 1680.172 1102.203 Q1679.844 1101.828 1679.234 1101.609 Q1678.625 1101.391 1678 1101.391 Q1677.234 1101.391 1676.602 1101.719 Q1675.969 1102.047 1675.477 1102.797 Q1674.984 1103.547 1674.984 1104.578 L1674.984 1105.672 Q1674.984 1106.906 1675.875 1107.727 Q1676.766 1108.547 1678.359 1108.547 Q1679.297 1108.547 1679.953 1108.297 Q1680.344 1108.141 1680.766 1107.703 Q1681.031 1107.438 1681.18 1107.359 Q1681.328 1107.281 1681.531 1107.281 Q1681.859 1107.281 1682.117 1107.539 Q1682.375 1107.797 1682.375 1108.141 Q1682.375 1108.484 1682.031 1108.891 Q1681.531 1109.469 1680.734 1109.797 Q1679.656 1110.25 1678.359 1110.25 Q1676.844 1110.25 1675.641 1109.625 Q1674.656 1109.125 1673.969 1108.055 Q1673.281 1106.984 1673.281 1105.703 L1673.281 1104.547 Q1673.281 1103.219 1673.898 1102.07 Q1674.516 1100.922 1675.609 1100.305 Q1676.703 1099.688 1677.938 1099.688 Q1678.672 1099.688 1679.32 1099.852 Q1679.969 1100.016 1680.516 1100.375 Z" style="fill:black;" />
+      <text x="1698.25" y="1110.229" textLength="140" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">MisionDerrotarDragon</text>
+      <line x1="1543" y1="1120.5" x2="1961" y2="1120.5" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="1550" y="1131.805" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="1562" y="1139.033" textLength="100" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">dragon: Dragon</text>
+      <line x1="1543" y1="1146.109" x2="1961" y2="1146.109" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="1553" cy="1160.414" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1562" y="1164.643" textLength="394" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">misionDerrotarDragon(dragon Dragon): MisionDerrotarDragon</text>
+      <ellipse cx="1553" cy="1178.023" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1562" y="1182.252" textLength="102" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">completar():void</text>
+      <ellipse cx="1553" cy="1195.633" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1562" y="1199.861" textLength="296" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">aplicarRecompensa(personaje Personaje):void</text>
+    </g>
+    <g id="elem_MisionEliminarEspectros">
+      <rect x="423" y="1070.5" width="350" height="153.6563" rx="2.5" ry="2.5" id="MisionEliminarEspectros" stroke-width="0.5" codeLine="120" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="517.25" cy="1086.5" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M520.0156 1082.375 Q520.1719 1082.156 520.3594 1082.047 Q520.5469 1081.938 520.7656 1081.938 Q521.1406 1081.938 521.375 1082.195 Q521.6094 1082.453 521.6094 1083.063 L521.6094 1084.516 Q521.6094 1085.125 521.375 1085.391 Q521.1406 1085.656 520.7656 1085.656 Q520.4219 1085.656 520.2188 1085.453 Q520.0156 1085.266 519.9063 1084.75 Q519.8594 1084.391 519.6719 1084.203 Q519.3438 1083.828 518.7344 1083.609 Q518.125 1083.391 517.5 1083.391 Q516.7344 1083.391 516.1016 1083.719 Q515.4688 1084.047 514.9766 1084.797 Q514.4844 1085.547 514.4844 1086.578 L514.4844 1087.672 Q514.4844 1088.906 515.375 1089.727 Q516.2656 1090.547 517.8594 1090.547 Q518.7969 1090.547 519.4531 1090.297 Q519.8438 1090.141 520.2656 1089.703 Q520.5313 1089.438 520.6797 1089.359 Q520.8281 1089.281 521.0313 1089.281 Q521.3594 1089.281 521.6172 1089.539 Q521.875 1089.797 521.875 1090.141 Q521.875 1090.484 521.5313 1090.891 Q521.0313 1091.469 520.2344 1091.797 Q519.1563 1092.25 517.8594 1092.25 Q516.3438 1092.25 515.1406 1091.625 Q514.1563 1091.125 513.4688 1090.055 Q512.7813 1088.984 512.7813 1087.703 L512.7813 1086.547 Q512.7813 1085.219 513.3984 1084.07 Q514.0156 1082.922 515.1094 1082.305 Q516.2031 1081.688 517.4375 1081.688 Q518.1719 1081.688 518.8203 1081.852 Q519.4688 1082.016 520.0156 1082.375 Z" style="fill:black;" />
+      <text x="537.75" y="1092.229" textLength="153" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">MisionEliminarEspectros</text>
+      <line x1="424" y1="1102.5" x2="772" y2="1102.5" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="431" y="1113.805" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="443" y="1121.033" textLength="153" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">espectrosEliminados: int</text>
+      <rect x="431" y="1131.414" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="443" y="1138.643" textLength="155" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">espectrosNecesarios: int</text>
+      <line x1="424" y1="1145.719" x2="772" y2="1145.719" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="434" cy="1160.023" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="443" y="1164.252" textLength="324" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">misionEliminarEspectros(): MisionEliminarEspectros</text>
+      <ellipse cx="434" cy="1177.633" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="443" y="1181.861" textLength="250" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">incrementarEspectrosEliminados(): void</text>
+      <ellipse cx="434" cy="1195.242" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="443" y="1199.471" textLength="102" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">completar():void</text>
+      <ellipse cx="434" cy="1212.852" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="443" y="1217.08" textLength="296" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">aplicarRecompensa(personaje Personaje):void</text>
+    </g>
+    <g id="elem_MisionLimpiaAldeaTroll">
+      <rect x="808" y="1070.5" width="330" height="153.6563" rx="2.5" ry="2.5" id="MisionLimpiaAldeaTroll" stroke-width="0.5" codeLine="129" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="896.25" cy="1086.5" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M899.0156 1082.375 Q899.1719 1082.156 899.3594 1082.047 Q899.5469 1081.938 899.7656 1081.938 Q900.1406 1081.938 900.375 1082.195 Q900.6094 1082.453 900.6094 1083.063 L900.6094 1084.516 Q900.6094 1085.125 900.375 1085.391 Q900.1406 1085.656 899.7656 1085.656 Q899.4219 1085.656 899.2188 1085.453 Q899.0156 1085.266 898.9063 1084.75 Q898.8594 1084.391 898.6719 1084.203 Q898.3438 1083.828 897.7344 1083.609 Q897.125 1083.391 896.5 1083.391 Q895.7344 1083.391 895.1016 1083.719 Q894.4688 1084.047 893.9766 1084.797 Q893.4844 1085.547 893.4844 1086.578 L893.4844 1087.672 Q893.4844 1088.906 894.375 1089.727 Q895.2656 1090.547 896.8594 1090.547 Q897.7969 1090.547 898.4531 1090.297 Q898.8438 1090.141 899.2656 1089.703 Q899.5313 1089.438 899.6797 1089.359 Q899.8281 1089.281 900.0313 1089.281 Q900.3594 1089.281 900.6172 1089.539 Q900.875 1089.797 900.875 1090.141 Q900.875 1090.484 900.5313 1090.891 Q900.0313 1091.469 899.2344 1091.797 Q898.1563 1092.25 896.8594 1092.25 Q895.3438 1092.25 894.1406 1091.625 Q893.1563 1091.125 892.4688 1090.055 Q891.7813 1088.984 891.7813 1087.703 L891.7813 1086.547 Q891.7813 1085.219 892.3984 1084.07 Q893.0156 1082.922 894.1094 1082.305 Q895.2031 1081.688 896.4375 1081.688 Q897.1719 1081.688 897.8203 1081.852 Q898.4688 1082.016 899.0156 1082.375 Z" style="fill:black;" />
+      <text x="916.75" y="1092.229" textLength="145" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">MisionLimpiaAldeaTroll</text>
+      <line x1="809" y1="1102.5" x2="1137" y2="1102.5" stroke-width="0.5" style="stroke:#181818;" />
+      <line x1="809" y1="1110.5" x2="1137" y2="1110.5" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="816" y="1121.805" width="6" height="6" stroke-width="1" style="fill:#F24D5C;stroke:#C82930;" />
+      <text x="828" y="1129.033" textLength="131" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">trollsEliminados(): int</text>
+      <rect x="816" y="1139.414" width="6" height="6" stroke-width="1" style="fill:#F24D5C;stroke:#C82930;" />
+      <text x="828" y="1146.643" textLength="129" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">trollsNecesarios():int</text>
+      <ellipse cx="819" cy="1160.023" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="828" y="1164.252" textLength="304" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">misionLimpiaAldeaTroll():MisionLimpiaAldeaTroll</text>
+      <ellipse cx="819" cy="1177.633" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="828" y="1181.861" textLength="222" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">incrementarTrollsEliminados(): void</text>
+      <ellipse cx="819" cy="1195.242" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="828" y="1199.471" textLength="102" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">completar():void</text>
+      <ellipse cx="819" cy="1212.852" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="828" y="1217.08" textLength="296" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">aplicarRecompensa(personaje Personaje):void</text>
+    </g>
+    <g id="elem_MisionRecuparAmuleto">
+      <rect x="1173" y="1097" width="334" height="100.8281" rx="2.5" ry="2.5" id="MisionRecuparAmuleto" stroke-width="0.5" codeLine="138" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="1263.25" cy="1113" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M1266.016 1108.875 Q1266.172 1108.656 1266.359 1108.547 Q1266.547 1108.438 1266.766 1108.438 Q1267.141 1108.438 1267.375 1108.695 Q1267.609 1108.953 1267.609 1109.563 L1267.609 1111.016 Q1267.609 1111.625 1267.375 1111.891 Q1267.141 1112.156 1266.766 1112.156 Q1266.422 1112.156 1266.219 1111.953 Q1266.016 1111.766 1265.906 1111.25 Q1265.859 1110.891 1265.672 1110.703 Q1265.344 1110.328 1264.734 1110.109 Q1264.125 1109.891 1263.5 1109.891 Q1262.734 1109.891 1262.102 1110.219 Q1261.469 1110.547 1260.977 1111.297 Q1260.484 1112.047 1260.484 1113.078 L1260.484 1114.172 Q1260.484 1115.406 1261.375 1116.227 Q1262.266 1117.047 1263.859 1117.047 Q1264.797 1117.047 1265.453 1116.797 Q1265.844 1116.641 1266.266 1116.203 Q1266.531 1115.938 1266.68 1115.859 Q1266.828 1115.781 1267.031 1115.781 Q1267.359 1115.781 1267.617 1116.039 Q1267.875 1116.297 1267.875 1116.641 Q1267.875 1116.984 1267.531 1117.391 Q1267.031 1117.969 1266.234 1118.297 Q1265.156 1118.75 1263.859 1118.75 Q1262.344 1118.75 1261.141 1118.125 Q1260.156 1117.625 1259.469 1116.555 Q1258.781 1115.484 1258.781 1114.203 L1258.781 1113.047 Q1258.781 1111.719 1259.398 1110.57 Q1260.016 1109.422 1261.109 1108.805 Q1262.203 1108.188 1263.438 1108.188 Q1264.172 1108.188 1264.82 1108.352 Q1265.469 1108.516 1266.016 1108.875 Z" style="fill:black;" />
+      <text x="1283.75" y="1118.729" textLength="145" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">MisionRecuparAmuleto</text>
+      <line x1="1174" y1="1129" x2="1506" y2="1129" stroke-width="0.5" style="stroke:#181818;" />
+      <line x1="1174" y1="1137" x2="1506" y2="1137" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="1184" cy="1151.305" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1193" y="1155.533" textLength="308" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">misionRecuparAmuleto(): MisionRecuparAmuleto</text>
+      <ellipse cx="1184" cy="1168.914" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1193" y="1173.143" textLength="102" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">completar():void</text>
+      <ellipse cx="1184" cy="1186.523" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="1193" y="1190.752" textLength="296" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">aplicarRecompensa(personaje Personaje):void</text>
+    </g>
+    <g id="elem_Personaje">
+      <rect x="2567" y="540" width="568" height="364.9688" rx="2.5" ry="2.5" id="Personaje" stroke-width="0.5" codeLine="144" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="2814.75" cy="556" rx="11" ry="11" stroke-width="1" style="fill:#A9DCDF;stroke:#181818;" />
+      <path d="M2816.938 557.7656 L2812.797 557.7656 L2812.375 558.7969 L2812.797 558.7969 Q2813.406 558.7969 2813.672 559.0313 Q2813.938 559.2656 2813.938 559.6563 Q2813.938 560.0313 2813.672 560.2656 Q2813.406 560.5 2812.797 560.5 L2810.5 560.5 Q2809.891 560.5 2809.633 560.2656 Q2809.375 560.0313 2809.375 559.6406 Q2809.375 559.2656 2809.648 559.0234 Q2809.922 558.7813 2810.547 558.7969 L2813.219 552.1406 L2812.109 552.1406 Q2811.5 552.1406 2811.234 551.9063 Q2810.969 551.6719 2810.969 551.2813 Q2810.969 550.9063 2811.234 550.6719 Q2811.5 550.4375 2812.109 550.4375 L2815.781 550.4375 L2819.172 558.7969 Q2819.766 558.7969 2819.953 558.9375 Q2820.344 559.2031 2820.344 559.6563 Q2820.344 560.0313 2820.086 560.2656 Q2819.828 560.5 2819.219 560.5 L2816.922 560.5 Q2816.313 560.5 2816.047 560.2656 Q2815.781 560.0313 2815.781 559.6406 Q2815.781 559.2656 2816.047 559.0313 Q2816.313 558.7969 2816.922 558.7969 L2817.344 558.7969 L2816.938 557.7656 Z M2816.219 556.0625 L2814.859 552.6875 L2813.484 556.0625 L2816.219 556.0625 Z" style="fill:black;" />
+      <text x="2835.25" y="561.7285" textLength="64" lengthAdjust="spacing" font-family="sans-serif" font-size="14" font-style="italic" style="fill:black;">Personaje</text>
+      <line x1="2568" y1="572" x2="3134" y2="572" stroke-width="0.5" style="stroke:#181818;" />
+      <polygon points="2578,581.3047 2582,585.3047 2578,589.3047 2574,585.3047" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="2587" y="590.5332" textLength="93" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nombre: String</text>
+      <polygon points="2578,598.9141 2582,602.9141 2578,606.9141 2574,602.9141" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="2587" y="608.1426" textLength="90" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">puntosVida:int</text>
+      <polygon points="2578,616.5234 2582,620.5234 2578,624.5234 2574,620.5234" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="2587" y="625.752" textLength="101" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nivelAtaqueL:int</text>
+      <polygon points="2578,634.1328 2582,638.1328 2578,642.1328 2574,638.1328" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="2587" y="643.3613" textLength="101" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">nivelDefensa:int</text>
+      <polygon points="2578,651.7422 2582,655.7422 2578,659.7422 2574,655.7422" stroke-width="1" style="fill:none;stroke:#B38D22;" />
+      <text x="2587" y="660.9707" textLength="95" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">experiencia: int</text>
+      <line x1="2568" y1="668.0469" x2="3134" y2="668.0469" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="2578" cy="682.3516" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="686.5801" textLength="542" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">personaje(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Personaje</text>
+      <ellipse cx="2578" cy="699.9609" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="704.1895" textLength="124" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getNombre(): String</text>
+      <ellipse cx="2578" cy="717.5703" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="721.7988" textLength="143" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getPuntosVida():String</text>
+      <ellipse cx="2578" cy="735.1797" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="739.4082" textLength="124" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getNivelAtaque():int</text>
+      <ellipse cx="2578" cy="752.7891" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="757.0176" textLength="132" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getNivelDefensa():int</text>
+      <ellipse cx="2578" cy="770.3984" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="774.627" textLength="126" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">getExperiencia(): int</text>
+      <ellipse cx="2578" cy="788.0078" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="792.2363" textLength="154" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">ganarExperiencia(): void</text>
+      <ellipse cx="2578" cy="805.6172" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="809.8457" textLength="121" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">recibirGolpe(): void</text>
+      <ellipse cx="2578" cy="823.2266" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="827.4551" textLength="186" lengthAdjust="spacing" font-family="sans-serif" font-size="14" font-style="italic" style="fill:black;">atacar(criatura Criatura): void</text>
+      <ellipse cx="2578" cy="840.8359" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="845.0645" textLength="88" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mejorar():void</text>
+      <ellipse cx="2578" cy="858.4453" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="862.6738" textLength="225" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">setPuntosVida(puntosVida int): void</text>
+      <ellipse cx="2578" cy="876.0547" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="880.2832" textLength="162" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mejorarAtaque(): boolean</text>
+      <ellipse cx="2578" cy="893.6641" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2587" y="897.8926" textLength="170" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mejorarDefensa(): boolean</text>
+    </g>
+    <g id="elem_Arquero">
+      <rect x="1997" y="1079.5" width="542" height="136.0469" rx="2.5" ry="2.5" id="Arquero" stroke-width="0.5" codeLine="166" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="2238.25" cy="1095.5" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M2241.016 1091.375 Q2241.172 1091.156 2241.359 1091.047 Q2241.547 1090.938 2241.766 1090.938 Q2242.141 1090.938 2242.375 1091.195 Q2242.609 1091.453 2242.609 1092.063 L2242.609 1093.516 Q2242.609 1094.125 2242.375 1094.391 Q2242.141 1094.656 2241.766 1094.656 Q2241.422 1094.656 2241.219 1094.453 Q2241.016 1094.266 2240.906 1093.75 Q2240.859 1093.391 2240.672 1093.203 Q2240.344 1092.828 2239.734 1092.609 Q2239.125 1092.391 2238.5 1092.391 Q2237.734 1092.391 2237.102 1092.719 Q2236.469 1093.047 2235.977 1093.797 Q2235.484 1094.547 2235.484 1095.578 L2235.484 1096.672 Q2235.484 1097.906 2236.375 1098.727 Q2237.266 1099.547 2238.859 1099.547 Q2239.797 1099.547 2240.453 1099.297 Q2240.844 1099.141 2241.266 1098.703 Q2241.531 1098.438 2241.68 1098.359 Q2241.828 1098.281 2242.031 1098.281 Q2242.359 1098.281 2242.617 1098.539 Q2242.875 1098.797 2242.875 1099.141 Q2242.875 1099.484 2242.531 1099.891 Q2242.031 1100.469 2241.234 1100.797 Q2240.156 1101.25 2238.859 1101.25 Q2237.344 1101.25 2236.141 1100.625 Q2235.156 1100.125 2234.469 1099.055 Q2233.781 1097.984 2233.781 1096.703 L2233.781 1095.547 Q2233.781 1094.219 2234.398 1093.07 Q2235.016 1091.922 2236.109 1091.305 Q2237.203 1090.688 2238.438 1090.688 Q2239.172 1090.688 2239.82 1090.852 Q2240.469 1091.016 2241.016 1091.375 Z" style="fill:black;" />
+      <text x="2258.75" y="1101.229" textLength="51" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Arquero</text>
+      <line x1="1998" y1="1111.5" x2="2538" y2="1111.5" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="2005" y="1122.805" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="2017" y="1130.033" textLength="75" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">punteria: int</text>
+      <rect x="2005" y="1140.414" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="2017" y="1147.643" textLength="68" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">agilidad:int</text>
+      <line x1="1998" y1="1154.719" x2="2538" y2="1154.719" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="2008" cy="1169.023" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2017" y="1173.252" textLength="516" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">arquero(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Arquero</text>
+      <ellipse cx="2008" cy="1186.633" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2017" y="1190.861" textLength="187" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">atacar(criatura Criatura): void</text>
+      <ellipse cx="2008" cy="1204.242" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2017" y="1208.471" textLength="175" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">recibirGolpe(danio int): void</text>
+    </g>
+    <g id="elem_Guerrero">
+      <rect x="2574" y="1088.5" width="554" height="118.4375" rx="2.5" ry="2.5" id="Guerrero" stroke-width="0.5" codeLine="173" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="2817.75" cy="1104.5" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M2820.516 1100.375 Q2820.672 1100.156 2820.859 1100.047 Q2821.047 1099.938 2821.266 1099.938 Q2821.641 1099.938 2821.875 1100.195 Q2822.109 1100.453 2822.109 1101.063 L2822.109 1102.516 Q2822.109 1103.125 2821.875 1103.391 Q2821.641 1103.656 2821.266 1103.656 Q2820.922 1103.656 2820.719 1103.453 Q2820.516 1103.266 2820.406 1102.75 Q2820.359 1102.391 2820.172 1102.203 Q2819.844 1101.828 2819.234 1101.609 Q2818.625 1101.391 2818 1101.391 Q2817.234 1101.391 2816.602 1101.719 Q2815.969 1102.047 2815.477 1102.797 Q2814.984 1103.547 2814.984 1104.578 L2814.984 1105.672 Q2814.984 1106.906 2815.875 1107.727 Q2816.766 1108.547 2818.359 1108.547 Q2819.297 1108.547 2819.953 1108.297 Q2820.344 1108.141 2820.766 1107.703 Q2821.031 1107.438 2821.18 1107.359 Q2821.328 1107.281 2821.531 1107.281 Q2821.859 1107.281 2822.117 1107.539 Q2822.375 1107.797 2822.375 1108.141 Q2822.375 1108.484 2822.031 1108.891 Q2821.531 1109.469 2820.734 1109.797 Q2819.656 1110.25 2818.359 1110.25 Q2816.844 1110.25 2815.641 1109.625 Q2814.656 1109.125 2813.969 1108.055 Q2813.281 1106.984 2813.281 1105.703 L2813.281 1104.547 Q2813.281 1103.219 2813.898 1102.07 Q2814.516 1100.922 2815.609 1100.305 Q2816.703 1099.688 2817.938 1099.688 Q2818.672 1099.688 2819.32 1099.852 Q2819.969 1100.016 2820.516 1100.375 Z" style="fill:black;" />
+      <text x="2838.25" y="1110.229" textLength="58" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Guerrero</text>
+      <line x1="2575" y1="1120.5" x2="3127" y2="1120.5" stroke-width="0.5" style="stroke:#181818;" />
+      <rect x="2582" y="1131.805" width="6" height="6" stroke-width="1" style="fill:none;stroke:#C82930;" />
+      <text x="2594" y="1139.033" textLength="131" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">contadorAtaques: int</text>
+      <line x1="2575" y1="1146.109" x2="3127" y2="1146.109" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="2585" cy="1160.414" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2594" y="1164.643" textLength="528" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">guerrero(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Guerrero</text>
+      <ellipse cx="2585" cy="1178.023" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2594" y="1182.252" textLength="187" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">atacar(criatura Criatura): void</text>
+      <ellipse cx="2585" cy="1195.633" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="2594" y="1199.861" textLength="205" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">reiniciarContadorAtaques(): void</text>
+    </g>
+    <g id="elem_Mago">
+      <rect x="3163.5" y="1097" width="507" height="100.8281" rx="2.5" ry="2.5" id="Mago" stroke-width="0.5" codeLine="179" style="fill:#F1F1F1;stroke:#181818;" />
+      <ellipse cx="3395.25" cy="1113" rx="11" ry="11" stroke-width="1" style="fill:#ADD1B2;stroke:#181818;" />
+      <path d="M3398.016 1108.875 Q3398.172 1108.656 3398.359 1108.547 Q3398.547 1108.438 3398.766 1108.438 Q3399.141 1108.438 3399.375 1108.695 Q3399.609 1108.953 3399.609 1109.563 L3399.609 1111.016 Q3399.609 1111.625 3399.375 1111.891 Q3399.141 1112.156 3398.766 1112.156 Q3398.422 1112.156 3398.219 1111.953 Q3398.016 1111.766 3397.906 1111.25 Q3397.859 1110.891 3397.672 1110.703 Q3397.344 1110.328 3396.734 1110.109 Q3396.125 1109.891 3395.5 1109.891 Q3394.734 1109.891 3394.102 1110.219 Q3393.469 1110.547 3392.977 1111.297 Q3392.484 1112.047 3392.484 1113.078 L3392.484 1114.172 Q3392.484 1115.406 3393.375 1116.227 Q3394.266 1117.047 3395.859 1117.047 Q3396.797 1117.047 3397.453 1116.797 Q3397.844 1116.641 3398.266 1116.203 Q3398.531 1115.938 3398.68 1115.859 Q3398.828 1115.781 3399.031 1115.781 Q3399.359 1115.781 3399.617 1116.039 Q3399.875 1116.297 3399.875 1116.641 Q3399.875 1116.984 3399.531 1117.391 Q3399.031 1117.969 3398.234 1118.297 Q3397.156 1118.75 3395.859 1118.75 Q3394.344 1118.75 3393.141 1118.125 Q3392.156 1117.625 3391.469 1116.555 Q3390.781 1115.484 3390.781 1114.203 L3390.781 1113.047 Q3390.781 1111.719 3391.398 1110.57 Q3392.016 1109.422 3393.109 1108.805 Q3394.203 1108.188 3395.438 1108.188 Q3396.172 1108.188 3396.82 1108.352 Q3397.469 1108.516 3398.016 1108.875 Z" style="fill:black;" />
+      <text x="3415.75" y="1118.729" textLength="35" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">Mago</text>
+      <line x1="3164.5" y1="1129" x2="3669.5" y2="1129" stroke-width="0.5" style="stroke:#181818;" />
+      <line x1="3164.5" y1="1137" x2="3669.5" y2="1137" stroke-width="0.5" style="stroke:#181818;" />
+      <ellipse cx="3174.5" cy="1151.305" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="3183.5" y="1155.533" textLength="481" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">mago(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int):Mago</text>
+      <ellipse cx="3174.5" cy="1168.914" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="3183.5" y="1173.143" textLength="187" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">atacar(criatura Criatura): void</text>
+      <ellipse cx="3174.5" cy="1186.523" rx="3" ry="3" stroke-width="1" style="fill:#84BE84;stroke:#038048;" />
+      <text x="3183.5" y="1190.752" textLength="88" lengthAdjust="spacing" font-family="sans-serif" font-size="14" style="fill:black;">curarse():void</text>
+    </g>
+    <g id="link_Criatura_Dragon">
+      <path d="M1923.652 1622.773 C1854.102 1649.673 1800.11 1670.56 1744.73 1691.99" id="Criatura-backto-Dragon" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="1940.44,1616.28 1921.488,1617.177 1925.816,1628.369 1940.44,1616.28" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Criatura_Espectro">
+      <path d="M2210 1650.25 C2210 1671.62 2210 1674.47 2210 1691.58" id="Criatura-backto-Espectro" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="2210,1632.25 2204,1650.25 2216,1650.25 2210,1632.25" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Criatura_Troll">
+      <path d="M2496.382 1627.02 C2560.102 1652.62 2607.47 1671.64 2658.15 1691.99" id="Criatura-backto-Troll" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="2479.68,1620.31 2494.146,1632.588 2498.619,1621.453 2479.68,1620.31" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Mision_MisionDerrotarDragon">
+      <path d="M1394.936 846.2254 C1491.716 927.6154 1605.42 1023.23 1682.91 1088.39" id="Mision-backto-MisionDerrotarDragon" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="1381.16,834.64 1391.074,850.8174 1398.798,841.6334 1381.16,834.64" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Mision_MisionEliminarEspectros">
+      <path d="M993.1202 842.8253 C920.6202 880.4153 858.4 916.89 791 965 C747.76 995.87 704.25 1035.83 669.52 1070.39" id="Mision-backto-MisionEliminarEspectros" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="1009.1,834.54 990.3584,837.4987 995.8819,848.1519 1009.1,834.54" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Mision_MisionLimpiaAldeaTroll">
+      <path d="M1166.644 849.7151 C1118.174 924.0051 1065.5 1004.73 1022.63 1070.43" id="Mision-backto-MisionLimpiaAldeaTroll" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="1176.48,834.64 1161.619,846.4366 1171.669,852.9937 1176.48,834.64" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Mision_MisionRecuparAmuleto">
+      <path d="M1276.696 852.2373 C1294.996 937.2973 1315.57 1032.96 1329.34 1096.95" id="Mision-backto-MisionRecuparAmuleto" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="1272.91,834.64 1270.83,853.4993 1282.562,850.9754 1272.91,834.64" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Personaje_Arquero">
+      <path d="M2586.23 915.61 C2500.99 977.45 2425.51 1032.22 2360.61 1079.31" id="Personaje-backto-Arquero" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="2600.8,905.04 2582.707,910.7535 2589.754,920.4666 2600.8,905.04" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Personaje_Guerrero">
+      <path d="M2851 923.04 C2851 988.92 2851 1040.75 2851 1088.28" id="Personaje-backto-Guerrero" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="2851,905.04 2845,923.04 2857,923.04 2851,905.04" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Personaje_Mago">
+      <path d="M3108.329 915.8149 C3202.029 985.8349 3287.29 1049.56 3350.74 1096.98" id="Personaje-backto-Mago" stroke-width="1" style="fill:none;stroke:#181818;" />
+      <polygon points="3093.91,905.04 3104.737,920.6211 3111.92,911.0086 3093.91,905.04" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Mapa_Ubicacion">
+      <path d="M582.749 490.7568 C508.789 617.1368 393.12 814.78 305.36 964.76" id="Mapa-backto-Ubicacion" stroke-width="1" codeLine="185" style="fill:none;stroke:#181818;" />
+      <polygon points="588.81,480.4 582.3272,483.5581 582.749,490.7568 589.2318,487.5988 588.81,480.4" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+    <g id="link_Pelea_Personaje">
+      <path d="M3194.639 443.6752 C3157.699 473.5452 3121.57 502.75 3075.71 539.82" id="Pelea-backto-Personaje" stroke-width="1" codeLine="186" style="fill:none;stroke:#181818;" />
+      <polygon points="3203.97,436.13 3196.789,436.7922 3194.639,443.6752 3201.82,443.013 3203.97,436.13" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+    <g id="link_Ubicacion_Criatura">
+      <path d="M398.441 1327.298 C404.131 1330.239 399.21 1327.48 405 1330 C673.78 1447.08 1506.36 1489.07 1940.48 1503.26" id="Ubicacion-backto-Criatura" stroke-width="1" codeLine="187" style="fill:none;stroke:#181818;" />
+      <polygon points="387.78,1321.79 391.2743,1328.098 398.441,1327.298 394.9467,1320.991 387.78,1321.79" stroke-width="1" style="fill:none;stroke:#181818;" />
+    </g>
+    <g id="link_Pelea_Criatura">
+      <path d="M3367.157 444.5327 C3538.797 613.2727 3933.26 1053.06 3688 1330 C3609.38 1418.78 2884.08 1472.77 2479.57 1496.23" id="Pelea-backto-Criatura" stroke-width="1" codeLine="188" style="fill:none;stroke:#181818;" />
+      <polygon points="3358.6,436.12 3360.074,443.1788 3367.157,444.5327 3365.683,437.4739 3358.6,436.12" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+    <g id="link_Juego_Mapa">
+      <path d="M779.7063 205.5972 C764.6663 224.9072 756.05 235.97 740.57 255.84" id="Juego-backto-Mapa" stroke-width="1" codeLine="189" style="fill:none;stroke:#181818;" />
+      <polygon points="787.08,196.13 780.2374,198.4057 779.7063,205.5972 786.5489,203.3215 787.08,196.13" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+    <g id="link_Juego_Jugador">
+      <path d="M1002.983 199.7181 C1037.083 222.9081 1064.07 241.26 1098.96 264.98" id="Juego-backto-Jugador" stroke-width="1" codeLine="190" style="fill:none;stroke:#181818;" />
+      <polygon points="993.06,192.97 995.7721,199.6517 1002.983,199.7181 1000.271,193.0364 993.06,192.97" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+    <g id="link_Ubicacion_SistemaDeUbicaciones">
+      <path d="M199 1342.04 C199 1394.49 199 1434.85 199 1469.45" id="Ubicacion-backto-SistemaDeUbicaciones" stroke-width="1" codeLine="191" style="fill:none;stroke:#181818;" />
+      <polygon points="199,1330.04 195,1336.04 199,1342.04 203,1336.04 199,1330.04" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+    <g id="link_Jugador_Mision">
+      <path d="M1249 483.43 C1249 527.03 1249 565.99 1249 610.49" id="Jugador-backto-Mision" stroke-width="1" codeLine="192" style="fill:none;stroke:#181818;" />
+      <polygon points="1249,471.43 1245,477.43 1249,483.43 1253,477.43 1249,471.43" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+    <g id="link_Jugador_Personaje">
+      <path d="M1443.32 411.7586 C1720.66 472.7786 2238.69 586.77 2566.72 658.95" id="Jugador-backto-Personaje" stroke-width="1" codeLine="193" style="fill:none;stroke:#181818;" />
+      <polygon points="1431.6,409.18 1436.6,414.3758 1443.32,411.7586 1438.319,406.5627 1431.6,409.18" stroke-width="1" style="fill:#181818;stroke:#181818;" />
+    </g>
+  </g>
+  <title>nuevo2</title>
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:puv="https://github.com/Fruchtzwerg94/PlantUmlViewer">
+      <puv:product>PlantUML Viewer by Philipp Schmidt</puv:product>
+      <puv:version>1.7.0.11</puv:version>
+      <puv:plantumlviewer>1.2024.3</puv:plantumlviewer>
+      <rdf:Description>
+        <dc:creator>LULI\lam10</dc:creator>
+        <dc:date>2024-10-30T17:56:06.7767160Z</dc:date>
+        <dc:source>nuevo2</dc:source>
+        <dc:title>nuevo2</dc:title>
+        <dc:format>image/svg</dc:format>
+        <puv:diagram>1</puv:diagram>
+        <puv:page>1</puv:page>
+      </rdf:Description>
+    </rdf:RDF>
+  </metadata>
+  <desc>@startuml
+
+class Juego {
+-jugador: Jugador 
+-tesoroEncontrado: boolean
++Juego(jugador Jugador)
++verMapa():Mapa
++visitarUbicacion(ubicacion Ubicacion)
++iniciarPelea(ubicacion Ubicacion):void
++verificarVictoria(criatura Criatura):void
++finDelJuego(): void
+}
+
+class Jugador{
+-nombre: String
+-personaje: personaje
+-mision: list&lt;Mision&gt;
++jugador(nombre String, tipoPersonaje String): jugador
++getPersonaje(): Personaje
++mostrarInformacionPersonaje(): void
+-inicializarMisiones(): void
++completarMision(nombreMision String): void
++reclamarRecompensaEnUbicacionNeutral(): void
+}
+
+
+class Pelea {
+-personaje: Personaje
+-criatura: Criatura
++pelea(personaje Personaje, criatura Criatura): Pelea
++iniciar(): void
++ganoPersonaje(): boolean
+}
+
+abstract Criatura {
+#nombre: String
+#puntosVida: int
+#nivelAtaque: int
+#nivelDefensa: int
+-Criatura(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int) Criatura
++getNombre(): String
++getPuntosVida(): int
++getNivelAtaque(): int
++recibirGolpe(danio int): void
++atacar(personaje Personaje):void
++estaVivo(): void
+}
+
+class Dragon extends Criatura{
++dragon(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Dragon
++atacar(personaje Personaje): void
+}
+class Espectro extends Criatura{
++espctro(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Espectro
++atacar(personaje Personaje): void
+}
+class Troll extends Criatura{
++troll(nombre String, puntosVida int, nivelAtaque int,nivelDefensa int): Troll
++atacar(personaje Personaje): void
+}
+
+class Mapa{
+-ubicacion: int[] 
+-fila: int
+-columna: int
++mapa(): Mapa
++inicializarMapa(): void
++establecerUbicacionConTesoro(fila int, columna int): void
++establecerUbicacionConCriatura(fila int, columna int): void
++establecerUbicacionNeutral(fila int, columna int): void
++obtenerUbicacion(fila int, columna int): Ubicacion
++mostrarMapa(): void
+}
+
+class Ubicacion{
+-nombre: String
+-criatura: Criatura
+-contieneTesoro: boolean
+-esNeutral: boolean
+-recompensaReclamada:boolean
++ubicacion(nombre String, esNeutral boolean): Ubicacion
++setCriatura(criatura Criatura): void
++tieneCriatura(): boolean
++getCriatura(): Criatura
++tieneTesoro(): boolean
++setTesoro(contieneTesoro boolean): void
++mostrarTesoroSiGanaste():void
++esNeutral():boolean
++descansar(personaje Personaje): void
++reclamarRecompensa(personaje Personaje): void
++canjearExperiencia(personaje Personaje): void
++reclamarRecompensaMisiones(jugador Jugador): void
++toString():void
+}
+
+class SistemaDeUbicaciones{
+-{static} Map&lt;String, Ubicacion&gt; ubicaciones = new HashMap&lt;&gt;()
++{static}getubicacion(nombre String):Ubicacion
+}
+
+abstract Mision {
+#nombre: String
+#descripcion: String
+#recompensaDescripcion: String
+#completada: boolean
++mision(nombre String, descripcion String, recompensaDescripcion String): Mision
++{abstract}completar()
++{abstract}aplicarRecompensa()
++getNombre(): String
++getDescripcion():String
++estaCompletada(): boolean
+}
+
+class MisionDerrotarDragon extends Mision{
+-dragon: Dragon
++misionDerrotarDragon(dragon Dragon): MisionDerrotarDragon
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+class MisionEliminarEspectros extends Mision{
+-espectrosEliminados: int
+-espectrosNecesarios: int
++misionEliminarEspectros(): MisionEliminarEspectros
++incrementarEspectrosEliminados(): void
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+class MisionLimpiaAldeaTroll extends Mision{
+-trollsEliminados(): int
+-trollsNecesarios():int
++misionLimpiaAldeaTroll():MisionLimpiaAldeaTroll
++incrementarTrollsEliminados(): void
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+class MisionRecuparAmuleto extends Mision{
++misionRecuparAmuleto(): MisionRecuparAmuleto
++completar():void
++aplicarRecompensa(personaje Personaje):void
+}
+
+abstract Personaje{
+#nombre: String
+#puntosVida:int
+#nivelAtaqueL:int
+#nivelDefensa:int
+#experiencia: int
++personaje(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Personaje
++getNombre(): String
++getPuntosVida():String
++getNivelAtaque():int
++getNivelDefensa():int
++getExperiencia(): int
++ganarExperiencia(): void
++recibirGolpe(): void
++{abstract}atacar(criatura Criatura): void
++mejorar():void
++setPuntosVida(puntosVida int): void
++mejorarAtaque(): boolean
++mejorarDefensa(): boolean
+
+}
+
+class Arquero extends Personaje{
+-punteria: int
+-agilidad:int
++arquero(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Arquero
++atacar(criatura Criatura): void
++recibirGolpe(danio int): void
+}
+class Guerrero extends Personaje{
+-contadorAtaques: int
++guerrero(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Guerrero
++atacar(criatura Criatura): void
++reiniciarContadorAtaques(): void
+}
+class Mago extends Personaje {
++mago(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int):Mago
++atacar(criatura Criatura): void
++curarse():void
+}
+
+Mapa *--- Ubicacion
+Pelea *-- Personaje
+Ubicacion o-- Criatura
+Pelea *-- Criatura
+Juego *-- Mapa
+Juego *-- Jugador
+Ubicacion *-- SistemaDeUbicaciones
+Jugador *-- Mision
+Jugador *-- Personaje
+
+@enduml
+
+</desc>
+</svg>

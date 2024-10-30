@@ -1,15 +1,22 @@
 package Juego;
 
 import Mapa.Ubicacion;
+import Mapa.Mapa;
 import Criatura.Criatura;
 
 public class Juego {
     private Jugador jugador;
+    private Mapa mapa;
     private boolean tesoroEncontrado;
 
     public Juego(Jugador jugador) {
         this.jugador = jugador;
         this.tesoroEncontrado = false; // Inicialmente, el tesoro no ha sido encontrado
+        this.mapa= new Mapa();
+    }
+    
+    public void verMapa() {
+        mapa.mostrarMapa(); // Llama al método mostrarMapa() para imprimir el mapa
     }
     
     public void visitarUbicacion(Ubicacion ubicacion) {
