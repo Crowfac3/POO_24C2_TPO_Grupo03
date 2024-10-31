@@ -1,8 +1,7 @@
 package vista;
 
 import controlador.ControladorJuego;
-import modelo.personaje.Personaje;
-
+import vista.ObjectView;
 
 public class PantallaEstadoPersonaje {
     private ControladorJuego controlador;
@@ -12,12 +11,13 @@ public class PantallaEstadoPersonaje {
     }
 
     public void mostrar() {
-        Personaje personaje = controlador.getPersonaje();
+        ObjectView estadoPersonaje = controlador.obtenerEstadoPersonaje();  // La vista pide los datos al controlador
+        
+        // Mostrar los datos recibidos en el ObjectView
         System.out.println("Estado del Personaje:");
-        System.out.println("Nombre: " + personaje.getNombre());
-        System.out.println("Puntos de Vida: " + personaje.getPuntosVida());
-        System.out.println("Ataque: " + personaje.getNivelAtaque());
-        System.out.println("Defensa: " + personaje.getNivelDefensa());
-        System.out.println("Experiencia: " + personaje.getExperiencia());
+        System.out.println("Nombre: " + estadoPersonaje.get("Nombre"));
+        System.out.println("Puntos de Vida: " + estadoPersonaje.get("Puntos de Vida"));
+        System.out.println("Ataque: " + estadoPersonaje.get("Ataque"));
+        System.out.println("Defensa: " + estadoPersonaje.get("Defensa"));
     }
 }

@@ -4,6 +4,7 @@ import modelo.juego.Jugador;
 import modelo.mapa.Mapa;
 import modelo.mapa.Ubicacion;
 import modelo.personaje.Personaje;
+import vista.ObjectView;
 
 public class ControladorJuego {
     private Jugador jugador;
@@ -48,5 +49,19 @@ public class ControladorJuego {
     
     public void reclamarRecompensa(String nombreMision) {
     	jugador.reclamarRecompensaEnUbicacionNeutral();
+    }
+    
+    public ObjectView obtenerEstadoPersonaje() {
+        // Obtener el estado del personaje del modelo
+        Personaje personaje = jugador.getPersonaje();
+        
+        // Crear un ObjectView para enviar a la vista
+        ObjectView vistaPersonaje = new ObjectView();
+        vistaPersonaje.add("Nombre", personaje.getNombre());
+        vistaPersonaje.add("Puntos de Vida", personaje.getPuntosVida());
+        vistaPersonaje.add("Ataque", personaje.getNivelAtaque());
+        vistaPersonaje.add("Defensa", personaje.getNivelDefensa());
+
+        return vistaPersonaje;
     }
 }
