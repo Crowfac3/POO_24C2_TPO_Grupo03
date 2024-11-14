@@ -9,9 +9,10 @@ public class Main {
     public static void main(String[] args) {
         ControladorJuego controlador = new ControladorJuego();
 
-        // Inicializar las pantallas
+        // Inicializar la pantalla de inicio
         PantallaInicio pantallaInicio = new PantallaInicio(controlador);
-        PantallaEstadoPersonaje pantallaEstadoPersonaje = new PantallaEstadoPersonaje(controlador);
+        pantallaInicio.mostrar(); // Mostrar la pantalla de selección del personaje
+
         PantallaMapa pantallaMapa = new PantallaMapa(controlador);
         PantallaCombate pantallaCombate = new PantallaCombate(controlador);
         PantallaMisiones pantallaMisiones = new PantallaMisiones(controlador);
@@ -19,9 +20,6 @@ public class Main {
         PantallaFinJuego pantallaFinJuego = new PantallaFinJuego();
 
         Scanner scanner = new Scanner(System.in);
-
-        // 1. Mostrar pantalla de inicio
-        pantallaInicio.mostrar();
 
         boolean juegoActivo = true;
 
@@ -39,14 +37,20 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    pantallaEstadoPersonaje.mostrar();
+                    if (controlador.getPersonaje() != null) {
+                        // Crear la pantalla solo cuando el personaje ya esté inicializado
+                        PantallaEstadoPersonaje pantallaEstadoPersonaje = new PantallaEstadoPersonaje(controlador);
+                        pantallaEstadoPersonaje.setVisible(true); // Mostrar la ventana
+                    } else {
+                        System.out.println("Primero debes crear un personaje.");
+                    }
                     break;
                 case 2:
-                    pantallaMapa.mostrar();
+                    pantallaMapa.setVisible(true);
                     System.out.println("Elige coordenadas (fila y columna) para viajar:");
                     int fila = scanner.nextInt();
                     int columna = scanner.nextInt();
-                    pantallaMapa.viajar(fila, columna);
+                    controlador.visitarUbicacion(fila, columna);  // Mover la lógica al controlador
                     break;
                 case 3:
                     pantallaCombate.iniciarCombate();
@@ -56,7 +60,7 @@ public class Main {
                     System.out.println("¿Quieres reclamar una recompensa? (escribe el nombre de la misión o 'no')");
                     String nombreMision = scanner.next();
                     if (!nombreMision.equals("no")) {
-                        pantallaMisiones.reclamarRecompensa(nombreMision);  // Pasamos el nombre de la misión aquí
+                        pantallaMisiones.reclamarRecompensa(nombreMision);
                     }
                     break;
                 case 5:
@@ -77,3 +81,4 @@ public class Main {
         scanner.close();
     }
 }
+

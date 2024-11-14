@@ -9,25 +9,25 @@ import modelo.misiones.MisionDerrotarDragon;
 import modelo.misiones.MisionEliminarEspectros;
 import modelo.misiones.MisionLimpiaAldeaTrolls;
 import modelo.misiones.MisionRecuperarAmuleto;
-
+import modelo.personaje.Personaje;
 
 
 public class Jugador {
 	@SuppressWarnings("unused")
 	private String nombre;
-    private modelo.personaje.Personaje personaje;
+    private Personaje personaje;
     private List<Mision> misiones;
 
     public Jugador(String nombre, String tipoPersonaje) {
         switch (tipoPersonaje.toLowerCase()) {
             case "guerrero":
-                this.personaje = new modelo.personaje.Guerrero(nombre, 100, 20, 15);
+                this.personaje = new modelo.personaje.Guerrero(nombre, 100, 20, 15); // puntosVida, nivelAtaque, nivelDefensa
                 break;
             case "mago":
-                this.personaje = new modelo.personaje.Mago(nombre, 80, 25, 10);
+                this.personaje = new modelo.personaje.Mago(nombre, 80, 25, 10); // puntosVida, nivelAtaque, nivelDefensa
                 break;
             case "arquero":
-                this.personaje = new modelo.personaje.Arquero(nombre, 90, 18, 12, 85, 20);
+                this.personaje = new modelo.personaje.Arquero(nombre, 90, 18, 12, 85, 20); //puntosVida, nivelAtaque, nivelDefensa, punteria, agilidad
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de personaje no válido.");
@@ -46,7 +46,8 @@ public class Jugador {
     
     public void visitarUbicacion(Ubicacion ubicacion) {
         System.out.println("Visitando la ubicación: " + ubicacion.getNombre());
-        // Aquí puedes añadir la lógica que corresponde a la visita de una ubicación
+        // agregar logica para la visita a una ubicacion
+       
     }
     
     private void inicializarMisiones() {

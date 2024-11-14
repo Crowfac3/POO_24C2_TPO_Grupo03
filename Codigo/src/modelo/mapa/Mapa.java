@@ -37,6 +37,17 @@ public class Mapa {
         return mapa[fila][columna];
     }
 
+    public String obtenerRepresentacionTexto() {
+        StringBuilder mapaTexto = new StringBuilder("Mapa del Reino Encantado (10x10):\n");
+        for (int i = 0; i < FILAS; i++) {
+            for (int j = 0; j < COLUMNAS; j++) {
+                mapaTexto.append(mapa[i][j].getNombre()).append(" ");
+            }
+            mapaTexto.append("\n");
+        }
+        return mapaTexto.toString();
+    }
+    
     public void mostrarMapa() {
         System.out.println("Mapa del Reino Encantado (10x10):");
         for (int i = 0; i < FILAS; i++) {

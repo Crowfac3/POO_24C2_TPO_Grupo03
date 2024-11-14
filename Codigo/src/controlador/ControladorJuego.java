@@ -5,6 +5,7 @@ import modelo.mapa.Mapa;
 import modelo.mapa.Ubicacion;
 import modelo.personaje.Personaje;
 import vista.ObjectView;
+import vista.PantallaMapa;
 
 public class ControladorJuego {
     private Jugador jugador;
@@ -15,7 +16,11 @@ public class ControladorJuego {
     }
 
     public void crearPersonaje(String tipoPersonaje) {
-        jugador = new Jugador("Jugador", tipoPersonaje);
+        // Inicializa el jugador con el tipo de personaje seleccionado
+        this.jugador = new Jugador("Jugador", tipoPersonaje);
+        if (this.jugador.getPersonaje() == null) {
+            throw new IllegalStateException("No se pudo crear el personaje correctamente.");
+        }
     }
 
     public void mostrarMapa() {
@@ -23,9 +28,15 @@ public class ControladorJuego {
     }
 
     public void visitarUbicacion(int fila, int columna) {
-        Ubicacion ubicacion = mapa.obtenerUbicacion(fila, columna);
-        jugador.visitarUbicacion(ubicacion);
+        if (mapa != null && fila >= 0 && columna >= 0) {
+            Ubicacion ubicacion = mapa.obtenerUbicacion(fila, columna);
+            jugador.visitarUbicacion(ubicacion);
+            System.out.println("Viajaste a la ubicación [" + fila + ", " + columna + "].");
+        } else {
+            System.out.println("Coordenadas inválidas.");
+        }
     }
+
 
     public void iniciarCombate() {
         // Lógica para iniciar el combate
@@ -36,25 +47,42 @@ public class ControladorJuego {
     }
 
     public void mejorarAtaque() {
-        jugador.getPersonaje().mejorarAtaque();
+        if (jugador != null && jugador.getPersonaje() != null) {
+            jugador.getPersonaje().mejorarAtaque();
+        } else {
+            System.out.println("No se ha creado un personaje aún.");
+        }
     }
 
     public void mejorarDefensa() {
-        jugador.getPersonaje().mejorarDefensa();
+        if (jugador != null && jugador.getPersonaje() != null) {
+            jugador.getPersonaje().mejorarDefensa();
+        } else {
+            System.out.println("No se ha creado un personaje aún.");
+        }
     }
 
     public Personaje getPersonaje() {
-        return jugador.getPersonaje();
+        return jugador != null ? jugador.getPersonaje() : null;
     }
-    
+
     public void reclamarRecompensa(String nombreMision) {
-    	jugador.reclamarRecompensaEnUbicacionNeutral();
+        if (jugador != null) {
+            jugador.reclamarRecompensaEnUbicacionNeutral();
+        } else {
+            System.out.println("No se ha creado un jugador aún.");
+        }
     }
-    
+
     public ObjectView obtenerEstadoPersonaje() {
+        // Validación para asegurarse de que jugador y personaje no sean null
+        if (jugador == null || jugador.getPersonaje() == null) {
+            throw new IllegalStateException("El personaje no ha sido inicializado.");
+        }
+
         // Obtener el estado del personaje del modelo
         Personaje personaje = jugador.getPersonaje();
-        
+
         // Crear un ObjectView para enviar a la vista
         ObjectView vistaPersonaje = new ObjectView();
         vistaPersonaje.add("Nombre", personaje.getNombre());
@@ -64,4 +92,16 @@ public class ControladorJuego {
 
         return vistaPersonaje;
     }
+
+    public void abrirPantallaMapa() {
+        PantallaMapa pantallaMapa = new PantallaMapa(this);
+        pantallaMapa.setVisible(true);  // Esto ahora funcionará correctamente ya que PantallaMapa extiende JFrame
+    }
+    
+    public String obtenerRepresentacionMapa() {
+        return mapa.obtenerRepresentacionTexto();  // Utilizar el método del Mapa para obtener la representación como texto.
+    }
+
+
+    
 }
