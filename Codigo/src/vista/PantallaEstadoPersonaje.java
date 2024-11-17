@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import controlador.ControladorJuego;
+import modelo.objectViews.PersonajeView;
 
 public class PantallaEstadoPersonaje extends JFrame {
     /**
@@ -32,12 +33,12 @@ public class PantallaEstadoPersonaje extends JFrame {
             return;
         }
 
-        ObjectView estadoPersonaje = controlador.obtenerEstadoPersonaje();
+        PersonajeView estadoPersonaje = controlador.obtenerEstadoPersonaje();
 
-        JLabel labelNombre = new JLabel("Nombre: " + estadoPersonaje.get("Nombre"));
-        JLabel labelPuntosVida = new JLabel("Puntos de Vida: " + estadoPersonaje.get("Puntos de Vida"));
-        JLabel labelAtaque = new JLabel("Ataque: " + estadoPersonaje.get("Ataque"));
-        JLabel labelDefensa = new JLabel("Defensa: " + estadoPersonaje.get("Defensa"));
+        JLabel labelNombre = new JLabel("Nombre: " + estadoPersonaje.getNombre());
+        JLabel labelPuntosVida = new JLabel("Puntos de Vida: " + estadoPersonaje.getPuntosVida());
+        JLabel labelAtaque = new JLabel("Ataque: " + estadoPersonaje.getNivelAtaque());
+        JLabel labelDefensa = new JLabel("Defensa: " + estadoPersonaje.getNivelDefensa());
 
         panel.add(labelNombre);
         panel.add(labelPuntosVida);

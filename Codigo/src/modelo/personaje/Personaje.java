@@ -1,6 +1,7 @@
 package modelo.personaje;
 
 import modelo.criatura.Criatura;
+import modelo.objectViews.PersonajeView;
 
 public abstract class Personaje {
 	
@@ -101,6 +102,11 @@ public abstract class Personaje {
             System.out.println(nombre + " no tiene suficiente experiencia para mejorar la defensa.");
             return false;
         }
+    }
+    
+    
+    public PersonajeView toView() {
+        return new PersonajeView(nombre, puntosVida, nivelAtaque, nivelDefensa);
     }
 
 }

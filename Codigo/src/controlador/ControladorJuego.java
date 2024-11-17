@@ -3,6 +3,7 @@ package controlador;
 import modelo.juego.Jugador;
 import modelo.mapa.Mapa;
 import modelo.mapa.Ubicacion;
+import modelo.objectViews.PersonajeView;
 import modelo.personaje.Personaje;
 import vista.ObjectView;
 import vista.PantallaMapa;
@@ -74,23 +75,13 @@ public class ControladorJuego {
         }
     }
 
-    public ObjectView obtenerEstadoPersonaje() {
+    public PersonajeView obtenerEstadoPersonaje() {
         // Validación para asegurarse de que jugador y personaje no sean null
         if (jugador == null || jugador.getPersonaje() == null) {
             throw new IllegalStateException("El personaje no ha sido inicializado.");
         }
 
-        // Obtener el estado del personaje del modelo
-        Personaje personaje = jugador.getPersonaje();
-
-        // Crear un ObjectView para enviar a la vista
-        ObjectView vistaPersonaje = new ObjectView();
-        vistaPersonaje.add("Nombre", personaje.getNombre());
-        vistaPersonaje.add("Puntos de Vida", personaje.getPuntosVida());
-        vistaPersonaje.add("Ataque", personaje.getNivelAtaque());
-        vistaPersonaje.add("Defensa", personaje.getNivelDefensa());
-
-        return vistaPersonaje;
+        return jugador.getPersonaje().toView();
     }
 
     public void abrirPantallaMapa() {
