@@ -17,8 +17,11 @@ public class Jugador {
 	private String nombre;
     private Personaje personaje;
     private List<Mision> misiones;
+    
+    
 
     public Jugador(String nombre, String tipoPersonaje) {
+    	this.nombre = nombre;
         switch (tipoPersonaje.toLowerCase()) {
             case "guerrero":
                 this.personaje = new modelo.personaje.Guerrero(nombre, 100, 20, 15); // puntosVida, nivelAtaque, nivelDefensa

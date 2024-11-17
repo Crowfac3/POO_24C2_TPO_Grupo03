@@ -47,4 +47,14 @@ public class Pelea {
     public boolean ganoPersonaje() {
         return personaje.estaVivo();
     }
+    
+    public Criatura getCriatura() {
+        return criatura;
+    }
+    
+    public Personaje getPersonaje() {
+        return personaje;
+    }
+
+
 }

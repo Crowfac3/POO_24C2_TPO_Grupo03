@@ -8,11 +8,20 @@ public class Juego {
     private Jugador jugador;
     private Mapa mapa;
     private boolean tesoroEncontrado;
+    private Pelea peleaActual;
 
-    public Juego(Jugador jugador) {
-        this.jugador = jugador;
+    public Juego() {
+        this.jugador = null;
         this.tesoroEncontrado = false; // Inicialmente, el tesoro no ha sido encontrado
         this.mapa= new Mapa();
+    }
+    
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
+    
+    public Mapa getMapa() {
+        return mapa;
     }
     
     public void verMapa() {
@@ -38,19 +47,34 @@ public class Juego {
         }
     }
 
+ // Método para inicializar una pelea
     public void iniciarPelea(Ubicacion ubicacion) {
         Criatura criatura = ubicacion.getCriatura();
-        Pelea pelea = new Pelea(jugador.getPersonaje(), criatura);
-        pelea.iniciar();
-
-        if (pelea.ganoPersonaje()) {
-            System.out.println("Has derrotado a la criatura.");
-            // Eliminar la criatura de la ubicación para poder mostrar el tesoro
-            ubicacion.setCriatura(null);
-            ubicacion.mostrarTesoroSiGanaste();
-        } else {
-            finDelJuego();
+        if (criatura == null) {
+            System.out.println("No hay criatura para combatir en esta ubicación.");
+            return;
         }
+        peleaActual = new Pelea(jugador.getPersonaje(), criatura);
+    }
+    
+ // Ejecutar un turno de combate
+    public boolean ejecutarTurnoDeCombate() {
+        if (peleaActual == null) {
+            System.out.println("No hay pelea activa.");
+            return false;
+        }
+        peleaActual.iniciar(); // Delegar la lógica del combate
+        return true;
+    }
+
+    // Obtener la criatura actual (si existe)
+    public Criatura getCriaturaActual() {
+        return peleaActual != null ? peleaActual.getCriatura() : null;
+    }
+
+    // Obtener la pelea actual
+    public Pelea getPeleaActual() {
+        return peleaActual;
     }
 
     public void verificarVictoria(Criatura criatura) {
@@ -68,4 +92,18 @@ public class Juego {
             System.out.println("¡Victoria! El tesoro ha sido encontrado.");
         }
     }
+    
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
