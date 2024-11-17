@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorJuego;
 
+@SuppressWarnings("unused")
 public class PantallaFinJuego {
     public void mostrarFinDelJuego(boolean victoria) {
         if (victoria) {

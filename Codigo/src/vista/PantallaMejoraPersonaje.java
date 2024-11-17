@@ -11,7 +11,8 @@ public class PantallaMejoraPersonaje {
         this.controlador = controlador;
     }
 
-    public void mostrarOpcionesMejora() {
+    @SuppressWarnings("resource")
+	public void mostrarOpcionesMejora() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("¿Qué deseas mejorar?");
         System.out.println("1. Mejorar Ataque");

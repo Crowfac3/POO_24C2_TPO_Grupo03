@@ -7,7 +7,11 @@ import java.awt.event.ActionListener;
 import controlador.ControladorJuego;
 
 public class PantallaInicio extends JFrame {
-    private ControladorJuego controlador;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ControladorJuego controlador;
     
     public PantallaInicio(ControladorJuego controlador) {
         this.controlador = controlador;
