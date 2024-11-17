@@ -16,9 +16,9 @@ public class ControladorJuego {
         this.mapa = new Mapa();
     }
 
-    public void crearPersonaje(String tipoPersonaje) {
+    public void crearPersonaje(String nombre, String tipoPersonaje) {
         // Inicializa el jugador con el tipo de personaje seleccionado
-        this.jugador = new Jugador("Jugador", tipoPersonaje);
+        this.jugador = new Jugador(nombre, tipoPersonaje);
         if (this.jugador.getPersonaje() == null) {
             throw new IllegalStateException("No se pudo crear el personaje correctamente.");
         }
