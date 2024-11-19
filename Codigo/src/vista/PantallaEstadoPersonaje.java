@@ -15,6 +15,13 @@ public class PantallaEstadoPersonaje extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private ControladorJuego controlador;
+	
+	// Declarar las etiquetas como atributos de la clase
+    private JLabel labelNombre;
+    private JLabel labelPuntosVida;
+    private JLabel labelAtaque;
+    private JLabel labelDefensa;
+    private JLabel labelExperiencia;
 
     public PantallaEstadoPersonaje(ControladorJuego controlador) {
         this.controlador = controlador;
@@ -23,7 +30,7 @@ public class PantallaEstadoPersonaje extends JFrame {
 
     private void initUI() {
         setTitle("Estado del Personaje");
-        setSize(1000, 600);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
@@ -53,15 +60,18 @@ public class PantallaEstadoPersonaje extends JFrame {
 
         PersonajeView estadoPersonaje = controlador.obtenerEstadoPersonaje();
 
-        JLabel labelNombre = new JLabel("Nombre: " + estadoPersonaje.getNombre());
-        JLabel labelPuntosVida = new JLabel("Puntos de Vida: " + estadoPersonaje.getPuntosVida());
-        JLabel labelAtaque = new JLabel("Ataque: " + estadoPersonaje.getNivelAtaque());
-        JLabel labelDefensa = new JLabel("Defensa: " + estadoPersonaje.getNivelDefensa());
+        labelNombre = new JLabel("Nombre: " + estadoPersonaje.getNombre());
+        labelPuntosVida = new JLabel("Puntos de Vida: " + estadoPersonaje.getPuntosVida());
+        labelAtaque = new JLabel("Ataque: " + estadoPersonaje.getNivelAtaque());
+        labelDefensa = new JLabel("Defensa: " + estadoPersonaje.getNivelDefensa());
+        labelExperiencia = new JLabel("Experiencia: " + controlador.getPersonaje().getExperiencia()); 
+
         
         labelNombre.setFont(font);
         labelPuntosVida.setFont(font);
         labelAtaque.setFont(font);
         labelDefensa.setFont(font);
+        labelExperiencia.setFont(font);
 
         panelAtributos.add(labelNombre);
         panelAtributos.add(Box.createVerticalStrut(10));
@@ -70,14 +80,25 @@ public class PantallaEstadoPersonaje extends JFrame {
         panelAtributos.add(labelAtaque);
         panelAtributos.add(Box.createVerticalStrut(10));
         panelAtributos.add(labelDefensa);
+        panelAtributos.add(Box.createVerticalStrut(10));
+        panelAtributos.add(labelExperiencia);
 
         // Botón para misiones (debajo de los atributos)
         JButton botonMisiones = new JButton("Misiones");
         botonMisiones.addActionListener(e -> controlador.mostrarMisiones());
         panelAtributos.add(Box.createVerticalStrut(20));
         panelAtributos.add(botonMisiones);
+        
+        
+        // Botón para abrir el mapa
+        JButton botonMapa = new JButton("Mapa");
+        botonMapa.addActionListener(e -> abrirPantallaMapa());
+        panelAtributos.add(Box.createVerticalStrut(20));
+        panelAtributos.add(botonMapa);
+        
+        
 
-     // Panel de imagen del personaje (Centro)
+        // Panel de imagen del personaje (Centro)
         JPanel panelImagen = new JPanel();
         TitledBorder tituloImagen = BorderFactory.createTitledBorder("Imagen del Personaje");
         tituloImagen.setTitleFont(font); // Aplicar la fuente personalizada al título
@@ -92,76 +113,7 @@ public class PantallaEstadoPersonaje extends JFrame {
         JLabel labelImagen = new JLabel(iconoRedimensionado);
         panelImagen.add(labelImagen);
 
-        // Panel del mapa (Derecha)
-        JPanel panelMapa = new JPanel(new BorderLayout());
-        TitledBorder tituloMapa = BorderFactory.createTitledBorder("Mapa del Reino");
-        tituloMapa.setTitleFont(font);
-        panelMapa.setBorder(tituloMapa);
         
-        
-        JLabel labelUbicacionActual = new JLabel("Ubicación actual: [0, 0]");
-        labelUbicacionActual.setFont(font); // Aplicar fuente personalizada
-        labelUbicacionActual.setHorizontalAlignment(SwingConstants.CENTER);
-
-        
-        // Crear la matriz del mapa
-        JPanel matrizMapa = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.NONE; // Evita que los botones se expandan
-        gbc.insets = new Insets(2, 2, 2, 2); // Margen entre botones
-
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                JButton botonUbicacion = new JButton();
-                botonUbicacion.setPreferredSize(new Dimension(30, 30)); // Tamaño deseado del botón
-                botonUbicacion.setBackground(Color.LIGHT_GRAY); // Color inicial del botón
-                final int fila = i;
-                final int columna = j;
-
-                botonUbicacion.addActionListener(e -> {
-                    // Llamar al método visitarUbicacion del controlador
-                    controlador.visitarUbicacion(fila, columna);
-
-                    // Cambiar el color del botón al ser visitado
-                    botonUbicacion.setBackground(Color.GREEN); // Color para ubicaciones visitadas
-
-                    // Actualizar etiqueta de ubicación actual
-                    labelUbicacionActual.setText("Ubicación actual: [" + fila + ", " + columna + "]");
-
-                    // Verificar si hay criatura y preguntar si desea combatir
-                    if (controlador.hayCriaturaEnUbicacion(fila, columna)) {
-                        int respuesta = JOptionPane.showConfirmDialog(this, 
-                            "Hay una criatura en esta ubicación. ¿Deseas pelear?", 
-                            "Criatura encontrada", 
-                            JOptionPane.YES_NO_OPTION);
-
-                        if (respuesta == JOptionPane.YES_OPTION) {
-                            controlador.iniciarPelea(fila, columna);
-                        }
-                    }
-                });
-
-                // Posición en el grid
-                gbc.gridx = j;
-                gbc.gridy = i;
-                matrizMapa.add(botonUbicacion, gbc);
-            }
-        }
-        
-        
-        // Crear un panel contenedor para la matriz y la etiqueta
-        JPanel contenedorMapa = new JPanel(new BorderLayout());
-        contenedorMapa.add(matrizMapa, BorderLayout.CENTER); // Matriz en el centro
-        contenedorMapa.add(labelUbicacionActual, BorderLayout.SOUTH); // Etiqueta en la parte inferior
-        
-        
-        // Añadir el contenedor completo al panel del mapa
-        panelMapa.add(contenedorMapa, BorderLayout.CENTER);
-
-        
-        // Ajustar dimensiones generales del mapa
-        panelMapa.setPreferredSize(new Dimension(350, 350)); // Ajustar ancho y alto del panel completo
-
         
         // Ajustar el ancho del panel de atributos
         panelAtributos.setPreferredSize(new Dimension(300, 0)); // Ajusta el ancho deseado
@@ -169,12 +121,37 @@ public class PantallaEstadoPersonaje extends JFrame {
         // Agregar paneles al layout principal
         panelPrincipal.add(panelAtributos, BorderLayout.WEST);
         panelPrincipal.add(panelImagen, BorderLayout.CENTER);
-        panelPrincipal.add(panelMapa, BorderLayout.EAST);
-
+       
         add(panelPrincipal);
+        
+        
+    }
+    
+    
+    private void abrirPantallaMapa() {
+        controlador.abrirPantallaMapa();
+        dispose();
     }
 
     public void mostrar() {
         setVisible(true);
     }
+    
+    public void actualizar() {
+        // Recuperar el estado del personaje desde el controlador
+        PersonajeView estadoPersonaje = controlador.obtenerEstadoPersonaje();
+
+        // Actualizar las etiquetas con los nuevos valores
+        labelNombre.setText("Nombre: " + estadoPersonaje.getNombre());
+        labelPuntosVida.setText("Puntos de Vida: " + estadoPersonaje.getPuntosVida());
+        labelAtaque.setText("Ataque: " + estadoPersonaje.getNivelAtaque());
+        labelDefensa.setText("Defensa: " + estadoPersonaje.getNivelDefensa());
+        labelExperiencia.setText("Experiencia: " + controlador.getPersonaje().getExperiencia());
+
+
+        // Forzar la actualización visual
+        revalidate();
+        repaint();
+    }
+    
 }

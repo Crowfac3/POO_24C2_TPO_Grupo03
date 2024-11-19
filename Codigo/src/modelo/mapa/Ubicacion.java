@@ -11,6 +11,7 @@ public class Ubicacion {
     private Criatura criatura;
     private boolean contieneTesoro;
     private boolean esNeutral;
+    private boolean visitada;
     private boolean recompensaReclamada; // Indica si ya se reclamó la recompensa
 
     public Ubicacion(String nombre, boolean esNeutral) {
@@ -18,6 +19,7 @@ public class Ubicacion {
         this.esNeutral = esNeutral;
         this.contieneTesoro = false;
         this.recompensaReclamada = false; // Inicialmente, la recompensa no ha sido reclamada
+        this.visitada = false;
     }
 
     public void setCriatura(Criatura criatura) {
@@ -128,5 +130,13 @@ public class Ubicacion {
         } else {
             return "."; // Ubicación vacía
         }
+    }
+    
+    public boolean esVisitada() {
+        return visitada;
+    }
+
+    public void marcarComoVisitada() {
+        this.visitada = true;
     }
 }

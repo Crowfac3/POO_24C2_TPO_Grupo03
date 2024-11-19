@@ -1,8 +1,14 @@
 package modelo.juego;
 
 import modelo.criatura.Criatura;
+import modelo.criatura.*;
 import modelo.mapa.Mapa;
 import modelo.mapa.Ubicacion;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 
 public class Juego {
     private Jugador jugador;
@@ -28,6 +34,50 @@ public class Juego {
         mapa.mostrarMapa(); // Llama al método mostrarMapa() para imprimir el mapa
     }
     
+    public void configurarJuegoInicial() {
+        Random random = new Random();
+        Set<String> ubicacionesOcupadas = new HashSet<>(); // Para evitar duplicados
+
+        // Establecer ubicaciones neutrales
+        for (int i = 0; i < 3; i++) { // Tres ubicaciones neutrales
+            int[] coords = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+            mapa.establecerUbicacionNeutral(coords[0], coords[1]);
+        }
+
+        // Establecer ubicaciones con criaturas
+        int[] coordsTroll = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+        mapa.establecerUbicacionConCriatura(coordsTroll[0], coordsTroll[1], new Troll("Troll de la Cueva", 100, 15, 10));
+
+        int[] coordsDragon = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+        mapa.establecerUbicacionConCriatura(coordsDragon[0], coordsDragon[1], new Dragon("Dragón del Norte", 200, 30, 25));
+
+        // Establecer la ubicación del tesoro (protegido por el dragón)
+        mapa.establecerUbicacionConTesoro(coordsDragon[0], coordsDragon[1]); // Tesoro en la misma ubicación que el dragón
+        
+        
+        // Establecer ubicaciones con nuevas criaturas
+        int[] coordsEspectro = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+        mapa.establecerUbicacionConCriatura(coordsEspectro[0], coordsEspectro[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
+        
+        int[] coordsEspectro2 = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+        mapa.establecerUbicacionConCriatura(coordsEspectro2[0], coordsEspectro2[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
+
+        
+
+        System.out.println("Juego configurado con ubicaciones iniciales:");
+        mapa.mostrarMapa(); // Mostrar mapa en consola
+    }
+
+    // Método auxiliar para generar coordenadas únicas
+    private int[] generarCoordenadasUnicas(Random random, Set<String> ubicacionesOcupadas) {
+        int fila, columna;
+        do {
+            fila = random.nextInt(10); // Generar fila entre 0 y 9
+            columna = random.nextInt(10); // Generar columna entre 0 y 9
+        } while (!ubicacionesOcupadas.add(fila + "," + columna)); // Añadir coordenadas al set
+        return new int[]{fila, columna};
+    }
+    
     public void visitarUbicacion(Ubicacion ubicacion) {
         if (ubicacion.tieneCriatura()) {
             System.out.println("Te has encontrado con " + ubicacion.getCriatura().getNombre() + " en esta ubicación.");
@@ -47,7 +97,7 @@ public class Juego {
         }
     }
 
- // Método para inicializar una pelea
+    // Método para inicializar una pelea
     public void iniciarPelea(Ubicacion ubicacion) {
         Criatura criatura = ubicacion.getCriatura();
         if (criatura == null) {
@@ -55,6 +105,10 @@ public class Juego {
             return;
         }
         peleaActual = new Pelea(jugador.getPersonaje(), criatura);
+
+        if (criatura instanceof Dragon) {
+            verificarVictoria(criatura, ubicacion);
+        }
     }
     
  // Ejecutar un turno de combate
@@ -63,7 +117,7 @@ public class Juego {
             System.out.println("No hay pelea activa.");
             return false;
         }
-        peleaActual.iniciar(); // Delegar la lógica del combate
+        peleaActual.ejecutarTurno(); // Delegar la lógica del combate
         return true;
     }
 
@@ -77,11 +131,10 @@ public class Juego {
         return peleaActual;
     }
 
-    public void verificarVictoria(Criatura criatura) {
-        // Aquí puedes verificar si la criatura vencida es la que protege el tesoro
-        if (criatura.getNombre().equals("Dragón del Norte")) {
-            this.tesoroEncontrado = true;
-            System.out.println("¡Felicidades! Has encontrado el tesoro y ganado el juego.");
+    public void verificarVictoria(Criatura criatura, Ubicacion ubicacion) {
+        if (criatura instanceof Dragon && !tesoroEncontrado && ubicacion.tieneTesoro()) {
+            tesoroEncontrado = true;
+            System.out.println("¡Felicidades! Has derrotado al dragón y encontrado el tesoro.");
         }
     }
 
@@ -98,7 +151,9 @@ public class Juego {
     }
 
     
-    
+    public boolean esTesoroEncontrado() {
+        return tesoroEncontrado;
+    }
     
     
     

@@ -57,4 +57,9 @@ public class Mapa {
             System.out.println(); // Salto de línea para cada fila
         }
     }
+    
+    public boolean esUbicacionConTesoro(int fila, int columna) {
+        return mapa[fila][columna].tieneTesoro();
+    }
+    
 }

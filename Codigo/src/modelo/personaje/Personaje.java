@@ -51,13 +51,14 @@ public abstract class Personaje {
         if (nivelDefensa > 0) {
             nivelDefensa -= danio;
             if (nivelDefensa < 0) {
-                puntosVida += nivelDefensa; // Si la defensa queda en negativo, resta el exceso a la vida
+                puntosVida += nivelDefensa; // Si la defensa baja de 0, resta el exceso a los puntos de vida
                 nivelDefensa = 0;
             }
         } else {
             puntosVida -= danio;
         }
     }
+
 
     public abstract void atacar(Criatura criatura);
     

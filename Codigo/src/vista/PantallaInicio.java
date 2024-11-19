@@ -117,6 +117,7 @@ public class PantallaInicio extends JFrame {
     
     private void abrirPantallaEstadoPersonaje() {
         PantallaEstadoPersonaje pantallaEstado = new PantallaEstadoPersonaje(controlador);
+        controlador.setPantallaEstadoPersonaje(pantallaEstado);
         pantallaEstado.mostrar();
         dispose(); // Cierra la ventana actual (PantallaInicio)
     }

@@ -1,17 +1,26 @@
 package controlador;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import modelo.juego.Juego;
 import modelo.juego.Jugador;
 import modelo.mapa.Mapa;
 import modelo.mapa.Ubicacion;
+import modelo.objectViews.CriaturaView;
 import modelo.objectViews.PersonajeView;
 import modelo.personaje.Personaje;
+import vista.PantallaCombate;
+import vista.PantallaEstadoPersonaje;
 import vista.PantallaMapa;
 
 public class ControladorJuego {
 	private Juego juego;
     private Jugador jugador;
     private Mapa mapa;
+	private PantallaMapa pantallaMapa;
     
     public ControladorJuego(Juego juego) {
         this.juego = juego;
@@ -48,12 +57,13 @@ public class ControladorJuego {
 
 
     public void iniciarPelea(int fila, int columna) {
-        // Obtener la ubicación desde el mapa
-        Ubicacion ubicacion = juego.getMapa().obtenerUbicacion(fila, columna);
-        if (ubicacion != null) {
-            juego.iniciarPelea(ubicacion); // Llamar al método de Juego
+        juego.visitarUbicacion(juego.getMapa().obtenerUbicacion(fila, columna));
+
+        if (juego.getPeleaActual() != null) { // Si hay una pelea activa
+            PantallaCombate pantallaCombate = new PantallaCombate(this);
+            pantallaCombate.mostrar();
         } else {
-            System.out.println("Ubicación inválida: [" + fila + ", " + columna + "]");
+            JOptionPane.showMessageDialog(null, "No se puede iniciar la pelea. No hay criatura en esta ubicación.");
         }
     }
 
@@ -61,6 +71,7 @@ public class ControladorJuego {
         // Lógica para mostrar misiones del jugador
     }
     
+  
     public boolean hayCriaturaEnUbicacion(int fila, int columna) {
         Ubicacion ubicacion = juego.getMapa().obtenerUbicacion(fila, columna);
         return ubicacion != null && ubicacion.tieneCriatura();
@@ -102,10 +113,24 @@ public class ControladorJuego {
 
         return jugador.getPersonaje().toView();
     }
+    
+    public CriaturaView obtenerEstadoCriatura() {
+        if (juego.getPeleaActual() == null || juego.getPeleaActual().getCriatura() == null) {
+            throw new IllegalStateException("No hay criatura activa en el combate.");
+        }
+
+        return juego.getPeleaActual().getCriatura().toView();
+    }
+    
+    public void setPantallaMapa(PantallaMapa pantallaMapa) {
+        this.pantallaMapa = pantallaMapa;
+    }
 
     public void abrirPantallaMapa() {
-        PantallaMapa pantallaMapa = new PantallaMapa(this);
-        pantallaMapa.setVisible(true);  // Esto ahora funcionará correctamente ya que PantallaMapa extiende JFrame
+        if (pantallaMapa == null) {
+            pantallaMapa = new PantallaMapa(this);
+        }
+        pantallaMapa.mostrar();
     }
     
     public String obtenerRepresentacionMapa() {
@@ -117,21 +142,96 @@ public class ControladorJuego {
     //#####################
     
     public int getVidaPersonaje() {
-        return juego.getJugador().getPersonaje().getPuntosVida();
+        try {
+            return obtenerEstadoPersonaje().getPuntosVida();
+        } catch (IllegalStateException e) {
+            return 0; // Retorna 0 si no hay personaje
+        }
     }
+
     
     public int getVidaCriatura() {
-        return juego.getCriaturaActual().getPuntosVida();
+        try {
+            return obtenerEstadoCriatura().getVida();
+        } catch (IllegalStateException e) {
+            return 0; // Retorna 0 si no hay criatura
+        }
     }
+
     
-    public boolean ejecutarTurnoDeCombate() {
-        return juego.ejecutarTurnoDeCombate();
+    public void ejecutarTurnoDeCombate() {
+        if (juego.getPeleaActual() != null) {
+            juego.getPeleaActual().ejecutarTurno();
+        }
+    }
+
+    public List<String> obtenerEventosPelea() {
+        if (juego.getPeleaActual() != null) {
+            return juego.getPeleaActual().getEventosPelea();
+        }
+        return new ArrayList<>();
+    }
+
+    public void limpiarEventosPelea() {
+        if (juego.getPeleaActual() != null) {
+            juego.getPeleaActual().getEventosPelea().clear();
+        }
     }
     
     public boolean ganoPersonaje() {
         return juego.getPeleaActual().ganoPersonaje();
     }
+    
+    public boolean esVictoriaFinal() {
+        return juego.esTesoroEncontrado();
+    }
+    
+    private PantallaEstadoPersonaje pantallaEstadoPersonaje;
+    
+    public void setPantallaEstadoPersonaje(PantallaEstadoPersonaje pantallaEstadoPersonaje) {
+        this.pantallaEstadoPersonaje = pantallaEstadoPersonaje;
+    }
+
+    public void actualizarPantallaEstadoPersonaje() {
+        if (pantallaEstadoPersonaje != null) {
+            pantallaEstadoPersonaje.actualizar();
+        }
+    }
+    
+    public void volverAPersonaje() {
+        if (pantallaEstadoPersonaje == null) {
+            pantallaEstadoPersonaje = new PantallaEstadoPersonaje(this);
+        }
+        pantallaEstadoPersonaje.mostrar();
+    }
 
 
+    public boolean esUbicacionVisitada(int fila, int columna) {
+        // Obtener la ubicación desde el mapa
+        Ubicacion ubicacion = juego.getMapa().obtenerUbicacion(fila, columna);
+        // Verificar si la ubicación ha sido visitada
+        return ubicacion != null && ubicacion.esVisitada();
+    }
+
+
+    public String getDefensaPersonaje() {
+        try {
+            return String.valueOf(obtenerEstadoPersonaje().getNivelDefensa());
+        } catch (IllegalStateException e) {
+            return "0"; // Valor predeterminado si el personaje no está inicializado
+        }
+    }
+
+
+    public String getDefensaCriatura() {
+        if (juego.getPeleaActual() != null && juego.getPeleaActual().getCriatura() != null) {
+            CriaturaView criaturaView = juego.getPeleaActual().getCriatura().toView();
+            return String.valueOf(criaturaView.getDefensa());
+        }
+        return "N/A"; // Devuelve "N/A" si no hay criatura activa
+    }
+
+    
+   
     
 }

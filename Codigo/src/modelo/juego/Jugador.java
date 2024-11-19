@@ -24,7 +24,7 @@ public class Jugador {
     	this.nombre = nombre;
         switch (tipoPersonaje.toLowerCase()) {
             case "guerrero":
-                this.personaje = new modelo.personaje.Guerrero(nombre, 100, 20, 15); // puntosVida, nivelAtaque, nivelDefensa
+                this.personaje = new modelo.personaje.Guerrero(nombre, 120, 20, 20); // puntosVida, nivelAtaque, nivelDefensa
                 break;
             case "mago":
                 this.personaje = new modelo.personaje.Mago(nombre, 80, 25, 10); // puntosVida, nivelAtaque, nivelDefensa

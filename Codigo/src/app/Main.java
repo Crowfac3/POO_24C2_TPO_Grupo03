@@ -13,6 +13,7 @@ public class Main {
         //Establecer ubicaciones neutrales (ciudades) y un par de ubicaciones con criaturas
         //Establecer el tesoro (en una ubicacion con criatura)
         
+        juego.configurarJuegoInicial();
 
         // Inicializar el ControladorJuego con el Juego
         ControladorJuego controlador = new ControladorJuego(juego);
