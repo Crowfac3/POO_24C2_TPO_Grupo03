@@ -17,6 +17,7 @@ public class Jugador {
 	private String nombre;
     private Personaje personaje;
     private List<Mision> misiones;
+    private Ubicacion ubicacionActual;
     
     
 
@@ -49,8 +50,15 @@ public class Jugador {
     
     public void visitarUbicacion(Ubicacion ubicacion) {
         System.out.println("Visitando la ubicación: " + ubicacion.getNombre());
-        // agregar logica para la visita a una ubicacion
        
+    }
+    
+    public Ubicacion getUbicacionActual() {
+        return ubicacionActual;
+    }
+    
+    public void setUbicacionActual(Ubicacion ubicacionActual) {
+        this.ubicacionActual = ubicacionActual;
     }
     
     private void inicializarMisiones() {

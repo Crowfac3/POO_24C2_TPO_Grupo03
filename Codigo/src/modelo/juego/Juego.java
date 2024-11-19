@@ -4,6 +4,7 @@ import modelo.criatura.Criatura;
 import modelo.criatura.*;
 import modelo.mapa.Mapa;
 import modelo.mapa.Ubicacion;
+import vista.PantallaMejoraPersonaje;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -79,15 +80,19 @@ public class Juego {
     }
     
     public void visitarUbicacion(Ubicacion ubicacion) {
+    	jugador.setUbicacionActual(ubicacion);
+    	
+    	
         if (ubicacion.tieneCriatura()) {
             System.out.println("Te has encontrado con " + ubicacion.getCriatura().getNombre() + " en esta ubicación.");
             iniciarPelea(ubicacion);
             
         } else if (ubicacion.esNeutral()) {
             System.out.println("Has llegado a una ubicación neutral.");
-            ubicacion.descansar(jugador.getPersonaje()); // Permite descansar
-            ubicacion.reclamarRecompensa(jugador.getPersonaje()); // Permite reclamar recompensa si está disponible
-            ubicacion.canjearExperiencia(jugador.getPersonaje());
+            //ubicacion.descansar(jugador.getPersonaje()); // Permite descansar
+            //ubicacion.reclamarRecompensa(jugador.getPersonaje()); // Permite reclamar recompensa si está disponible
+            //ubicacion.canjearExperiencia(jugador.getPersonaje());
+            
             
         } else if (ubicacion.tieneTesoro()) {
         	ubicacion.mostrarTesoroSiGanaste();
@@ -155,10 +160,27 @@ public class Juego {
         return tesoroEncontrado;
     }
     
-    
-    
-    
-    
-    
+    public boolean descansarPersonaje() {
+        if (jugador != null && jugador.getUbicacionActual() != null && jugador.getPersonaje() != null) {
+            Ubicacion ubicacionActual = jugador.getUbicacionActual();
+            if (ubicacionActual.esNeutral()) {
+                ubicacionActual.descansar(jugador.getPersonaje());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean reclamarRecompensa() {
+        if (jugador != null && jugador.getUbicacionActual() != null && jugador.getPersonaje() != null) {
+            Ubicacion ubicacionActual = jugador.getUbicacionActual();
+            if (ubicacionActual.esNeutral()) {
+                ubicacionActual.reclamarRecompensa(jugador.getPersonaje());
+                return true;
+            }
+        }
+        return false;
+    }
+     
     
 }

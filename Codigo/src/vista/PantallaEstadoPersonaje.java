@@ -22,6 +22,7 @@ public class PantallaEstadoPersonaje extends JFrame {
     private JLabel labelAtaque;
     private JLabel labelDefensa;
     private JLabel labelExperiencia;
+    private JButton botonMejoras;
 
     public PantallaEstadoPersonaje(ControladorJuego controlador) {
         this.controlador = controlador;
@@ -96,6 +97,17 @@ public class PantallaEstadoPersonaje extends JFrame {
         panelAtributos.add(Box.createVerticalStrut(20));
         panelAtributos.add(botonMapa);
         
+        // Botón para abrir mejoras
+        botonMejoras = new JButton("Campamento");
+        botonMejoras.setEnabled(false); // Inicialmente deshabilitado
+        botonMejoras.addActionListener(e -> {
+        	PantallaMejoraPersonaje pantallaMejora = new PantallaMejoraPersonaje(controlador, this);
+        	pantallaMejora.mostrar();
+        });
+        
+        panelAtributos.add(Box.createVerticalStrut(20));
+        panelAtributos.add(botonMejoras);
+        
         
 
         // Panel de imagen del personaje (Centro)
@@ -147,6 +159,11 @@ public class PantallaEstadoPersonaje extends JFrame {
         labelAtaque.setText("Ataque: " + estadoPersonaje.getNivelAtaque());
         labelDefensa.setText("Defensa: " + estadoPersonaje.getNivelDefensa());
         labelExperiencia.setText("Experiencia: " + controlador.getPersonaje().getExperiencia());
+        
+        
+        // Habilitar o deshabilitar el botón de mejoras según la ubicación
+        boolean enUbicacionNeutral = controlador.estaEnUbicacionNeutral();
+        botonMejoras.setEnabled(enUbicacionNeutral);
 
 
         // Forzar la actualización visual

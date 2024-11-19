@@ -107,7 +107,7 @@ public abstract class Personaje {
     
     
     public PersonajeView toView() {
-        return new PersonajeView(nombre, puntosVida, nivelAtaque, nivelDefensa);
+        return new PersonajeView(nombre, puntosVida, nivelAtaque, nivelDefensa, experiencia);
     }
 
 }

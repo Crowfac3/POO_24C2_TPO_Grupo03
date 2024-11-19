@@ -61,6 +61,10 @@ public class Ubicacion {
     public boolean esNeutral() {
         return esNeutral;
     }
+    
+    public void setNeutral(boolean esNeutral) {
+        this.esNeutral = esNeutral;
+    }
 
     public void descansar(Personaje personaje) {
         if (esNeutral) {

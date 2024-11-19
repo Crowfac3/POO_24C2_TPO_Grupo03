@@ -54,14 +54,19 @@ public class ControladorJuego {
         Ubicacion ubicacion = juego.getMapa().obtenerUbicacion(fila, columna);
         juego.visitarUbicacion(ubicacion);
     }
-
-
+    
+    public boolean estaEnUbicacionNeutral() {
+        Ubicacion ubicacionActual = juego.getJugador().getUbicacionActual();
+        return ubicacionActual.esNeutral();
+    }
+    
+    
     public void iniciarPelea(int fila, int columna) {
         juego.visitarUbicacion(juego.getMapa().obtenerUbicacion(fila, columna));
 
         if (juego.getPeleaActual() != null) { // Si hay una pelea activa
             PantallaCombate pantallaCombate = new PantallaCombate(this);
-            pantallaCombate.mostrar();
+            pantallaCombate.mostrar(); 
         } else {
             JOptionPane.showMessageDialog(null, "No se puede iniciar la pelea. No hay criatura en esta ubicación.");
         }
@@ -71,26 +76,28 @@ public class ControladorJuego {
         // Lógica para mostrar misiones del jugador
     }
     
+    public void descansarPersonaje() {
+        if (!juego.descansarPersonaje()) {
+            System.out.println("No puedes descansar aquí.");
+        }
+    }
+
+    public boolean reclamarRecompensa() {
+        return juego.reclamarRecompensa();
+    }
+    
   
     public boolean hayCriaturaEnUbicacion(int fila, int columna) {
         Ubicacion ubicacion = juego.getMapa().obtenerUbicacion(fila, columna);
         return ubicacion != null && ubicacion.tieneCriatura();
     }
 
-    public void mejorarAtaque() {
-        if (jugador != null && jugador.getPersonaje() != null) {
-            jugador.getPersonaje().mejorarAtaque();
-        } else {
-            System.out.println("No se ha creado un personaje aún.");
-        }
+    public boolean mejorarAtaque() {
+        return juego.getJugador().getPersonaje().mejorarAtaque();
     }
 
-    public void mejorarDefensa() {
-        if (jugador != null && jugador.getPersonaje() != null) {
-            jugador.getPersonaje().mejorarDefensa();
-        } else {
-            System.out.println("No se ha creado un personaje aún.");
-        }
+    public boolean mejorarDefensa() {
+        return juego.getJugador().getPersonaje().mejorarDefensa();
     }
 
     public Personaje getPersonaje() {
@@ -202,6 +209,7 @@ public class ControladorJuego {
         if (pantallaEstadoPersonaje == null) {
             pantallaEstadoPersonaje = new PantallaEstadoPersonaje(this);
         }
+        pantallaEstadoPersonaje.actualizar();
         pantallaEstadoPersonaje.mostrar();
     }
 

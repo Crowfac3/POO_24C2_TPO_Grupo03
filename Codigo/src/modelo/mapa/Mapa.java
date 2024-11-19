@@ -30,7 +30,15 @@ public class Mapa {
     }
 
     public void establecerUbicacionNeutral(int fila, int columna) {
-        mapa[fila][columna] = new Ubicacion("Ubicación Neutral " + fila + "," + columna, true);
+        Ubicacion ubicacion = mapa[fila][columna];
+
+        if (ubicacion == null) {
+            // Si la ubicación aún no existe, creamos una nueva ubicación neutral
+            mapa[fila][columna] = new Ubicacion("Ubicación Neutral " + fila + "," + columna, true);
+        } else {
+            // Si ya existe, simplemente la marcamos como neutral
+            ubicacion.setNeutral(true); // Asegúrate de tener un método setNeutral en Ubicacion
+        }
     }
 
     public Ubicacion obtenerUbicacion(int fila, int columna) {

@@ -10,7 +10,7 @@ public class PantallaFinJuego extends JFrame {
 
     public void mostrarFinDelJuego(boolean victoria) {
         setTitle("Fin del Juego");
-        setSize(400, 250);
+        setSize(600, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 

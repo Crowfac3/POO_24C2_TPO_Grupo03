@@ -5,12 +5,15 @@ public class PersonajeView {
     private int puntosVida;
     private int nivelAtaque;
     private int nivelDefensa;
+    private int experiencia;
 
-    public PersonajeView(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa) {
+    public PersonajeView(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa, int experiencia) {
         this.nombre = nombre;
         this.puntosVida = puntosVida;
         this.nivelAtaque = nivelAtaque;
         this.nivelDefensa = nivelDefensa;
+        this.experiencia = experiencia;
+
     }
 
     public String getNombre() {
@@ -28,4 +31,8 @@ public class PersonajeView {
     public int getNivelDefensa() {
         return nivelDefensa;
     }
+
+	public int getExperiencia() {
+		return experiencia;
+	}
 }
