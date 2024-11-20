@@ -1,0 +1,28 @@
+@startuml
+actor Main
+
+Main -> Juego: reclamarRecompensa()
+activate Juego
+Juego -> Jugador: reclamarRecompensaEnUbicacionNeutral()
+activate Jugador
+Jugador -> Ubicacion: reclamarRecompensa(personaje)
+activate Ubicacion
+alt recompensaDisponible
+    Ubicacion -> Personaje: ganarExperiencia()
+    activate Personaje
+    Personaje -> Ubicacion: experienciaCanjeada
+    
+    deactivate Personaje
+    Ubicacion --> Jugador: recompensaOtorgada
+    deactivate Ubicacion
+    Jugador --> Juego: recompensaExitosa
+    Juego -> Main: informarExito()
+else noHayRecompensa
+    Ubicacion --> Jugador: sinRecompensa
+    deactivate Ubicacion
+    Jugador --> Juego: sinRecompensa
+    Juego -> Main: informarFallo()
+end
+deactivate Jugador
+deactivate Juego
+@enduml
