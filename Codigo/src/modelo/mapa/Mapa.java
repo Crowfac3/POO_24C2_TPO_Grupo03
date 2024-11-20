@@ -15,8 +15,8 @@ public class Mapa {
     private void inicializarMapa() {
         for (int i = 0; i < FILAS; i++) {
             for (int j = 0; j < COLUMNAS; j++) {
-                // Inicialmente creamos ubicaciones normales (no neutrales)
-                mapa[i][j] = new Ubicacion("Ubicación " + i + "," + j, false);
+                // Inicialmente creamos ubicaciones normales (no neutrales) con coordenadas
+                mapa[i][j] = new Ubicacion("Ubicación " + i + "," + j, false, i, j);
             }
         }
     }
@@ -34,10 +34,17 @@ public class Mapa {
 
         if (ubicacion == null) {
             // Si la ubicación aún no existe, creamos una nueva ubicación neutral
-            mapa[fila][columna] = new Ubicacion("Ubicación Neutral " + fila + "," + columna, true);
+            mapa[fila][columna] = new Ubicacion("Ubicación Neutral " + fila + "," + columna, true, fila, columna);
         } else {
             // Si ya existe, simplemente la marcamos como neutral
             ubicacion.setNeutral(true); // Asegúrate de tener un método setNeutral en Ubicacion
+        }
+    }
+    
+    public void establecerUbicacionConNombre(int fila, int columna, String nombre) {
+        Ubicacion ubicacion = mapa[fila][columna];
+        if (ubicacion != null) {
+            ubicacion.setNombre(nombre); // Cambia el nombre de la ubicación
         }
     }
 
@@ -68,6 +75,10 @@ public class Mapa {
     
     public boolean esUbicacionConTesoro(int fila, int columna) {
         return mapa[fila][columna].tieneTesoro();
+    }
+    
+    public boolean esUbicacionVisitada(int fila, int columna) {
+        return mapa[fila][columna].esVisitada();
     }
     
 }

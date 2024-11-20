@@ -1,6 +1,8 @@
 package modelo.juego;
 
 import modelo.criatura.Criatura;
+import modelo.criatura.Espectro;
+import modelo.criatura.Troll;
 import modelo.personaje.Guerrero;
 import modelo.personaje.Personaje;
 
@@ -13,6 +15,7 @@ public class Pelea {
     private Criatura criatura;
     private List<String> eventosPelea; // Lista para registrar eventos
     private int experienciaPorVictoria;
+
 
     public Pelea(Personaje personaje, Criatura criatura) {
         this.personaje = personaje;
@@ -50,6 +53,7 @@ public class Pelea {
             registrarEvento(personaje.getNombre() + " ha vencido a " + criatura.getNombre() + "!");
             this.contadorTurnos = 0;
             otorgarExperiencia();
+            incrementarContadorMisiones();
             if (personaje instanceof Guerrero) {
                 ((Guerrero) personaje).reiniciarContadorAtaques();
                 registrarEvento("El guerrero ha reiniciado su contador de ataques.");
@@ -60,6 +64,19 @@ public class Pelea {
     }
 
 
+    
+    
+    
+    // Incrementar el contador en misiones según el tipo de criatura derrotada
+    private void incrementarContadorMisiones() {
+		if (criatura instanceof Troll) {
+        	personaje.getJugador().incrementarTrollsEliminados(); // Método en personaje para incrementar el contador de Trolls
+            registrarEvento("Has eliminado un Troll. ¡Sigue así!");
+        } else if (criatura instanceof Espectro) {
+        	personaje.getJugador().incrementarEspectrosEliminados(); // Método en personaje para incrementar el contador de Espectros
+            registrarEvento("Has eliminado un Espectro. ¡Buen trabajo!");
+        }
+    }
 
 
     // Método para registrar eventos en la lista

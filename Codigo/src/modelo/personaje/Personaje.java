@@ -1,6 +1,7 @@
 package modelo.personaje;
 
 import modelo.criatura.Criatura;
+import modelo.juego.Jugador;
 import modelo.objectViews.PersonajeView;
 
 public abstract class Personaje {
@@ -12,6 +13,7 @@ public abstract class Personaje {
     protected int nivelAtaque;
     protected int nivelDefensa;
     protected int experiencia;
+    private Jugador jugador;
     
     public Personaje(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa) {
         this.nombre = nombre;
@@ -19,6 +21,7 @@ public abstract class Personaje {
         this.nivelAtaque = nivelAtaque;
         this.nivelDefensa = nivelDefensa;
         this.experiencia = 0; // Inicialmente sin experiencia
+        this.jugador = null;
     }
     
     
@@ -40,6 +43,14 @@ public abstract class Personaje {
 
     public int getExperiencia() {
         return experiencia;
+    }
+    
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
     }
     
     public void ganarExperiencia(int puntos) {
@@ -109,5 +120,6 @@ public abstract class Personaje {
     public PersonajeView toView() {
         return new PersonajeView(nombre, puntosVida, nivelAtaque, nivelDefensa, experiencia);
     }
+
 
 }

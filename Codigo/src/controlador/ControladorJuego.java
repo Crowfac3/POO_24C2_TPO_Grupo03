@@ -10,11 +10,13 @@ import modelo.juego.Jugador;
 import modelo.mapa.Mapa;
 import modelo.mapa.Ubicacion;
 import modelo.objectViews.CriaturaView;
+import modelo.objectViews.MisionView;
 import modelo.objectViews.PersonajeView;
 import modelo.personaje.Personaje;
 import vista.PantallaCombate;
 import vista.PantallaEstadoPersonaje;
 import vista.PantallaMapa;
+import vista.PantallaMisiones;
 
 public class ControladorJuego {
 	private Juego juego;
@@ -40,6 +42,7 @@ public class ControladorJuego {
         if (juego.getJugador() == null) {
             juego.setJugador(new Jugador(nombre,tipoPersonaje));
             this.jugador = juego.getJugador();
+            juego.setUbicacionInicial();
         }
         if (this.jugador.getPersonaje() == null) {
             throw new IllegalStateException("No se pudo crear el personaje correctamente.");
@@ -54,6 +57,17 @@ public class ControladorJuego {
         Ubicacion ubicacion = juego.getMapa().obtenerUbicacion(fila, columna);
         juego.visitarUbicacion(ubicacion);
     }
+    
+    public int[] obtenerUbicacionActualJugador() {
+        Ubicacion ubicacion = juego.obtenerUbicacionActualJugador();
+        if (ubicacion != null) {
+            // Supongamos que la clase Ubicacion tiene métodos getFila() y getColumna()
+            return new int[]{ubicacion.getFila(), ubicacion.getColumna()};
+        }
+        // Si no hay ubicación actual, devuelve coordenadas predeterminadas
+        return new int[]{0, 0};
+    }
+    
     
     public boolean estaEnUbicacionNeutral() {
         Ubicacion ubicacionActual = juego.getJugador().getUbicacionActual();
@@ -72,9 +86,6 @@ public class ControladorJuego {
         }
     }
 
-    public void mostrarMisiones() {
-        // Lógica para mostrar misiones del jugador
-    }
     
     public void descansarPersonaje() {
         if (!juego.descansarPersonaje()) {
@@ -91,6 +102,17 @@ public class ControladorJuego {
         Ubicacion ubicacion = juego.getMapa().obtenerUbicacion(fila, columna);
         return ubicacion != null && ubicacion.tieneCriatura();
     }
+    
+    public boolean estaCriaturaVivaEnUbicacion(int fila, int columna) {
+        return juego.estaCriaturaVivaEnUbicacion(fila, columna);
+    }
+    
+    public boolean esUbicacionNeutral(int fila, int columna) {
+        return juego.getMapa().obtenerUbicacion(fila, columna).esNeutral();
+    }
+    
+    
+    
 
     public boolean mejorarAtaque() {
         return juego.getJugador().getPersonaje().mejorarAtaque();
@@ -143,6 +165,7 @@ public class ControladorJuego {
     public String obtenerRepresentacionMapa() {
         return mapa.obtenerRepresentacionTexto();  // Utilizar el método del Mapa para obtener la representación como texto.
     }
+   
      
     //#####################
     //#######COMBATE#######
@@ -240,6 +263,26 @@ public class ControladorJuego {
     }
 
     
+    
+    
+    //######################
+    //#######MISIONES#######
+    //######################
+    
+    
+    public void mostrarMisiones() {
+        PantallaMisiones pantallaMisiones = new PantallaMisiones(this);
+        pantallaMisiones.mostrar();
+    }
+
+
+    public List<MisionView> obtenerMisionesJugador() {
+        if (juego.getJugador() != null) {
+            return juego.getJugador().obtenerMisiones(); // Asumiendo que el modelo del jugador devuelve misiones como MisionView
+        }
+        return new ArrayList<>(); // Retorna una lista vacía si no hay jugador
+    }
+
    
     
 }

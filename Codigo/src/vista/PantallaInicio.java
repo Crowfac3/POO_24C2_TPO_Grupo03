@@ -54,15 +54,15 @@ public class PantallaInicio extends JFrame {
         JButton btnArquero = new JButton("Arquero");
         
         btnGuerrero.setFont(new Font("Serif", Font.BOLD, 14));
-        btnGuerrero.setBackground(new Color(200, 200, 255));
+        btnGuerrero.setBackground(new Color(255, 200, 200));
         btnGuerrero.setFocusPainted(false);
         
         btnMago.setFont(new Font("Serif", Font.BOLD, 14));
-        btnMago.setBackground(new Color(200, 255, 200));
+        btnMago.setBackground(new Color(200, 200, 255));
         btnMago.setFocusPainted(false);
         
         btnArquero.setFont(new Font("Serif", Font.BOLD, 14));
-        btnArquero.setBackground(new Color(255, 200, 200));
+        btnArquero.setBackground(new Color(200, 255, 200));
         btnArquero.setFocusPainted(false);
         
         btnGuerrero.addActionListener(new ActionListener() {

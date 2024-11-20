@@ -1,5 +1,7 @@
 package modelo.misiones;
 
+import modelo.personaje.Personaje;
+
 public class MisionRecuperarAmuleto extends Mision {
 
     public MisionRecuperarAmuleto() {
@@ -8,15 +10,17 @@ public class MisionRecuperarAmuleto extends Mision {
 
     @Override
     public void completar() {
-        completada = true;
-        System.out.println("¡Has encontrado el Amuleto Perdido!");
+        if (!recompensaReclamada) { // Verifica si la recompensa ya fue reclamada
+            completada = true;
+            System.out.println("¡Has encontrado el Amuleto Perdido!");
+        } else {
+            System.out.println("Ya has completado esta misión y reclamado la recompensa.");
+        }
     }
 
     @Override
-    public void aplicarRecompensa(modelo.personaje.Personaje personaje) {
-        if (completada) {
-            personaje.mejorar(0, 15); // Aumenta un 15% la defensa
-            System.out.println("Tu defensa ha aumentado en un 15% gracias al Amuleto de Protección.");
-        }
+    protected void ejecutarRecompensa(Personaje personaje) {
+        personaje.mejorar(0, 15); // Aumenta un 15% la defensa
+        System.out.println("Tu defensa ha aumentado en un 15% gracias al Amuleto de Protección.");
     }
 }

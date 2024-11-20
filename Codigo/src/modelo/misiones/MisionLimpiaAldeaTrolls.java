@@ -1,5 +1,7 @@
 package modelo.misiones;
 
+import modelo.personaje.Personaje;
+
 public class MisionLimpiaAldeaTrolls extends Mision {
     private int trollsEliminados;
     private int trollsNecesarios;
@@ -13,7 +15,7 @@ public class MisionLimpiaAldeaTrolls extends Mision {
     public void incrementarTrollsEliminados() {
         trollsEliminados++;
         if (trollsEliminados >= trollsNecesarios) {
-            completar();
+        	completada = true;
         }
     }
 
@@ -28,10 +30,8 @@ public class MisionLimpiaAldeaTrolls extends Mision {
     }
 
     @Override
-    public void aplicarRecompensa(modelo.personaje.Personaje personaje) {
-        if (completada) {
-            personaje.mejorar(0, 30); // Aumenta 30 puntos de defensa
-            System.out.println("Tu defensa ha aumentado en 30 puntos gracias al Escudo de Titanio.");
-        }
+    protected void ejecutarRecompensa(Personaje personaje) {
+        personaje.mejorar(0, 30); // Aumenta 30 puntos de defensa
+        System.out.println("Tu defensa ha aumentado en 30 puntos gracias al Escudo de Titanio.");
     }
 }

@@ -72,16 +72,7 @@ public class PantallaMejoraPersonaje extends JFrame {
             pantallaEstadoPersonaje.actualizar(); // Actualiza la pantalla del estado del personaje
         });
         
-        JButton botonReclamarRecompensa = new JButton("Reclamar Recompensa");
-        botonReclamarRecompensa.setAlignmentX(Component.CENTER_ALIGNMENT);
-        botonReclamarRecompensa.addActionListener(e -> {
-            if (controlador.reclamarRecompensa()) {
-                JOptionPane.showMessageDialog(this, "¡Recompensa reclamada! Ataque y defensa mejorados.", "Recompensa", JOptionPane.INFORMATION_MESSAGE);
-                pantallaEstadoPersonaje.actualizar(); // Actualiza la pantalla del estado del personaje
-            } else {
-                JOptionPane.showMessageDialog(this, "No hay recompensa disponible o ya ha sido reclamada.", "Recompensa no disponible", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+        
 
         panelOpciones.add(Box.createVerticalStrut(10));
         panelOpciones.add(botonMejorarAtaque);
@@ -90,7 +81,7 @@ public class PantallaMejoraPersonaje extends JFrame {
         panelOpciones.add(Box.createVerticalStrut(10));
         panelOpciones.add(botonDescansar);
         panelOpciones.add(Box.createVerticalStrut(10));
-        panelOpciones.add(botonReclamarRecompensa);
+
 
         // Botón de cierre
         JButton botonCerrar = new JButton("Volver");
