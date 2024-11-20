@@ -1,35 +1,60 @@
 @startuml
-
 class Juego {
 -jugador: Jugador 
+-mapa: Mapa
+-peleaActual: PeleaActual
 -tesoroEncontrado: boolean
-+Juego(jugador Jugador)
-+verMapa():Mapa
-+visitarUbicacion(ubicacion Ubicacion)
-+iniciarPelea(ubicacion Ubicacion):void
-+verificarVictoria(criatura Criatura):void
-+finDelJuego(): void
++Juego()
++configurarJuegoInicial():void
++descansarPersonaje():boolean
++ejecutarTurnoDeCombate():boolean
++esTesoroEncontrado():boolean
++finDelJuego():void
+-generarCoordenadasUnicas(Random, Set<String>): int[]
++getCriatura():Criatura
++getJugador():Jugador
++getMapa():Mapa
++getPeleActual():Pelea
++iniciarPelea(Ubicacion): void
+reclamarRecompe	nsa():boolean
++setJugador(Jugador):void
++verificarVictoria(Criatura, Ubicacion):void
++verMapa():void
++visitarUbicacion (Ubicacion):void
+
 }
 
 class Jugador{
 -nombre: String
 -personaje: personaje
--mision: list<Mision>
-+jugador(nombre String, tipoPersonaje String): jugador
+-misiones: list<Misiones>
+-ubicacionActual : int 
++jugador(nombre String, tipoPersonaje String): Jugador
++getUbicacionActual(): Ubicacion
 +getPersonaje(): Personaje
 +mostrarInformacionPersonaje(): void
 -inicializarMisiones(): void
 +completarMision(nombreMision String): void
 +reclamarRecompensaEnUbicacionNeutral(): void
++setUbicacionActual(Ubicacion): void
++visitarUbicacion(Ubicacion): void
 }
 
 
 class Pelea {
+-contadorTurnos int
 -personaje: Personaje
 -criatura: Criatura
+-eventosPelea
+-experienciaPorVictoria: int
 +pelea(personaje Personaje, criatura Criatura): Pelea
-+iniciar(): void
++ejecutarTurno(): void
 +ganoPersonaje(): boolean
++getCriatura(): Criatura
++getEventosPelea(): List<String>
++getPersonaje(): Personaje
+-otorgarExperiencia(): void
+-registrarEvento
 }
 
 abstract Criatura {
@@ -37,13 +62,17 @@ abstract Criatura {
 #puntosVida: int
 #nivelAtaque: int
 #nivelDefensa: int
+#experienciaOtorgada
 -Criatura(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int) Criatura
 +getNombre(): String
 +getPuntosVida(): int
 +getNivelAtaque(): int
++getNivelDefensa(): int
 +recibirGolpe(danio int): void
 +atacar(personaje Personaje):void
 +estaVivo(): void
++getExperienciaOtorgada(): int
++setPuntosvida(int): void
 }
 
 class Dragon extends Criatura{
@@ -60,14 +89,15 @@ class Troll extends Criatura{
 }
 
 class Mapa{
--ubicacion: int[] 
+-mapa: int
 -fila: int
 -columna: int
+-inicializarMapa(): void
 +mapa(): Mapa
-+inicializarMapa(): void
 +establecerUbicacionConTesoro(fila int, columna int): void
 +establecerUbicacionConCriatura(fila int, columna int): void
 +establecerUbicacionNeutral(fila int, columna int): void
++esUbicacionConTesoro(fila int, columna int): boolean
 +obtenerUbicacion(fila int, columna int): Ubicacion
 +mostrarMapa(): void
 }
@@ -77,12 +107,17 @@ class Ubicacion{
 -criatura: Criatura
 -contieneTesoro: boolean
 -esNeutral: boolean
--recompensaReclamada:boolean
+-recompensaReclamada: boolean
+-visitada: boolean
 +ubicacion(nombre String, esNeutral boolean): Ubicacion
 +setCriatura(criatura Criatura): void
 +tieneCriatura(): boolean
++setNeutral(boolean): void
 +getCriatura(): Criatura
++getNombre(): String
 +tieneTesoro(): boolean
++esVisitada(): boolean
++marcarComoVisitada(): void
 +setTesoro(contieneTesoro boolean): void
 +mostrarTesoroSiGanaste():void
 +esNeutral():boolean
@@ -93,10 +128,7 @@ class Ubicacion{
 +toString():void
 }
 
-class SistemaDeUbicaciones{
--{static} Map<String, Ubicacion> ubicaciones = new HashMap<>()
-+{static}getubicacion(nombre String):Ubicacion
-}
+
 
 abstract Mision {
 #nombre: String
@@ -112,7 +144,9 @@ abstract Mision {
 }
 
 class MisionDerrotarDragon extends Mision{
+-nombreUbicacion: String
 -dragon: Dragon
+-obtenerUbicacion(String): Ubicacion
 +misionDerrotarDragon(dragon Dragon): MisionDerrotarDragon
 +completar():void
 +aplicarRecompensa(personaje Personaje):void
@@ -145,7 +179,7 @@ class MisionRecuparAmuleto extends Mision{
 abstract Personaje{
 #nombre: String
 #puntosVida:int
-#nivelAtaqueL:int
+#nivelAtaque:int
 #nivelDefensa:int
 #experiencia: int
 +personaje(nombre String, puntosVida int, nivelAtaque int, nivelDefensa int): Personaje
@@ -183,14 +217,13 @@ class Mago extends Personaje {
 +curarse():void
 }
 
-Mapa *--- Ubicacion
-Pelea *-- Personaje
-Ubicacion o-- Criatura
-Pelea *-- Criatura
-Juego *-- Mapa
-Juego *-- Jugador
-Ubicacion *-- SistemaDeUbicaciones
-Jugador *-- Mision
-Jugador *-- Personaje
-
+Mapa "1" *--- "0..n" Ubicacion
+Pelea "1"*-- "0..n" Personaje
+Ubicacion "1" o-- "1" Criatura
+Pelea "1" *-- "1" Criatura
+Juego "1" *-- "1"Mapa
+Juego  "1" *--  "1" Jugador
+Jugador "1"*-- "0..n" Mision
+Jugador  "1"*--  "1"Personaje
+Juego "1" o--"0..n" Pelea
 @enduml

@@ -1,0 +1,46 @@
+@startuml
+actor Main
+
+Main -> Juego: visitarUbicacion(Ubicacion)
+activate Juego
+Juego -> Mapa: obtenerUbicacion(fila, columna)
+activate Mapa
+Mapa --> Juego: Ubicacion
+deactivate Mapa
+
+Juego -> Ubicacion: tieneCriatura()
+activate Ubicacion
+alt tieneCriatura()
+    Ubicacion --> Juego: boolean
+    Juego -> Pelea: iniciarPelea(Ubicacion)
+    activate Pelea
+
+    loop Guerrero y criatura vida >= 0
+        Pelea -> Pelea: ejecutarTurnoCombate()
+        alt vidaPersonaje > 0
+            Pelea -> Guerrero: atacar(Dragon)
+            activate Guerrero
+            Guerrero -> Dragon: recibirGolpe(danio)
+            activate Dragon
+            alt Dragon vida > 0
+                Pelea -> Dragon: atacar(Guerrero)
+                Dragon -> Guerrero: recibirGolpe(danio)
+            else Dragon <= 0
+                Pelea -> Juego: verificarVictoria(Dragon, Ubicacion)
+                Juego -> Main: informarVictoria()
+            end
+            deactivate Dragon
+            deactivate Guerrero
+        else vidaPersonaje <= 0
+            Juego -> Main: informarDerrota()
+        end
+    end
+    deactivate Pelea
+else noTieneCriatura()
+    Ubicacion --> Juego: boolean
+    Juego -> Main: noHayCriatura()
+deactivate Ubicacion
+deactivate Juego
+end
+
+@enduml
