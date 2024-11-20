@@ -67,12 +67,21 @@ public class Juego {
         mapa.establecerUbicacionConTesoro(coordsDragon[0], coordsDragon[1]); // Tesoro en la misma ubicación que el dragón
         
         
-        // Establecer ubicaciones con nuevas criaturas
-       // int[] coordsEspectro = generarCoordenadasUnicas(random, ubicacionesOcupadas);
-       // mapa.establecerUbicacionConCriatura(coordsEspectro[0], coordsEspectro[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
+       
+       int[] coordsEspectro = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+       mapa.establecerUbicacionConCriatura(coordsEspectro[0], coordsEspectro[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
         
-       // int[] coordsEspectro2 = generarCoordenadasUnicas(random, ubicacionesOcupadas);
-       // mapa.establecerUbicacionConCriatura(coordsEspectro2[0], coordsEspectro2[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
+       int[] coordsEspectro2 = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+       mapa.establecerUbicacionConCriatura(coordsEspectro2[0], coordsEspectro2[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
+       
+       int[] coordsEspectro3 = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+       mapa.establecerUbicacionConCriatura(coordsEspectro3[0], coordsEspectro3[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
+        
+       int[] coordsEspectro4 = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+       mapa.establecerUbicacionConCriatura(coordsEspectro4[0], coordsEspectro4[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
+       
+       int[] coordsEspectro5 = generarCoordenadasUnicas(random, ubicacionesOcupadas);
+       mapa.establecerUbicacionConCriatura(coordsEspectro5[0], coordsEspectro5[1], new Espectro("Espectro de las Sombras", 120, 20, 15));
 
         System.out.println("Juego configurado con ubicaciones iniciales:");
         mapa.mostrarMapa(); // Mostrar mapa en consola
