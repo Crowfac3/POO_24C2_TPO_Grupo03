@@ -1,0 +1,28 @@
+@startuml
+actor Main
+
+
+Main -> Juego: iniciarJuego()
+activate Juego
+alt tieneCriatura
+
+Juego->Ubicacion: tieneCriatura() boolean
+activate Ubicacion
+	Ubicacion -> MisionDragon: estaCompletada()boolean
+	activate MisionDragon
+	alt estaCompletada
+	MisionDragon --> Ubicacion: true
+	Ubicacion -> Juego: reclamarRecompensa():boolean
+	Juego -> MisionDragon: aplicarRecompensa()void
+	else noEstaCompletada
+		MisionDragon--> Ubicacion: False
+		deactivate MisionDragon
+	end
+else noTieneCriatura
+	Ubicacion--> Juego: False	
+end
+
+	
+
+	
+@enduml

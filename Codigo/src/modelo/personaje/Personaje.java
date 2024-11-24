@@ -1,6 +1,8 @@
 package modelo.personaje;
 
 import modelo.criatura.Criatura;
+import modelo.juego.Jugador;
+import modelo.objectViews.PersonajeView;
 
 public abstract class Personaje {
 	
@@ -11,6 +13,7 @@ public abstract class Personaje {
     protected int nivelAtaque;
     protected int nivelDefensa;
     protected int experiencia;
+    private Jugador jugador;
     
     public Personaje(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa) {
         this.nombre = nombre;
@@ -18,6 +21,7 @@ public abstract class Personaje {
         this.nivelAtaque = nivelAtaque;
         this.nivelDefensa = nivelDefensa;
         this.experiencia = 0; // Inicialmente sin experiencia
+        this.jugador = null;
     }
     
     
@@ -41,6 +45,14 @@ public abstract class Personaje {
         return experiencia;
     }
     
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
+    
     public void ganarExperiencia(int puntos) {
         experiencia += puntos;
         System.out.println(nombre + " ha ganado " + puntos + " puntos de experiencia. Experiencia actual: " + experiencia);
@@ -50,13 +62,14 @@ public abstract class Personaje {
         if (nivelDefensa > 0) {
             nivelDefensa -= danio;
             if (nivelDefensa < 0) {
-                puntosVida += nivelDefensa; // Si la defensa queda en negativo, resta el exceso a la vida
+                puntosVida += nivelDefensa; // Si la defensa baja de 0, resta el exceso a los puntos de vida
                 nivelDefensa = 0;
             }
         } else {
             puntosVida -= danio;
         }
     }
+
 
     public abstract void atacar(Criatura criatura);
     
@@ -102,5 +115,11 @@ public abstract class Personaje {
             return false;
         }
     }
+    
+    
+    public PersonajeView toView() {
+        return new PersonajeView(nombre, puntosVida, nivelAtaque, nivelDefensa, experiencia);
+    }
+
 
 }

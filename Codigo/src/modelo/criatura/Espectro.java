@@ -5,8 +5,8 @@ import modelo.personaje.Personaje;
 
 public class Espectro extends Criatura {
 
-    public Espectro(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa) {
-        super(nombre, puntosVida, nivelAtaque, nivelDefensa);
+	public Espectro(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa) {
+        super(nombre, puntosVida, nivelAtaque, nivelDefensa, 80); 
     }
 
     @Override
@@ -15,7 +15,6 @@ public class Espectro extends Criatura {
         if (personaje instanceof Arquero) {
             ataque *= 1.2; // Aumenta un 20% el ataque contra arqueros
         }
-        int danio = ataque - personaje.getNivelDefensa();
-        personaje.recibirGolpe(danio);
+        personaje.recibirGolpe(ataque);
     }
 }

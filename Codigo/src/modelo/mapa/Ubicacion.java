@@ -11,13 +11,26 @@ public class Ubicacion {
     private Criatura criatura;
     private boolean contieneTesoro;
     private boolean esNeutral;
-    private boolean recompensaReclamada; // Indica si ya se reclamó la recompensa
+    private boolean visitada;
+    private int fila;
+    private int columna;
 
-    public Ubicacion(String nombre, boolean esNeutral) {
+    public Ubicacion(String nombre, boolean esNeutral, int fila, int columna) {
         this.nombre = nombre;
         this.esNeutral = esNeutral;
         this.contieneTesoro = false;
-        this.recompensaReclamada = false; // Inicialmente, la recompensa no ha sido reclamada
+        this.visitada = false;
+        this.fila = fila;
+        this.columna = columna;
+    }
+    
+    // Métodos para obtener las coordenadas
+    public int getFila() {
+        return fila;
+    }
+
+    public int getColumna() {
+        return columna;
     }
 
     public void setCriatura(Criatura criatura) {
@@ -39,6 +52,8 @@ public class Ubicacion {
     public String getNombre() {
         return nombre;
     }
+    
+    
 
  // Método para establecer el tesoro solo si hay una criatura
     public void setTesoro(boolean contieneTesoro) {
@@ -59,6 +74,10 @@ public class Ubicacion {
     public boolean esNeutral() {
         return esNeutral;
     }
+    
+    public void setNeutral(boolean esNeutral) {
+        this.esNeutral = esNeutral;
+    }
 
     public void descansar(Personaje personaje) {
         if (esNeutral) {
@@ -69,19 +88,6 @@ public class Ubicacion {
         }
     }
 
-    public void reclamarRecompensa(Personaje personaje) {
-        if (esNeutral && !recompensaReclamada) {
-        	
-            System.out.println(personaje.getNombre() + " ha reclamado una recompensa.");
-            // Aquí puedes implementar el efecto de la recompensa, por ejemplo, aumentar el ataque o la defensa
-            personaje.mejorar(10, 5); // Ejemplo: aumenta 10 puntos de ataque y 5 de defensa
-            recompensaReclamada = true; // Marca la recompensa como reclamada
-        } else if (recompensaReclamada) {
-            System.out.println("La recompensa ya ha sido reclamada en esta ubicación.");
-        } else {
-            System.out.println("No puedes reclamar una recompensa aquí.");
-        }
-    }
     
     // Nuevo metodo para canjear puntos de experiencia
     
@@ -108,7 +114,7 @@ public class Ubicacion {
     	}
     }
     
- // Nuevo método para reclamar recompensas de misiones en ubicaciones neutrales
+    // Nuevo método para reclamar recompensas de misiones en ubicaciones neutrales
     public void reclamarRecompensaMisiones(Jugador jugador) {
         if (esNeutral) {
             jugador.reclamarRecompensaEnUbicacionNeutral(); // El jugador reclama recompensas de misiones completadas
@@ -129,4 +135,17 @@ public class Ubicacion {
             return "."; // Ubicación vacía
         }
     }
+    
+    public boolean esVisitada() {
+        return visitada;
+    }
+
+    public void marcarComoVisitada() {
+        this.visitada = true;
+    }
+
+	public void setNombre(String nombre2) {
+		this.nombre = nombre2;
+		
+	}
 }

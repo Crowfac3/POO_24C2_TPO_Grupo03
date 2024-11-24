@@ -1,5 +1,7 @@
 package modelo.misiones;
 
+import modelo.personaje.Personaje;
+
 public class MisionEliminarEspectros extends Mision {
     private int espectrosEliminados;
     private int espectrosNecesarios;
@@ -13,7 +15,7 @@ public class MisionEliminarEspectros extends Mision {
     public void incrementarEspectrosEliminados() {
         espectrosEliminados++;
         if (espectrosEliminados >= espectrosNecesarios) {
-            completar();
+            completada = true;
         }
     }
 
@@ -28,10 +30,8 @@ public class MisionEliminarEspectros extends Mision {
     }
 
     @Override
-    public void aplicarRecompensa(modelo.personaje.Personaje personaje) {
-        if (completada) {
-            personaje.mejorar(25, 0); // Aumenta un 25% el ataque
-            System.out.println("Tu ataque ha aumentado en un 25% gracias al Arco de Luz.");
-        }
+    protected void ejecutarRecompensa(Personaje personaje) {
+        personaje.mejorar(25, 0); // Aumenta un 25% el ataque
+        System.out.println("Tu ataque ha aumentado en un 25% gracias al Arco de Luz.");
     }
 }

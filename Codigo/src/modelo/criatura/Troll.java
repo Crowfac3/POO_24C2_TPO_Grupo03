@@ -5,27 +5,42 @@ import modelo.personaje.Personaje;
 
 public class Troll extends Criatura {
 
-    public Troll(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa) {
-        super(nombre, puntosVida, nivelAtaque, nivelDefensa);
+	public Troll(String nombre, int puntosVida, int nivelAtaque, int nivelDefensa) {
+        super(nombre, puntosVida, nivelAtaque, nivelDefensa, 50); 
     }
 
-    @SuppressWarnings("unused")
+    
 	@Override
-    public void atacar(Personaje personaje) {
-        int ataqueModificado = nivelAtaque;
-        int defensaModificada = nivelDefensa;
-
-        // Si el personaje es un Mago, el Troll aumenta su defensa un 15%
-        if (personaje instanceof Mago) {
-            defensaModificada *= 1.15; // Aumenta un 15% la defensa contra magos
-        }
-
-        // El cálculo del daño debe basarse en el ataque modificado por las habilidades de la criatura
-        int danio = ataqueModificado - personaje.getNivelDefensa();
-        if (danio < 0) {
-            danio = 0; // Evitamos valores negativos de daño
-        }
-
-        personaje.recibirGolpe(danio);
+	public void atacar(Personaje personaje) {
+        int ataque = nivelAtaque;
+        personaje.recibirGolpe(ataque);
     }
+	
+	public void recibirGolpe(int danio, Personaje atacante) {
+	    int defensaEfectiva = nivelDefensa;
+
+	    // Si el atacante es un Mago, aumenta la defensa del Troll en un 15%
+	    if (atacante instanceof Mago) {
+	        defensaEfectiva += (int) (nivelDefensa * 0.15);
+	    }
+
+	    // Aplicar el daño normal (misma lógica que antes)
+	    if (defensaEfectiva > 0) {
+	        defensaEfectiva -= danio;
+
+	        if (defensaEfectiva < 0) {
+	            puntosVida += defensaEfectiva; // defensaEfectiva es negativa aquí
+	            nivelDefensa = 0;
+	        } else {
+	            nivelDefensa = defensaEfectiva;
+	        }
+	    } else {
+	        puntosVida -= danio;
+	    }
+
+	    if (puntosVida < 0) {
+	        puntosVida = 0;
+	    }
+	}
+
 }

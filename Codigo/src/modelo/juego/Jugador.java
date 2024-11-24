@@ -9,6 +9,7 @@ import modelo.misiones.MisionDerrotarDragon;
 import modelo.misiones.MisionEliminarEspectros;
 import modelo.misiones.MisionLimpiaAldeaTrolls;
 import modelo.misiones.MisionRecuperarAmuleto;
+import modelo.objectViews.MisionView;
 import modelo.personaje.Personaje;
 
 
@@ -17,11 +18,15 @@ public class Jugador {
 	private String nombre;
     private Personaje personaje;
     private List<Mision> misiones;
+    private Ubicacion ubicacionActual;
+    
+    
 
     public Jugador(String nombre, String tipoPersonaje) {
+    	this.nombre = nombre;
         switch (tipoPersonaje.toLowerCase()) {
             case "guerrero":
-                this.personaje = new modelo.personaje.Guerrero(nombre, 100, 20, 15); // puntosVida, nivelAtaque, nivelDefensa
+                this.personaje = new modelo.personaje.Guerrero(nombre, 120, 20, 20); // puntosVida, nivelAtaque, nivelDefensa
                 break;
             case "mago":
                 this.personaje = new modelo.personaje.Mago(nombre, 80, 25, 10); // puntosVida, nivelAtaque, nivelDefensa
@@ -34,6 +39,7 @@ public class Jugador {
         }
         this.misiones = new ArrayList<>();
         inicializarMisiones();
+        personaje.setJugador(this);
     }
 
     public modelo.personaje.Personaje getPersonaje() {
@@ -46,8 +52,15 @@ public class Jugador {
     
     public void visitarUbicacion(Ubicacion ubicacion) {
         System.out.println("Visitando la ubicación: " + ubicacion.getNombre());
-        // agregar logica para la visita a una ubicacion
        
+    }
+    
+    public Ubicacion getUbicacionActual() {
+        return ubicacionActual;
+    }
+    
+    public void setUbicacionActual(Ubicacion ubicacionActual) {
+        this.ubicacionActual = ubicacionActual;
     }
     
     private void inicializarMisiones() {
@@ -74,6 +87,33 @@ public class Jugador {
                 mision.aplicarRecompensa(personaje); // Aplica la recompensa solo si la misión está completada
             } else {
                 System.out.println("No has completado la misión: " + mision.getNombre());
+            }
+        }
+    }
+    
+    public List<MisionView> obtenerMisiones() {
+        List<MisionView> misionesView = new ArrayList<>();
+        for (Mision mision : misiones) {
+            misionesView.add(new MisionView(mision.getNombre(), mision.getDescripcion(), mision.estaCompletada()));
+        }
+        return misionesView;
+    }
+    
+    
+    public void incrementarTrollsEliminados() {
+        for (Mision mision : misiones) {
+            if (mision instanceof MisionLimpiaAldeaTrolls) {
+                ((MisionLimpiaAldeaTrolls) mision).incrementarTrollsEliminados();
+                return;
+            }
+        }
+    }
+
+    public void incrementarEspectrosEliminados() {
+        for (Mision mision : misiones) {
+            if (mision instanceof MisionEliminarEspectros) {
+                ((MisionEliminarEspectros) mision).incrementarEspectrosEliminados();
+                return;
             }
         }
     }
